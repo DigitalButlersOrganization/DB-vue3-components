@@ -25,6 +25,7 @@
     "@storybook/testing-library": "^0.0.14-next.2",
     "@storybook/vue3": "^7.0.18",
     "@storybook/vue3-vite": "^7.0.18",
+    "chromatic": "^6.19.8",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^4.2.1",

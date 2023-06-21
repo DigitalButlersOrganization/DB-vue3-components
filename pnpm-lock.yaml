@@ -14,6 +14,7 @@ specifiers:
   '@storybook/testing-library': ^0.0.14-next.2
   '@storybook/vue3': ^7.0.18
   '@storybook/vue3-vite': ^7.0.18
+  chromatic: ^6.19.8
   eslint: ^8.42.0
   eslint-config-prettier: ^8.8.0
   eslint-plugin-prettier: ^4.2.1
@@ -39,6 +40,7 @@ devDependencies:
   '@storybook/testing-library': 0.0.14-next.2
   '@storybook/vue3': 7.0.18
   '@storybook/vue3-vite': 7.0.18_biqbaboplfbrettd7655fr4n2y
+  chromatic: 6.19.8
   eslint: 8.42.0
   eslint-config-prettier: 8.8.0_eslint@8.42.0
   eslint-plugin-prettier: 4.2.1_vnriwwub2rhvoyn4ckagrc4lpi
@@ -4867,6 +4869,11 @@ packages:
   /chownr/2.0.0:
     resolution: {integrity: sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==}
     engines: {node: '>=10'}
+    dev: true
+
+  /chromatic/6.19.8:
+    resolution: {integrity: sha512-cvQAd/BkhRscXYbHuwIYwkmqzgpLz50maBGvUDa+WdfpoxzYrUvG2uZ1YU3tS857dAwMuTL5wUFiawiffDIKvQ==}
+    hasBin: true
     dev: true
 
   /ci-info/3.8.0:
