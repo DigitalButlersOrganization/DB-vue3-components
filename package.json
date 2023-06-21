@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "storybook": "storybook dev -p 3000",
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=chpt_750fa3e7f3a7671"
   },
   "keywords": [],
   "author": "",
@@ -36,5 +37,7 @@
     "sass": "^1.62.1",
     "storybook": "^7.0.18",
     "vue-i18n": "^9.2.2"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "db-vue3-components@1.0.0"
 }
