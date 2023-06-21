@@ -9,15 +9,6 @@ const config = {
 		'@storybook/addon-storysource',
 		'@storybook/addon-knobs',
 		'@storybook/addon-viewport',
-		{
-			name: '@storybook/addon-styling',
-			options: {
-				sass: {
-					// Require your preprocessor
-					implementation: require('sass'),
-				},
-			},
-		},
 	],
 	framework: {
 		name: '@storybook/vue3-vite',
