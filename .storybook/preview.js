@@ -1,3 +1,5 @@
+import '../src/assets/styles/index.scss';
+
 import languages from './constants/languages';
 import themes from './constants/themes';
 import withLanguage from './decorators/language';

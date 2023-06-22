@@ -1,0 +1,43 @@
+@import '../fonts/Manrope/index.css';
+
+body {
+	font-family: 'Manrope', sans-serif;
+	font-weight: 400;
+	letter-spacing: -0.03em;
+}
+
+.heading {
+	font-weight: 600;
+	line-height: 1.5em;
+
+	&--lg {
+		font-size: 1.875rem;
+		line-height: 1.25em;
+	}
+	&--md {
+		font-size: 1.125rem;
+	}
+	&--sm {
+		font-size: 1rem;
+	}
+	&--xs {
+		font-size: 1rem;
+	}
+}
+
+.text {
+	font-size: 0.875rem;
+	&--sm {
+		font-size: 0.75rem;
+	}
+	&--xs {
+		font-size: 0.625rem;
+	}
+}
+
+$font-weights: 200, 300, 400, 500, 600, 700, 800;
+@each $font-weight in $font-weights {
+	.font-weight-#{$font-weight} {
+		font-weight: $font-weight;
+	}
+}
