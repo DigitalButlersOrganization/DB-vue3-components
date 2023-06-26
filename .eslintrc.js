@@ -4,6 +4,14 @@ module.exports = {
 	rules: {
 		'prettier/prettier': [1],
 		'vue/html-indent': [0],
+		'vue/html-self-closing': [
+			1,
+			{
+				html: {
+					void: 'always',
+				},
+			},
+		],
 		'vue/singleline-html-element-content-newline': [0],
 	},
 };
