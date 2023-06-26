@@ -1,12 +1,13 @@
 @import '../fonts/Manrope/index.css';
 
 body {
-	font-family: 'Manrope', sans-serif;
-	font-weight: 400;
-	letter-spacing: -0.03em;
+	font-family: var(--db-components-typography-font-family);
+	font-weight: var(--db-components-typography-font-weight);
+	letter-spacing: var(--db-components-typography-letter-spacing);
 }
 
 .heading {
+	margin: 0;
 	font-weight: 600;
 	line-height: 1.5em;
 

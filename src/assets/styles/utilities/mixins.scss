@@ -1,0 +1,8 @@
+// TODO: maybe move to composable
+
+@function gerColor($name, $postfix, $prefix: 'db') {
+	@return var(
+		--#{$prefix}-color-#{$name}-#{$postfix},
+		var(--db-components-color-#{$name}-#{$postfix}, var(--db-components-color-fallback-#{$postfix}))
+	);
+}
