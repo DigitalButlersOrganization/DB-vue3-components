@@ -122,7 +122,7 @@ const getIcon = (type, name) => `icons/${type.toLowerCase()}/${name}.svg`;
 				>
 					<img
 						:src="getIcon(type, name)"
-						:alt="name"
+						:alt="`${type}-${name}`"
 						width="24"
 						height="24"
 					/>
