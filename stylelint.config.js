@@ -8,10 +8,16 @@ module.exports = {
 		'stylelint-use-logical-spec',
 		'stylelint-prettier',
 	],
+	overrides: [
+		{
+			files: ['**/*.vue'],
+			customSyntax: 'postcss-html',
+		},
+	],
 	rules: {
 		'prettier/prettier': true,
-		'selector-class-pattern': false,
-		'scss/at-function-pattern': false,
+		'selector-class-pattern': null,
+		'scss/at-function-pattern': null,
 		'max-nesting-depth': [
 			4,
 			{
@@ -25,9 +31,9 @@ module.exports = {
 				ignoreValues: ['box'],
 			},
 		],
-		'order/properties-alphabetical-order': false,
-		'scss/at-import-partial-extension': false,
-		'scss/at-import-partial-extension-blacklist': false,
+		'order/properties-alphabetical-order': null,
+		'scss/at-import-partial-extension': null,
+		'scss/at-import-partial-extension-blacklist': null,
 		'color-named': 'never',
 		'color-format/format': {
 			format: 'hsl',
