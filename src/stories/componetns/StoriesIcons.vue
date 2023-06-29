@@ -95,6 +95,7 @@ const iconsGroups = new Map([
 			'thumbs-down',
 			'thumbs-up',
 			'trash-03',
+			'triangle',
 			'trophy-01',
 			'user-01',
 			'user-plus-02',
