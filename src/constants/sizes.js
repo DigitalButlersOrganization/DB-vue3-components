@@ -1,10 +1,10 @@
-const XS = 'x-small';
-const SM = 'small';
-const MD = 'medium';
-const LG = 'large';
-const XL = 'x-large';
+export const SIZE_XS = 'x-small';
+export const SIZE_SM = 'small';
+export const SIZE_MD = 'medium';
+export const SIZE_LG = 'large';
+export const SIZE_XL = 'x-large';
 
-export const SIZES = {
-	FULL: [XS, SM, MD, LG, XL],
-	REDUCED: [SM, MD, LG],
+export const COMMON_SIZES = {
+	FULL: [SIZE_XS, SIZE_SM, SIZE_MD, SIZE_LG, SIZE_XL],
+	REDUCED: [SIZE_SM, SIZE_MD, SIZE_LG],
 };

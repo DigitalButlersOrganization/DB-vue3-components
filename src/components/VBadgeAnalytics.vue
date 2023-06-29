@@ -1,0 +1,95 @@
+<script setup>
+import { defineProps, computed } from 'vue';
+
+import { V_BADGE_ANALYTICS } from '../constants';
+import { useColors } from '../composables';
+
+const props = defineProps({
+	type: {
+		type: String,
+		default: V_BADGE_ANALYTICS.TYPES[0],
+		required: false,
+	},
+});
+
+const { colors } = useColors(() => color.value);
+
+const color = computed(() => {
+	switch (props.type) {
+		case V_BADGE_ANALYTICS.TYPES[1]: {
+			return 'success';
+		}
+		case V_BADGE_ANALYTICS.TYPES[2]: {
+			return 'error';
+		}
+		default: {
+			return 'fallback';
+		}
+	}
+});
+
+const classes = computed(() => {
+	return [`badge-analytics--type-${props.type}`];
+});
+
+const isIconVisible = computed(() => {
+	return props.type !== V_BADGE_ANALYTICS.TYPES[0];
+});
+</script>
+
+<template>
+	<div
+		class="badge-analytics"
+		:class="classes"
+	>
+		<span>
+			<slot> — </slot>
+		</span>
+		<!-- solid/triangle.svg -->
+		<svg
+			v-if="isIconVisible"
+			class="badge-analytics__icon"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<g id="triangle">
+				<path
+					d="M12.8126 1.66837C12.2953 1.43834 11.7047 1.43834 11.1874 1.66837C10.7878 1.84602 10.5283 2.15894 10.3477 2.41391C10.1701 2.6646 9.98004 2.99303 9.77097 3.35422L1.50381 17.6339C1.2939 17.9964 1.10315 18.3258 0.973806 18.6054C0.842356 18.8895 0.699752 19.2714 0.745201 19.7074C0.804011 20.2715 1.09955 20.7841 1.55827 21.1176C1.91276 21.3753 2.31476 21.4433 2.62652 21.4719C2.93327 21.5 3.31392 21.5 3.73281 21.5H20.2671C20.686 21.5 21.0667 21.5 21.3734 21.4719C21.6852 21.4433 22.0872 21.3753 22.4417 21.1176C22.9004 20.7841 23.1959 20.2715 23.2547 19.7074C23.3002 19.2714 23.1576 18.8895 23.0261 18.6054C22.8968 18.3258 22.706 17.9963 22.4961 17.6338L14.229 3.35419C14.0199 2.99301 13.8298 2.6646 13.6522 2.41391C13.4716 2.15894 13.2121 1.84602 12.8126 1.66837Z"
+					fill="currentColor"
+				/>
+			</g>
+		</svg>
+	</div>
+</template>
+
+<style scoped lang="scss">
+@use '/src/assets/styles/utilities/mixins';
+
+.badge-analytics {
+	display: inline-flex;
+	min-inline-size: 1.875rem;
+	gap: 0.1875rem;
+	padding-block: 0.125rem;
+	padding-inline: 0.25rem;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100vmax;
+	color: v-bind('colors.text');
+	background-color: v-bind('colors.background');
+	@include mixins.text();
+	@include mixins.text--xs();
+	@include mixins.font-weight(700);
+
+	&--type-negative .badge-analytics__icon {
+		transform: rotateZ(180deg);
+	}
+
+	&__icon {
+		inline-size: 0.5rem;
+		max-block-size: 0.8125rem;
+	}
+}
+</style>
