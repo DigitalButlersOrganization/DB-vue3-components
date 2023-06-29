@@ -4,41 +4,41 @@ body {
 	font-family: var(--db-components-typography-font-family);
 	font-weight: var(--db-components-typography-font-weight);
 	letter-spacing: var(--db-components-typography-letter-spacing);
+	line-height: var(--db-components-typography-line-height);
 }
 
 .heading {
-	margin: 0;
-	font-weight: 600;
-	line-height: 1.5em;
-
+	@include heading();
 	&--lg {
-		font-size: 1.875rem;
-		line-height: 1.25em;
+		@include heading--lg();
 	}
 	&--md {
-		font-size: 1.125rem;
+		@include heading--md();
 	}
 	&--sm {
-		font-size: 1rem;
+		@include heading--sm();
 	}
 	&--xs {
-		font-size: 1rem;
+		@include heading--xs();
 	}
 }
 
 .text {
-	font-size: 0.875rem;
+	@include text();
+	&--md {
+		@include text--md();
+	}
 	&--sm {
-		font-size: 0.75rem;
+		@include text--sm();
 	}
 	&--xs {
-		font-size: 0.625rem;
+		@include text--xs();
 	}
 }
 
 $font-weights: 200, 300, 400, 500, 600, 700, 800;
 @each $font-weight in $font-weights {
 	.font-weight-#{$font-weight} {
-		font-weight: $font-weight;
+		@include font-weight($font-weight);
 	}
 }

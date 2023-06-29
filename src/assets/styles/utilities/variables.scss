@@ -34,6 +34,21 @@
 	--db-components-color-accent-1-disabled: hsl(142, 70%, 80%);
 	--db-components-color-accent-1-background: hsl(145, 81%, 96%);
 
+	--db-components-color-success-text: var(--db-components-color-success-700);
+	--db-components-color-success-hover: var(--db-components-color-success-500);
+	--db-components-color-success-disabled: var(--db-components-color-success-300);
+	--db-components-color-success-background: var(--db-components-color-success-50);
+
+	--db-components-color-warning-text: var(--db-components-color-warning-700);
+	--db-components-color-warning-hover: var(--db-components-color-warning-300);
+	--db-components-color-warning-disabled: var(--db-components-color-warning-100);
+	--db-components-color-warning-background: var(--db-components-color-warning-50);
+
+	--db-components-color-error-text: var(--db-components-color-error-700);
+	--db-components-color-error-hover: var(--db-components-color-error-500);
+	--db-components-color-error-disabled: var(--db-components-color-error-300);
+	--db-components-color-error-background: var(--db-components-color-error-50);
+
 	--db-components-color-fallback-text: var(--db-components-color-text-secondary);
 	--db-components-color-fallback-hover: var(--db-components-color-secondary);
 	--db-components-color-fallback-disabled: var(--db-components-color-tertiary);
@@ -43,6 +58,7 @@
 	--db-components-typography-font-family: 'Manrope', sans-serif;
 	--db-components-typography-font-weight: 400;
 	--db-components-typography-letter-spacing: -0.03em;
+	--db-components-typography-line-height: 1.15;
 
 	// Divider
 	--db-components-divider-color: var(--db-components-color-tertiary);
