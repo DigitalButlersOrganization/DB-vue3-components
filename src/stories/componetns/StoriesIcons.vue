@@ -148,8 +148,8 @@ ul {
 }
 .icon-card {
 	display: flex;
-	padding-block-start: 1rem;
-	gap: 1rem;
 	flex-wrap: wrap;
+	gap: 1rem;
+	padding-block-start: 1rem;
 }
 </style>

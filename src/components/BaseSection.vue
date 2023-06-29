@@ -19,7 +19,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .section {
-	padding-block: 2rem;
 	display: block;
+	padding-block: 2rem;
 }
 </style>

@@ -64,14 +64,14 @@ ul {
 
 .colors-cards {
 	display: flex;
-	gap: 2rem;
 	flex-flow: wrap;
+	gap: 2rem;
 }
 .color-card {
+	overflow: hidden;
 	border-radius: 0.5rem;
 	box-shadow: 0 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
-	overflow: hidden;
-	width: 15rem;
+	inline-size: 15rem;
 	&__color {
 		display: block;
 		aspect-ratio: 2/1;

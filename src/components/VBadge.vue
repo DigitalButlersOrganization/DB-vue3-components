@@ -1,8 +1,8 @@
 <script setup>
 import { defineProps, computed } from 'vue';
 
-import { V_BADGE } from '../constants';
 import { useColors } from '../composables';
+import { V_BADGE } from '../constants';
 
 const props = defineProps({
 	color: {
@@ -13,16 +13,12 @@ const props = defineProps({
 	size: {
 		type: String,
 		default: V_BADGE.SIZES[0],
-		validator: (value) => {
-			return V_BADGE.SIZES.includes(value);
-		},
+		validator: (value) => V_BADGE.SIZES.includes(value),
 	},
 });
 
 const { colors } = useColors(() => props.color);
-const classes = computed(() => {
-	return [`badge--size-${props.size}`];
-});
+const classes = computed(() => [`badge--size-${props.size}`]);
 </script>
 
 <template>
@@ -47,14 +43,14 @@ const classes = computed(() => {
 
 .badge {
 	display: inline-flex;
-	gap: 0.25rem;
-	padding-block: 0.25rem;
-	padding-inline: 0.5rem;
 	align-items: center;
 	justify-content: center;
 	border-radius: 100vmax;
-	color: v-bind('colors.text');
 	background-color: v-bind('colors.background');
+	color: v-bind('colors.text');
+	gap: 0.25rem;
+	padding-block: 0.25rem;
+	padding-inline: 0.5rem;
 	@include mixins.text();
 	@include mixins.font-weight(500);
 

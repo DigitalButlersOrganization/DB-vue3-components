@@ -88,37 +88,37 @@ const progressDasharray = computed(() => `${SVG_CIRCLE_PERIMETER * props.progres
 .avatar {
 	position: relative;
 	aspect-ratio: 1 / 1;
-	width: v-bind('props.size');
 	color: v-bind('colors.text');
+	inline-size: v-bind('props.size');
 
 	&__body {
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-		overflow: hidden;
 		display: grid;
-		place-items: center;
+		overflow: hidden;
+		border-radius: 50%;
 		background-color: v-bind('colors.background');
+		block-size: 100%;
+		inline-size: 100%;
+		place-items: center;
 	}
 
 	&__image {
-		width: 100%;
-		height: 100%;
+		block-size: 100%;
+		inline-size: 100%;
 		object-fit: cover;
 	}
 
 	&__progress {
 		position: absolute;
-		inset: 0;
-		width: 100%;
 		aspect-ratio: 1 / 1;
 		fill: none;
+		inline-size: 100%;
+		inset: 0;
 		stroke: currentColor;
 		stroke-dasharray: v-bind(progressDasharray);
 		stroke-linecap: round;
 		stroke-width: 10;
-		transition: stroke-dasharray 0.6s ease;
 		transform: rotate(-90deg);
+		transition: stroke-dasharray 0.6s ease;
 	}
 
 	&__badge-wrapper {

@@ -19,9 +19,9 @@ const props = defineProps({
 
 <style scoped lang="scss">
 .container {
-	width: min(100%, 80rem);
-	padding-inline: 2rem;
-	margin-inline: auto;
 	display: block;
+	inline-size: min(100%, 80rem);
+	margin-inline: auto;
+	padding-inline: 2rem;
 }
 </style>

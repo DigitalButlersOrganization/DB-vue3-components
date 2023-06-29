@@ -1,8 +1,8 @@
 <script setup>
 import { defineProps, computed } from 'vue';
 
-import { V_BADGE_ANALYTICS } from '../constants';
 import { useColors } from '../composables';
+import { V_BADGE_ANALYTICS } from '../constants';
 
 const props = defineProps({
 	type: {
@@ -11,8 +11,6 @@ const props = defineProps({
 		required: false,
 	},
 });
-
-const { colors } = useColors(() => color.value);
 
 const color = computed(() => {
 	switch (props.type) {
@@ -28,13 +26,11 @@ const color = computed(() => {
 	}
 });
 
-const classes = computed(() => {
-	return [`badge-analytics--type-${props.type}`];
-});
+const { colors } = useColors(() => color.value);
 
-const isIconVisible = computed(() => {
-	return props.type !== V_BADGE_ANALYTICS.TYPES[0];
-});
+const classes = computed(() => [`badge-analytics--type-${props.type}`]);
+
+const isIconVisible = computed(() => props.type !== V_BADGE_ANALYTICS.TYPES[0]);
 </script>
 
 <template>
@@ -70,26 +66,26 @@ const isIconVisible = computed(() => {
 
 .badge-analytics {
 	display: inline-flex;
-	min-inline-size: 1.875rem;
-	gap: 0.1875rem;
-	padding-block: 0.125rem;
-	padding-inline: 0.25rem;
 	align-items: center;
 	justify-content: center;
 	border-radius: 100vmax;
-	color: v-bind('colors.text');
 	background-color: v-bind('colors.background');
+	color: v-bind('colors.text');
+	gap: 0.1875rem;
+	min-inline-size: 1.875rem;
+	padding-block: 0.125rem;
+	padding-inline: 0.25rem;
 	@include mixins.text();
 	@include mixins.text--xs();
 	@include mixins.font-weight(700);
 
-	&--type-negative .badge-analytics__icon {
-		transform: rotateZ(180deg);
-	}
-
 	&__icon {
 		inline-size: 0.5rem;
 		max-block-size: 0.8125rem;
+	}
+
+	&--type-negative .badge-analytics__icon {
+		transform: rotateZ(180deg);
 	}
 }
 </style>
