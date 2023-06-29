@@ -1,7 +1,5 @@
 import VBadgeCounter from '../components/VBadgeCounter.vue';
-import { V_BADGE_ANALYTICS } from '../constants/';
 
-// More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
 	title: 'Components/VBadgeCounter',
 	component: VBadgeCounter,
@@ -9,9 +7,21 @@ export default {
 	argTypes: {
 		isInverted: { control: 'boolean' },
 	},
+	render: (args) => ({
+		components: { VBadgeCounter },
+		setup() {
+			return { args };
+		},
+		template: `
+			<VBadgeCounter v-bind="args">
+				<template v-slot:default v-if="args.default">
+					<span v-html="args.default"></span>
+				</template>
+			</VBadgeCounter>
+		`,
+	}),
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/vue/writing-stories/args
 export const Default = {
 	args: {},
 };

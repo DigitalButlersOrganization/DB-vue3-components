@@ -1,7 +1,6 @@
 import VBadge from '../components/VBadge.vue';
-import { V_BADGE } from '../constants/';
+import { V_BADGE } from '../constants';
 
-// More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
 	title: 'Components/VBadge',
 	component: VBadge,
@@ -14,13 +13,31 @@ export default {
 			options: V_BADGE.SIZES,
 		},
 	},
+	render: (args) => ({
+		components: { VBadge },
+		setup() {
+			return { args };
+		},
+		template: `
+			<VBadge v-bind="args">
+				<template v-slot:prepend v-if="args.prepend">
+					<span v-html="args.prepend"></span>
+				</template>
+				<template v-slot:default v-if="args.default">
+					<span v-html="args.default"></span>
+				</template>
+				<template v-slot:append v-if="args.append">
+					<span v-html="args.append"></span>
+				</template>
+			</VBadge>
+		`,
+	}),
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/vue/writing-stories/args
 export const Default = {
 	args: {
 		prepend: '❤',
-		default: 'Стрессоустойчивость',
+		default: 'Stress resistance',
 	},
 };
 

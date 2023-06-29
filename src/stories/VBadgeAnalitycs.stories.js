@@ -1,7 +1,6 @@
 import VBadgeAnalytics from '../components/VBadgeAnalytics.vue';
-import { V_BADGE_ANALYTICS } from '../constants/';
+import { V_BADGE_ANALYTICS } from '../constants';
 
-// More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
 	title: 'Components/VBadgeAnalytics',
 	component: VBadgeAnalytics,
@@ -14,9 +13,21 @@ export default {
 			options: V_BADGE_ANALYTICS.TYPES,
 		},
 	},
+	render: (args) => ({
+		components: { VBadgeAnalytics },
+		setup() {
+			return { args };
+		},
+		template: `
+			<VBadgeAnalytics v-bind="args">
+				<template v-slot:default v-if="args.default">
+					<span v-html="args.default"></span>
+				</template>
+			</VBadgeAnalytics>
+		`,
+	}),
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/vue/writing-stories/args
 export const Default = {
 	args: {
 		default: 'text',
