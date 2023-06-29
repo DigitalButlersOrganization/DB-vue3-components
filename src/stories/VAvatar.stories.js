@@ -1,5 +1,4 @@
 import VAvatar from '../components/VAvatar.vue';
-import VBadgeCounter from '../components/VBadgeCounter.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
@@ -23,7 +22,7 @@ export default {
 		},
 	},
 	render: (args) => ({
-		components: { VAvatar, VBadgeCounter },
+		components: { VAvatar },
 		setup() {
 			return { args };
 		},
