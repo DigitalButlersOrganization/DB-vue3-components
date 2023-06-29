@@ -11,8 +11,6 @@ export const useColors = (name, options) => {
 	const { prefix = 'db', postfixes = Array.from(MIX_PERCENTS.keys()) } = options || {};
 	const isCssColor = computed(() => CSS.supports('color', toValue(name)));
 
-	console.log(postfixes);
-
 	const generateColor = (postfix) =>
 		isCssColor.value
 			? `color-mix(in srgb, ${toValue(name)} ${MIX_PERCENTS.get(
