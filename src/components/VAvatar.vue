@@ -42,14 +42,8 @@ const props = defineProps({
 const { colors } = useColors(() => props.color);
 const slots = useSlots();
 
-console.log(slots);
-
-const hasBadgeSlot = computed(() => {
-	return !!slots.badge;
-});
-const progressDasharray = computed(() => {
-	return `${SVG_CIRCLE_PERIMETER * props.progress} ${SVG_CIRCLE_PERIMETER}`;
-});
+const hasBadgeSlot = computed(() => Boolean(slots.badge));
+const progressDasharray = computed(() => `${SVG_CIRCLE_PERIMETER * props.progress} ${SVG_CIRCLE_PERIMETER}`);
 </script>
 
 <template>
