@@ -1,8 +1,8 @@
-import Icons from './componetns/StoriesIcons.vue';
+import StoriesIcons from './componetns/StoriesIcons.vue';
 
 export default {
 	title: '3. Icons',
-	component: Icons,
+	component: StoriesIcons,
 };
 
 export const Default = {};

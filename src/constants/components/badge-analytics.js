@@ -1,3 +1,3 @@
-export const V_BADGE_ANALYTICS = {
+export const BADGE_ANALYTICS = {
 	TYPES: ['default', 'positive', 'negative'],
 };

@@ -1,25 +1,25 @@
-import VBadge from '../components/VBadge.vue';
-import { V_BADGE } from '../constants';
+import DbBadge from '../components/DbBadge.vue';
+import { BADGE } from '../constants';
 
 export default {
-	title: 'Components/VBadge',
-	component: VBadge,
+	title: 'Components/DbBadge',
+	component: DbBadge,
 	tags: ['autodocs'],
 	argTypes: {
 		size: {
 			control: {
 				type: 'select',
 			},
-			options: V_BADGE.SIZES,
+			options: BADGE.SIZES,
 		},
 	},
 	render: (args) => ({
-		components: { VBadge },
+		components: { DbBadge },
 		setup() {
 			return { args };
 		},
 		template: `
-			<VBadge v-bind="args">
+			<DbBadge v-bind="args">
 				<template v-slot:prepend v-if="args.prepend">
 					<span v-html="args.prepend"></span>
 				</template>
@@ -29,7 +29,7 @@ export default {
 				<template v-slot:append v-if="args.append">
 					<span v-html="args.append"></span>
 				</template>
-			</VBadge>
+			</DbBadge>
 		`,
 	}),
 };

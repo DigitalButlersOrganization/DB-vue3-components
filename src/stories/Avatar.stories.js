@@ -1,10 +1,10 @@
-import VAvatar from '../components/VAvatar.vue';
+import DbAvatar from '../components/DbAvatar.vue';
 
 // More on how to set up stories at: https://storybook.js.org/docs/vue/writing-stories/introduction
 export default {
-	components: { VAvatar },
-	title: 'Components/VAvatar',
-	component: VAvatar,
+	components: { DbAvatar },
+	title: 'Components/DbAvatar',
+	component: DbAvatar,
 	tags: ['autodocs'],
 	argTypes: {
 		size: {
@@ -22,19 +22,19 @@ export default {
 		},
 	},
 	render: (args) => ({
-		components: { VAvatar },
+		components: { DbAvatar },
 		setup() {
 			return { args };
 		},
 		template: `
-      <VAvatar v-bind="args">
+      <DbAvatar v-bind="args">
         <template v-slot:badge v-if="args.badge">
           <div v-html="args.badge"></div>
         </template>
 				<template v-slot:icon v-if="args.icon">
 					<span v-html="args.icon"></span>
 				</template>
-      </VAvatar>
+      </DbAvatar>
     `,
 	}),
 };

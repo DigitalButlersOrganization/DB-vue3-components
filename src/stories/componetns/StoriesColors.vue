@@ -1,7 +1,6 @@
 <script setup>
-import BaseDivider from '../../components/BaseDivider.vue';
-import BaseSection from '../../components/BaseSection.vue';
-import BaseContainer from '../../components/BaseContainer.vue';
+import DbBaseContainer from '../../components/DbBaseContainer.vue';
+import DbBaseSection from '../../components/DbBaseSection.vue';
 
 const colorGroups = new Map([
 	['Base', ['primary', 'secondary', 'tertiary']],
@@ -19,11 +18,11 @@ const generateReadableName = (name) => name.replaceAll('-', ' ');
 </script>
 
 <template>
-	<BaseSection
+	<DbBaseSection
 		v-for="groupName in colorGroups.keys()"
 		:key="groupName"
 	>
-		<BaseContainer>
+		<DbBaseContainer>
 			<h2>{{ groupName }}</h2>
 			<ul class="colors-cards">
 				<li
@@ -47,8 +46,8 @@ const generateReadableName = (name) => name.replaceAll('-', ' ');
 					</div>
 				</li>
 			</ul>
-		</BaseContainer>
-	</BaseSection>
+		</DbBaseContainer>
+	</DbBaseSection>
 </template>
 
 <style scoped lang="scss">

@@ -1,8 +1,8 @@
-import Colors from './componetns/StoriesColors.vue';
+import StoriesColors from './componetns/StoriesColors.vue';
 
 export default {
 	title: '2. Colors',
-	component: Colors,
+	component: StoriesColors,
 };
 
 export const Default = {};

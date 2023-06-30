@@ -1,2 +1,2 @@
-export { V_BADGE } from './v-badge';
-export { V_BADGE_ANALYTICS } from './v-badge-analytics';
+export { BADGE } from './badge';
+export { BADGE_ANALYTICS } from './badge-analytics';

@@ -1,8 +1,8 @@
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 
 import { useColors } from '../composables';
-import { V_BADGE } from '../constants';
+import { BADGE } from '../constants';
 
 const props = defineProps({
 	color: {
@@ -12,8 +12,8 @@ const props = defineProps({
 	},
 	size: {
 		type: String,
-		default: V_BADGE.SIZES[0],
-		validator: (value) => V_BADGE.SIZES.includes(value),
+		default: BADGE.SIZES[0],
+		validator: (value) => BADGE.SIZES.includes(value),
 	},
 });
 

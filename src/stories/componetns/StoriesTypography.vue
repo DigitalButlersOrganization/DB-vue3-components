@@ -1,35 +1,36 @@
+<script setup>
+import DbBaseContainer from '../../components/DbBaseContainer.vue';
+import DbBaseDivider from '../../components/DbBaseDivider.vue';
+import DbBaseSection from '../../components/DbBaseSection.vue';
+</script>
+
 <template>
-	<BaseSection>
-		<BaseContainer>
+	<DbBaseSection>
+		<DbBaseContainer>
 			<div class="typography">
 				<div class="heading heading--lg font-weight-800">Heading LG (.heading.heading--lg.font-weight-800)</div>
 				<div class="heading heading--lg">Heading LG (.heading.heading--lg)</div>
-				<BaseDivider />
+				<DbBaseDivider />
 				<div class="heading heading--md">Heading MD (.heading.heading--md)</div>
-				<BaseDivider />
+				<DbBaseDivider />
 				<div class="heading heading--sm">Heading SM (.heading.heading--sm)</div>
 				<div class="heading heading--sm font-weight-400">Heading SM (.heading.heading--sm.font-weight-400)</div>
-				<BaseDivider />
+				<DbBaseDivider />
 				<div class="text font-weight-700">Primary text (.text.font-weight-700)</div>
 				<div class="text font-weight-600">Primary text (.text.font-weight-600)</div>
-				<BaseDivider />
+				<DbBaseDivider />
 				<div class="text font-weight-500">Secondary text (.text.font-weight-500)</div>
 				<div class="text font-weight-400">Secondary text (.text.font-weight-400)</div>
-				<BaseDivider />
+				<DbBaseDivider />
 				<div class="text text--sm font-weight-500">Small text (.text.text--sm.font-weight-500)</div>
 				<div class="text text--sm">Small text (.text.text--sm)</div>
-				<BaseDivider />
+				<DbBaseDivider />
 				<div class="text text--xs font-weight-700">Extra small text (.text.text--xs.font-weight-700)</div>
 			</div>
-		</BaseContainer>
-	</BaseSection>
+		</DbBaseContainer>
+	</DbBaseSection>
 </template>
 
-<script setup>
-import BaseDivider from '../../components/BaseDivider.vue';
-import BaseSection from '../../components/BaseSection.vue';
-import BaseContainer from '../../components/BaseContainer.vue';
-</script>
 <style scoped lang="scss">
 .typography {
 	display: flex;

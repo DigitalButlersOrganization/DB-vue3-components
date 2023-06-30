@@ -1,9 +1,9 @@
 <script setup>
-import { computed, defineProps, useSlots } from 'vue';
+import { computed, useSlots } from 'vue';
 
 import { useColors } from '../composables';
 
-import VBadgeCounter from './VBadgeCounter.vue';
+import DbBadgeCounter from './DbBadgeCounter.vue';
 
 const SVG_SIZE = 100;
 const SVG_CIRCLE_PERIMETER = Math.PI * SVG_SIZE;
@@ -73,13 +73,13 @@ const progressDasharray = computed(() => `${SVG_CIRCLE_PERIMETER * props.progres
 			</svg>
 		</div>
 		<div class="avatar__badge-wrapper">
-			<VBadgeCounter
+			<DbBadgeCounter
 				v-if="hasBadgeSlot"
 				:color="props.color"
 				:is-inverted="true"
 			>
 				<slot name="badge" />
-			</VBadgeCounter>
+			</DbBadgeCounter>
 		</div>
 	</div>
 </template>

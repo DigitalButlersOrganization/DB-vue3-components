@@ -1,8 +1,8 @@
-import Typography from './componetns/StoriesTypography.vue';
+import StoriesTypography from './componetns/StoriesTypography.vue';
 
 export default {
 	title: '1. Typography',
-	component: Typography,
+	component: StoriesTypography,
 };
 
 export const Default = {};

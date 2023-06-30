@@ -1,23 +1,23 @@
 <script setup>
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 
 import { useColors } from '../composables';
-import { V_BADGE_ANALYTICS } from '../constants';
+import { BADGE_ANALYTICS } from '../constants';
 
 const props = defineProps({
 	type: {
 		type: String,
-		default: V_BADGE_ANALYTICS.TYPES[0],
+		default: BADGE_ANALYTICS.TYPES[0],
 		required: false,
 	},
 });
 
 const color = computed(() => {
 	switch (props.type) {
-		case V_BADGE_ANALYTICS.TYPES[1]: {
+		case BADGE_ANALYTICS.TYPES[1]: {
 			return 'success';
 		}
-		case V_BADGE_ANALYTICS.TYPES[2]: {
+		case BADGE_ANALYTICS.TYPES[2]: {
 			return 'error';
 		}
 		default: {
@@ -30,7 +30,7 @@ const { colors } = useColors(() => color.value);
 
 const classes = computed(() => [`badge-analytics--type-${props.type}`]);
 
-const isIconVisible = computed(() => props.type !== V_BADGE_ANALYTICS.TYPES[0]);
+const isIconVisible = computed(() => props.type !== BADGE_ANALYTICS.TYPES[0]);
 </script>
 
 <template>

@@ -1,23 +1,23 @@
-import VBadgeCounter from '../components/VBadgeCounter.vue';
+import DbBadgeCounter from '../components/DbBadgeCounter.vue';
 
 export default {
-	title: 'Components/VBadgeCounter',
-	component: VBadgeCounter,
+	title: 'Components/DbBadgeCounter',
+	component: DbBadgeCounter,
 	tags: ['autodocs'],
 	argTypes: {
 		isInverted: { control: 'boolean' },
 	},
 	render: (args) => ({
-		components: { VBadgeCounter },
+		components: { DbBadgeCounter },
 		setup() {
 			return { args };
 		},
 		template: `
-			<VBadgeCounter v-bind="args">
+			<DbBadgeCounter v-bind="args">
 				<template v-slot:default v-if="args.default">
 					<span v-html="args.default"></span>
 				</template>
-			</VBadgeCounter>
+			</DbBadgeCounter>
 		`,
 	}),
 };

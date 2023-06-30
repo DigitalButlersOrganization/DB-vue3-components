@@ -1,7 +1,7 @@
 <script setup>
-import BaseSection from '../../components/BaseSection.vue';
-import BaseContainer from '../../components/BaseContainer.vue';
-import BaseDivider from '../../components/BaseDivider.vue';
+import DbBaseContainer from '../../components/DbBaseContainer.vue';
+import DbBaseDivider from '../../components/DbBaseDivider.vue';
+import DbBaseSection from '../../components/DbBaseSection.vue';
 
 const iconsGroups = new Map([
 	[
@@ -108,12 +108,12 @@ const getIcon = (type, name) => `icons/${type.toLowerCase()}/${name}.svg`;
 </script>
 
 <template>
-	<BaseSection
+	<DbBaseSection
 		v-for="type in iconsGroups.keys()"
 		:key="type"
 		class="icon-group"
 	>
-		<BaseContainer>
+		<DbBaseContainer>
 			<h2>{{ type }}</h2>
 			<ul class="icons-cards">
 				<li
@@ -130,11 +130,11 @@ const getIcon = (type, name) => `icons/${type.toLowerCase()}/${name}.svg`;
 					<h3 class="color-card__name heading heading--sm">
 						{{ name }}
 					</h3>
-					<BaseDivider />
+					<DbBaseDivider />
 				</li>
 			</ul>
-		</BaseContainer>
-	</BaseSection>
+		</DbBaseContainer>
+	</DbBaseSection>
 </template>
 
 <style scoped lang="scss">
