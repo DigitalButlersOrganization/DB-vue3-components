@@ -7,6 +7,7 @@ import DbBadgeCounter from './DbBadgeCounter.vue';
 
 const SVG_SIZE = 100;
 const SVG_CIRCLE_PERIMETER = Math.PI * SVG_SIZE;
+const ICON_SIZE_COEFFICIENT = 0.45;
 
 const props = defineProps({
 	size: {
@@ -44,6 +45,7 @@ const slots = useSlots();
 
 const hasBadgeSlot = computed(() => Boolean(slots.badge));
 const progressDasharray = computed(() => `${SVG_CIRCLE_PERIMETER * props.progress} ${SVG_CIRCLE_PERIMETER}`);
+const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIENT})`);
 </script>
 
 <template>
@@ -97,12 +99,14 @@ const progressDasharray = computed(() => `${SVG_CIRCLE_PERIMETER * props.progres
 		border-radius: 50%;
 		background-color: v-bind('colors.background');
 		block-size: 100%;
+		font-size: v-bind('iconFontSize');
 		inline-size: 100%;
 		place-items: center;
 	}
 
 	&__image {
 		block-size: 100%;
+		font-size: 1rem;
 		inline-size: 100%;
 		object-fit: cover;
 	}
