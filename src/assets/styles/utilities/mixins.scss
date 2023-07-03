@@ -30,6 +30,12 @@
 @mixin text--xs() {
 	font-size: 0.625rem;
 }
+@mixin text--truncate($lines-count: 1) {
+	overflow: hidden;
+	-webkit-line-clamp: $lines-count;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 
 @mixin font-weight($font-weight) {
 	font-weight: $font-weight;
