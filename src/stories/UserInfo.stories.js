@@ -10,9 +10,7 @@ export default {
 			return { args };
 		},
 		template: `
-			<DbUserInfo v-bind="args">
-
-			</DbUserInfo>
+			<DbUserInfo v-bind="args"/>
 		`,
 	}),
 };
@@ -25,6 +23,14 @@ export const Default = {
 
 export const Description = {
 	args: {
+		fullName: 'John Doe',
+		description: 'Cool guy',
+	},
+};
+
+export const Image = {
+	args: {
+		src: 'https://picsum.photos/200',
 		fullName: 'John Doe',
 		description: 'Cool guy',
 	},

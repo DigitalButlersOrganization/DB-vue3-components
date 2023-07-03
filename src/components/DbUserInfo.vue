@@ -64,22 +64,20 @@ const props = defineProps({
 @use '/src/assets/styles/utilities/mixins';
 
 .user-info {
-	display: grid;
+	display: flex;
 	align-items: center;
 	gap: 0.5rem;
-	grid-template-columns: auto 1fr;
-	max-inline-size: 100%;
 
-	&__body {
-		max-inline-size: 100%;
-		@include mixins.text();
-		@include mixins.text--sm();
-		@include mixins.font-weight(500);
+	&__avatar {
+		flex-shrink: 0;
 	}
 
 	&__name,
 	&__description {
-		@include mixins.text--truncate();
+		@include mixins.text();
+		@include mixins.text--sm();
+		@include mixins.font-weight(500);
+		@include mixins.text-truncate();
 	}
 
 	&__description {

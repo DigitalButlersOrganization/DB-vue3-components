@@ -11,7 +11,7 @@ import DbUserInfo from '../../components/DbUserInfo.vue';
 	<div class="user-info-wrapper">
 		<DbUserInfo
 			full-name="John Doe Junior The Third"
-			description="Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+			description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas."
 		/>
 	</div>
 </template>
