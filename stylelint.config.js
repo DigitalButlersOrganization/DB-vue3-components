@@ -17,6 +17,12 @@ module.exports = {
 	rules: {
 		'prettier/prettier': true,
 		'selector-class-pattern': null,
+		'selector-pseudo-class-no-unknown': [
+			true,
+			{
+				ignorePseudoClasses: ['deep'],
+			},
+		],
 		'scss/at-function-pattern': null,
 		'max-nesting-depth': [
 			4,
