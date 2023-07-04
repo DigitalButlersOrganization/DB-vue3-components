@@ -1,12 +1,12 @@
 import '../src/assets/styles/index.scss';
 
+import { setup } from '@storybook/vue3';
+
 import languages from './constants/languages';
 import themes from './constants/themes';
 import withLanguage from './decorators/language';
 import withTheme from './decorators/theme';
-
 import i18n from './plugins/i18n';
-import { setup } from '@storybook/vue3';
 
 setup((app) => {
 	app.use(i18n);

@@ -1,0 +1,9 @@
+import { ar } from './ar';
+import { en } from './en';
+import { ru } from './ru';
+
+export const messages = {
+	ar,
+	en,
+	ru,
+};
