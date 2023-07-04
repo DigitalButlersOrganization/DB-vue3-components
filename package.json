@@ -55,6 +55,7 @@
   "_id": "db-vue3-components@1.0.0",
   "dependencies": {
     "modern-normalize": "^2.0.0",
-    "vue": "^3.3.4"
+    "vue": "^3.3.4",
+    "vue-inline-svg": "^3.1.2"
   }
 }

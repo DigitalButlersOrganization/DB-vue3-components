@@ -11,6 +11,9 @@ dependencies:
   vue:
     specifier: ^3.3.4
     version: 3.3.4
+  vue-inline-svg:
+    specifier: ^3.1.2
+    version: 3.1.2(vue@3.3.4)
 
 devDependencies:
   '@storybook/addon-a11y':
@@ -9784,6 +9787,14 @@ packages:
     dependencies:
       vue: 3.3.4
     dev: true
+
+  /vue-inline-svg@3.1.2(vue@3.3.4):
+    resolution: {integrity: sha512-K01sLANBnjosObee4JrBu/igXpYIFhQfy4EcEyVWxEWf6nmrxp7Isz6pmeRCsWx6XGrGWfrQH3uNwt4nOmrFdA==}
+    peerDependencies:
+      vue: ^3
+    dependencies:
+      vue: 3.3.4
+    dev: false
 
   /vue@3.3.4:
     resolution: {integrity: sha512-VTyEYn3yvIeY1Py0WaYGZsXnz3y5UnGi62GjVEqvEGPl6nxbOrCXbVOTQWBEJUqAyTUk2uJ5JLVnYJ6ZzGbrSw==}
