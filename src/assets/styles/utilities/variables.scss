@@ -54,6 +54,12 @@
 	--db-components-color-fallback-disabled: var(--db-components-color-tertiary);
 	--db-components-color-fallback-background: var(--db-components-color-background-tertiary);
 
+	// Transition
+	--db-components-transition-duration-base: 0.3s;
+	--db-components-transition-timing-function-base: ease;
+	--db-components-transition-base: var(--db-components-transition-duration-base)
+	var(--db-components-transition-timing-function-base);
+
 	// App
 	--db-components-typography-font-family: 'Manrope', sans-serif;
 	--db-components-typography-font-weight: 400;
