@@ -30,6 +30,7 @@ module.exports = {
 			},
 		],
 		'import/prefer-default-export': 0,
+		'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
 		'vue/html-indent': [0],
 		'vue/html-self-closing': [
 			1,
