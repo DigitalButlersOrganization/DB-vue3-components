@@ -1,4 +1,6 @@
 <script setup>
+import InlineSvg from 'vue-inline-svg';
+
 import DbBaseContainer from '../../components/DbBaseContainer.vue';
 import DbBaseDivider from '../../components/DbBaseDivider.vue';
 import DbBaseSection from '../../components/DbBaseSection.vue';
@@ -121,12 +123,7 @@ const getIcon = (type, name) => `icons/${type.toLowerCase()}/${name}.svg`;
 					:key="`${type}-${name}`"
 					class="icon-card"
 				>
-					<img
-						:src="getIcon(type, name)"
-						:alt="`${type}-${name}`"
-						width="24"
-						height="24"
-					/>
+					<InlineSvg :src="getIcon(type, name)" />
 					<h3 class="color-card__name heading heading--sm">
 						{{ name }}
 					</h3>
