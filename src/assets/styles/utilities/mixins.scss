@@ -41,3 +41,22 @@
 @mixin font-weight($font-weight) {
 	font-weight: $font-weight;
 }
+
+@mixin visually-hidden() {
+	position: absolute !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	border: 0 !important;
+	margin: -1px !important; // Fix for https://github.com/twbs/bootstrap/issues/25686
+	block-size: 1px !important;
+	clip: rect(0, 0, 0, 0) !important;
+	inline-size: 1px !important;
+	white-space: nowrap !important;
+}
+
+// Useful for "Skip to main content" links; see https://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+@mixin visually-hidden-focusable() {
+	&:not(:focus):not(:focus-within) {
+		@include visually-hidden();
+	}
+}
