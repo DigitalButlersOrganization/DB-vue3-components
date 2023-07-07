@@ -58,7 +58,7 @@
 	--db-components-transition-duration-base: 0.3s;
 	--db-components-transition-timing-function-base: ease;
 	--db-components-transition-base: var(--db-components-transition-duration-base)
-	var(--db-components-transition-timing-function-base);
+		var(--db-components-transition-timing-function-base);
 
 	// App
 	--db-components-typography-font-family: 'Manrope', sans-serif;
@@ -68,4 +68,29 @@
 
 	// Divider
 	--db-components-divider-color: var(--db-components-color-tertiary);
+
+	// Checkbox
+	--db-components-checkbox-color-icon-default: transparent;
+	--db-components-checkbox-color-background-default: var(--db-components-color-background-primary);
+	--db-components-checkbox-color-outline-default: var(--db-components-color-secondary);
+
+	--db-components-checkbox-color-icon-hover: var(--db-components-checkbox-color-icon-default);
+	--db-components-checkbox-color-background-hover: var(--db-components-color-background-tertiary);
+	--db-components-checkbox-color-outline-hover: var(--db-components-color-text-secondary);
+
+	--db-components-checkbox-color-icon-disabled: var(--db-components-checkbox-color-icon-default);
+	--db-components-checkbox-color-background-disabled: var(--db-components-color-background-tertiary);
+	--db-components-checkbox-color-outline-disabled: var(--db-components-color-tertiary);
+
+	--db-components-checkbox-color-icon-default-checked: var(--db-components-color-primary);
+	--db-components-checkbox-color-outline-default-checked: var(--db-components-color-primary);
+
+	--db-components-checkbox-color-icon-hover-checked: var(--db-components-checkbox-color-icon-default-checked);
+	--db-components-checkbox-color-outline-hover-checked: var(--db-components-checkbox-color-outline-default-checked);
+
+	--db-components-checkbox-color-icon-disabled-checked: var(--db-components-color-tertiary);
+	--db-components-checkbox-color-outline-disabled-checked: var(--db-components-checkbox-color-outline-disabled);
+
+	// Icons
+	--db-components-icon-sm-stroke-width: 3 !important;
 }

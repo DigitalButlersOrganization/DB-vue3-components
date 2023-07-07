@@ -108,7 +108,7 @@ const { isChecked, handleChange } = useCheckboxModel(props, emit);
 			max-block-size: 0.75em;
 			max-inline-size: 0.75em;
 			:deep(path) {
-				stroke-width: 2.5 !important;
+				stroke-width: var(--db-components-icon-sm-stroke-width);
 			}
 		}
 	}
@@ -116,7 +116,7 @@ const { isChecked, handleChange } = useCheckboxModel(props, emit);
 		@include mixins.visually-hidden();
 		&:focus-visible {
 			#{$input-to-box-selector} {
-				@include active-box();
+				@include mixins.focus-state();
 			}
 		}
 		&:disabled {

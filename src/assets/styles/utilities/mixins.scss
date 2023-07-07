@@ -60,3 +60,19 @@
 		@include visually-hidden();
 	}
 }
+
+@keyframes focus-in {
+	0% {
+		outline-offset: -0.25rem;
+	}
+	100% {
+		outline-offset: 0;
+	}
+}
+
+@mixin focus-state() {
+	animation: focus-in 0.3s backwards;
+	outline: 0.25rem var(--db-components-color-tertiary) solid;
+	transition: outline-offset var(--db-components-transition-duration-base)
+		var(--db-components-transition-timing-function-base);
+}
