@@ -60,6 +60,9 @@
 	--db-components-transition-base: var(--db-components-transition-duration-base)
 		var(--db-components-transition-timing-function-base);
 
+	// Shadow
+	--db-components-shadow-xs: 0 1px 2px 0 hsla(0, 0%, 0%, 0.09);
+
 	// App
 	--db-components-typography-font-family: 'Manrope', sans-serif;
 	--db-components-typography-font-weight: 400;
@@ -90,6 +93,25 @@
 
 	--db-components-checkbox-color-icon-disabled-checked: var(--db-components-color-tertiary);
 	--db-components-checkbox-color-outline-disabled-checked: var(--db-components-checkbox-color-outline-disabled);
+
+	// Switch
+	--db-components-switch-color-icon-default: var(--db-components-color-background-primary);
+	--db-components-switch-color-background-default: var(--db-components-color-background-tertiary);
+
+	--db-components-switch-color-icon-hover: var(--db-components-switch-color-icon-default);
+	--db-components-switch-color-background-hover: var(--db-components-color-tertiary);
+
+	--db-components-switch-color-icon-disabled: var(--db-components-color-background-secondary);
+	--db-components-switch-color-background-disabled: var(--db-components-color-background-secondary);
+
+	--db-components-switch-color-icon-default-cheched: var(--db-components-switch-color-icon-default);
+	--db-components-switch-color-background-default-cheched: var(--db-components-color-primary);
+
+	--db-components-switch-color-icon-hover-cheched: var(--db-components-switch-color-icon-default-cheched);
+	--db-components-switch-color-background-hover-cheched: var(--db-components-color-text-primary);
+
+	--db-components-switch-color-icon-disabled-cheched: var(--db-components-switch-color-icon-disabled);
+	--db-components-switch-color-background-disabled-cheched: var(--db-components-switch-color-icon-disabled);
 
 	// Icons
 	--db-components-icon-sm-stroke-width: 3 !important;

@@ -131,12 +131,6 @@ const { isChecked, handleChange } = useCheckboxModel(props, emit);
 				box-shadow: 0 0 0 1px inset var(--db-components-checkbox-color-outline-default-checked);
 				color: var(--db-components-checkbox-color-icon-default-checked);
 			}
-			&:focus-visible {
-				#{$input-to-box-selector} {
-					box-shadow: 0 0 0 1px inset var(--db-components-checkbox-color-outline-hover-checked);
-					color: var(--db-components-checkbox-color-icon-hover-checked);
-				}
-			}
 			&:disabled {
 				#{$input-to-box-selector} {
 					box-shadow: 0 0 0 1px inset var(--db-components-checkbox-color-outline-disabled-checked);
