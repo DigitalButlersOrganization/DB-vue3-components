@@ -5,6 +5,7 @@ import DbAvatar from '../../components/DbAvatar.vue';
 import DbBaseDivider from '../../components/DbBaseDivider.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
+import DbProgress from '../../components/DbProgress.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
@@ -16,6 +17,8 @@ const chips = ref([]);
 const switches = ref(['switch 4']);
 
 const isStepChipCurrent = ref(false);
+
+const progress = ref(0.5);
 
 const alertMessage = (message) => {
 	alert(message);
@@ -109,7 +112,7 @@ const alertMessage = (message) => {
 
 		<DbBaseDivider />
 		{{ isStepChipCurrent }}
-		<DbCheckbox v-model="isStepChipCurrent"/>
+		<DbCheckbox v-model="isStepChipCurrent" />
 
 		<DbBaseDivider />
 		<DbStepChip
@@ -155,6 +158,32 @@ const alertMessage = (message) => {
 			disabled
 			value="switch 4"
 		/>
+		<DbBaseDivider />
+		<div style="max-inline-size: 400px">
+			<input
+				v-model="progress"
+				type="range"
+				min="0"
+				max="1"
+				step="0.01"
+			/>
+			<DbProgress :value="progress">
+				<template #label> label </template>
+				<template #text> {{ Math.round(progress * 100) }}/100 </template>
+			</DbProgress>
+			<DbProgress
+				color="accent-1"
+				:value="progress"
+			>
+				<template #label> <code>accent-1</code> color </template>
+			</DbProgress>
+			<DbProgress
+				color="#c344ff"
+				:value="progress"
+			>
+				<template #label> <code>#c344ff</code> color </template>
+			</DbProgress>
+		</div>
 	</div>
 </template>
 
