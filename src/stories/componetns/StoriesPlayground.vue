@@ -8,6 +8,7 @@ import DbChip from '../../components/DbChip.vue';
 import DbProgress from '../../components/DbProgress.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
+import DbTooltip from '../../components/DbTooltip.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
 
 const checkboxValue = ref(true);
@@ -19,6 +20,8 @@ const switches = ref(['switch 4']);
 const isStepChipCurrent = ref(false);
 
 const progress = ref(0.5);
+
+const tooltipName = ref('Lorem ipsum');
 
 const alertMessage = (message) => {
 	alert(message);
@@ -184,6 +187,15 @@ const alertMessage = (message) => {
 				<template #label> <code>#c344ff</code> color </template>
 			</DbProgress>
 		</div>
+		<DbBaseDivider />
+		<input v-model="tooltipName" />
+		<DbTooltip>
+			<template #trigger> hover me </template>
+			<DbUserInfo
+				:full-name="tooltipName"
+				description="Another lorem ipsum"
+			/>
+		</DbTooltip>
 	</div>
 </template>
 
