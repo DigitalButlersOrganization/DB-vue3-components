@@ -1,9 +1,9 @@
 <script setup>
 import InlineSvg from 'vue-inline-svg';
 
-import DbBaseContainer from '../../components/DbBaseContainer.vue';
-import DbBaseDivider from '../../components/DbBaseDivider.vue';
-import DbBaseSection from '../../components/DbBaseSection.vue';
+import DbContainer from '../../components/DbContainer.vue';
+import DbDivider from '../../components/DbDivider.vue';
+import DbSection from '../../components/DbSection.vue';
 
 const iconsGroups = new Map([
 	[
@@ -110,12 +110,12 @@ const getIcon = (type, name) => `icons/${type.toLowerCase()}/${name}.svg`;
 </script>
 
 <template>
-	<DbBaseSection
+	<DbSection
 		v-for="type in iconsGroups.keys()"
 		:key="type"
 		class="icon-group"
 	>
-		<DbBaseContainer>
+		<DbContainer>
 			<h2>{{ type }}</h2>
 			<ul class="icons-cards">
 				<li
@@ -127,11 +127,11 @@ const getIcon = (type, name) => `icons/${type.toLowerCase()}/${name}.svg`;
 					<h3 class="color-card__name heading heading--sm">
 						{{ name }}
 					</h3>
-					<DbBaseDivider />
+					<DbDivider />
 				</li>
 			</ul>
-		</DbBaseContainer>
-	</DbBaseSection>
+		</DbContainer>
+	</DbSection>
 </template>
 
 <style scoped lang="scss">

@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 import DbAvatar from '../../components/DbAvatar.vue';
-import DbBaseDivider from '../../components/DbBaseDivider.vue';
+import DbDivider from '../../components/DbDivider.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
 import DbProgress from '../../components/DbProgress.vue';
@@ -34,14 +34,14 @@ const alertMessage = (message) => {
 			<template #icon> icon </template>
 			<template #badge> 1 </template>
 		</DbAvatar>
-		<DbBaseDivider />
+		<DbDivider />
 		<div class="user-info-wrapper">
 			<DbUserInfo
 				full-name="John Doe Junior The Third"
 				description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, quas."
 			/>
 		</div>
-		<DbBaseDivider />
+		<DbDivider />
 		{{ checkboxValue }}
 		<DbCheckbox
 			v-model="checkboxValue"
@@ -50,7 +50,7 @@ const alertMessage = (message) => {
 			Remember me
 			<template #description>Save my login details for next time.</template>
 		</DbCheckbox>
-		<DbBaseDivider />
+		<DbDivider />
 		{{ checkboxGroupValue }}
 		<DbCheckbox
 			v-model="checkboxGroupValue"
@@ -77,7 +77,7 @@ const alertMessage = (message) => {
 			v-model="checkboxGroupValue"
 			value="4"
 		/>
-		<DbBaseDivider />
+		<DbDivider />
 		{{ chips }}
 		<div>
 			<DbChip
@@ -113,11 +113,11 @@ const alertMessage = (message) => {
 			</DbChip>
 		</div>
 
-		<DbBaseDivider />
+		<DbDivider />
 		{{ isStepChipCurrent }}
 		<DbCheckbox v-model="isStepChipCurrent" />
 
-		<DbBaseDivider />
+		<DbDivider />
 		<DbStepChip
 			:is-current="isStepChipCurrent"
 			@click:close="alertMessage('close step chip 1')"
@@ -141,7 +141,7 @@ const alertMessage = (message) => {
 			<template #number> 3 </template>
 			step 3
 		</DbStepChip>
-		<DbBaseDivider />
+		<DbDivider />
 		{{ switches }}
 		<DbSwitch
 			v-model="switches"
@@ -161,7 +161,7 @@ const alertMessage = (message) => {
 			disabled
 			value="switch 4"
 		/>
-		<DbBaseDivider />
+		<DbDivider />
 		<div style="max-inline-size: 400px">
 			<input
 				v-model="progress"
@@ -187,7 +187,7 @@ const alertMessage = (message) => {
 				<template #label> <code>#c344ff</code> color </template>
 			</DbProgress>
 		</div>
-		<DbBaseDivider />
+		<DbDivider />
 		<input v-model="tooltipName" />
 		<DbTooltip>
 			<template #trigger> hover me </template>
