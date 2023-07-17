@@ -4,9 +4,8 @@ import { computed, useSlots } from 'vue';
 import { useColors } from '../composables';
 
 import DbBadgeCounter from './DbBadgeCounter.vue';
+import DbProgressCircular from './DbProgressCircular.vue';
 
-const SVG_SIZE = 100;
-const SVG_CIRCLE_PERIMETER = Math.PI * SVG_SIZE;
 const ICON_SIZE_COEFFICIENT = 0.45;
 
 const props = defineProps({
@@ -44,7 +43,6 @@ const { colors } = useColors(() => props.color);
 const slots = useSlots();
 
 const hasBadgeSlot = computed(() => Boolean(slots.badge));
-const progressDasharray = computed(() => `${SVG_CIRCLE_PERIMETER * props.progress} ${SVG_CIRCLE_PERIMETER}`);
 const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIENT})`);
 </script>
 
@@ -61,18 +59,12 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 				v-else
 				name="icon"
 			/>
-			<svg
+			<DbProgressCircular
 				v-if="props.progress"
 				class="avatar__progress"
-				viewBox="-5 -5 110 110"
-				xmlns="http://www.w3.org/2000/svg"
-			>
-				<circle
-					cx="50"
-					cy="50"
-					r="50"
-				/>
-			</svg>
+				:value="props.progress"
+				:size="props.size"
+			/>
 		</div>
 		<div class="avatar__badge-wrapper">
 			<DbBadgeCounter
@@ -99,7 +91,7 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 		border-radius: 50%;
 		background-color: v-bind('colors.background');
 		block-size: 100%;
-		font-size: v-bind('iconFontSize');
+		font-size: v-bind(iconFontSize);
 		inline-size: 100%;
 		place-items: center;
 	}
@@ -111,20 +103,6 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 		object-fit: cover;
 	}
 
-	&__progress {
-		position: absolute;
-		aspect-ratio: 1 / 1;
-		fill: none;
-		inline-size: 100%;
-		inset: 0;
-		stroke: currentColor;
-		stroke-dasharray: v-bind(progressDasharray);
-		stroke-linecap: round;
-		stroke-width: 10;
-		transform: rotate(-90deg);
-		transition: stroke-dasharray 0.6s ease;
-	}
-
 	&__badge-wrapper {
 		&:empty {
 			display: none;
@@ -132,6 +110,10 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 		position: absolute;
 		inset-block-end: 0;
 		inset-inline-end: 0;
+	}
+
+	&:deep(.progress-circular) {
+		position: absolute;
 	}
 }
 </style>
