@@ -1,4 +1,4 @@
-import { SIZE_SM, SIZE_MD, SIZE_LG } from '../sizes';
+import { SIZE_SM, SIZE_MD } from '../sizes';
 import { TYPE_TONAL, TYPE_SOLID, TYPE_OUTLINE, TYPE_TEXT } from '../types';
 
 export const BUTTON = {
@@ -11,6 +11,5 @@ export const BUTTON = {
 	SIZES: new Map([
 		['small', SIZE_SM],
 		['medium', SIZE_MD],
-		['large', SIZE_LG],
 	]),
 };

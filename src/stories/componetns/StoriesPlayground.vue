@@ -21,6 +21,7 @@ const chips = ref([]);
 const switches = ref(['switch 4']);
 
 const isStepChipCurrent = ref(false);
+const isButtonsLoading = ref(false);
 
 const progress = ref(0.5);
 
@@ -202,24 +203,32 @@ const alertMessage = (message) => {
 		<DbDivider />
 		<DbSection>
 			<h2>Buttons</h2>
+			<DbCheckbox v-model="isButtonsLoading"> isButtonsLoading </DbCheckbox>
 			<h3>Default</h3>
 			<div class="buttons-row">
-				<DbButton>
+				<DbButton :is-loading="isButtonsLoading">
 					<template #prepend> ☼ </template>
 					solid
 					<template #append> ♫ </template>
 				</DbButton>
-				<DbButton disabled>
+				<DbButton
+					:is-loading="isButtonsLoading"
+					disabled
+				>
 					<template #prepend> ☼ </template>
 					solid disabled
 					<template #append> ♫ </template>
 				</DbButton>
-				<DbButton type="tonal">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					type="tonal"
+				>
 					<template #prepend> ☼ </template>
 					tonal
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					type="tonal"
 					disabled
 				>
@@ -227,12 +236,16 @@ const alertMessage = (message) => {
 					tonal disabled
 					<template #append> ♫ </template>
 				</DbButton>
-				<DbButton type="outline">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					type="outline"
+				>
 					<template #prepend> ☼ </template>
 					outline
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					type="outline"
 					disabled
 				>
@@ -241,12 +254,16 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 
-				<DbButton type="text">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					type="text"
+				>
 					<template #prepend> ☼ </template>
 					text
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					type="text"
 					disabled
 				>
@@ -258,12 +275,16 @@ const alertMessage = (message) => {
 			<DbDivider />
 			<h3>Primary</h3>
 			<div class="buttons-row">
-				<DbButton color="primary">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					color="primary"
+				>
 					<template #prepend> ☼ </template>
 					solid
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					disabled
 				>
@@ -272,6 +293,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					type="tonal"
 				>
@@ -280,6 +302,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					type="tonal"
 					disabled
@@ -289,6 +312,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					type="outline"
 				>
@@ -297,6 +321,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					type="outline"
 					disabled
@@ -307,6 +332,7 @@ const alertMessage = (message) => {
 				</DbButton>
 
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					type="text"
 				>
@@ -315,6 +341,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="primary"
 					type="text"
 					disabled
@@ -327,12 +354,16 @@ const alertMessage = (message) => {
 			<DbDivider />
 			<h3>Accent 1</h3>
 			<div class="buttons-row">
-				<DbButton color="accent-1">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					color="accent-1"
+				>
 					<template #prepend> ☼ </template>
 					solid
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					disabled
 				>
@@ -341,6 +372,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					type="tonal"
 				>
@@ -349,6 +381,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					type="tonal"
 					disabled
@@ -358,6 +391,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					type="outline"
 				>
@@ -366,6 +400,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					type="outline"
 					disabled
@@ -376,6 +411,7 @@ const alertMessage = (message) => {
 				</DbButton>
 
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					type="text"
 				>
@@ -384,6 +420,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="accent-1"
 					type="text"
 					disabled
@@ -396,12 +433,16 @@ const alertMessage = (message) => {
 			<DbDivider />
 			<h3>#c344ff</h3>
 			<div class="buttons-row">
-				<DbButton color="#c344ff">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					color="#c344ff"
+				>
 					<template #prepend> ☼ </template>
 					solid
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					disabled
 				>
@@ -410,6 +451,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					type="tonal"
 				>
@@ -418,6 +460,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					type="tonal"
 					disabled
@@ -427,6 +470,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					type="outline"
 				>
@@ -435,6 +479,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					type="outline"
 					disabled
@@ -444,6 +489,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					type="text"
 				>
@@ -452,6 +498,7 @@ const alertMessage = (message) => {
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
+					:is-loading="isButtonsLoading"
 					color="#c344ff"
 					type="text"
 					disabled
@@ -459,6 +506,40 @@ const alertMessage = (message) => {
 					<template #prepend> ☼ </template>
 					text disabled
 					<template #append> ♫ </template>
+				</DbButton>
+			</div>
+			<h3>Icon</h3>
+			<div class="buttons-row">
+				<DbButton
+					:is-loading="isButtonsLoading"
+					:is-icon="true"
+					color="#c344ff"
+				>
+					✖
+				</DbButton>
+				<DbButton
+					:is-loading="isButtonsLoading"
+					type="tonal"
+					:is-icon="true"
+					color="#c344ff"
+				>
+					✖
+				</DbButton>
+				<DbButton
+					:is-loading="isButtonsLoading"
+					type="outline"
+					:is-icon="true"
+					color="#c344ff"
+				>
+					✖
+				</DbButton>
+				<DbButton
+					:is-loading="isButtonsLoading"
+					type="text"
+					:is-icon="true"
+					color="#c344ff"
+				>
+					✖
 				</DbButton>
 			</div>
 		</DbSection>
@@ -474,9 +555,6 @@ const alertMessage = (message) => {
 	flex-wrap: wrap;
 	align-items: center;
 	gap: 0.5rem;
-	//> * {
-	//	border: 2px red dotted;
-	//}
 }
 
 .user-info-wrapper {

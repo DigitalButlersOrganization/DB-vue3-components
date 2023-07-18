@@ -42,8 +42,66 @@ export default {
 
 export const Default = {
 	args: {
-		prepend: '♫',
 		default: 'Button',
-		append: '♫',
+	},
+};
+
+export const Tonal = {
+	args: {
+		type: BUTTON.TYPES.get('tonal'),
+		default: 'Button',
+	},
+};
+
+export const Outline = {
+	args: {
+		type: BUTTON.TYPES.get('outline'),
+		default: 'Button',
+	},
+};
+
+export const Text = {
+	args: {
+		type: BUTTON.TYPES.get('text'),
+		default: 'Button',
+	},
+};
+
+export const Icon = {
+	args: {
+		isIcon: true,
+		default: '✖',
+	},
+};
+
+export const Small = {
+	args: {
+		size: BUTTON.SIZES.get('small'),
+		default: 'Button',
+	},
+};
+
+export const Slots = {
+	args: {
+		prepend: '❤',
+		default: 'Button',
+		append: '✖',
+	},
+};
+
+export const Loading = {
+	args: {
+		prepend: '❤',
+		default: 'Button',
+		append: '✖',
+		isLoading: true,
+	},
+};
+
+export const Disabled = {
+	args: {
+		disabled: true,
+		prepend: '❤',
+		default: 'Button',
 	},
 };

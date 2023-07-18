@@ -32,6 +32,11 @@ const props = defineProps({
 		default: '',
 		required: false,
 	},
+	isIcon: {
+		type: Boolean,
+		default: false,
+		required: false,
+	},
 	isLoading: {
 		type: Boolean,
 		default: false,
@@ -66,6 +71,7 @@ const classes = computed(() => [
 	{
 		'button--loading': props.isLoading,
 		'button--fullwidth': props.isFullwidth,
+		'button--icon': props.isIcon,
 	},
 ]);
 
@@ -90,12 +96,13 @@ const { colors } = useColors(() => props.color);
 				<slot name="append" />
 			</span>
 		</div>
-
-		<DbProgressCircular
-			v-if="props.isLoading"
-			class="button__loader"
-			:is-loader="true"
-		/>
+		<Transition name="fade">
+			<DbProgressCircular
+				v-if="props.isLoading"
+				class="button__loader"
+				:is-loader="true"
+			/>
+		</Transition>
 	</component>
 </template>
 
@@ -118,27 +125,38 @@ const { colors } = useColors(() => props.color);
 		justify-content: center;
 		font-size: 1.25rem;
 		gap: 0.5rem;
+		transition: var(--db-components-transition-base);
+		transition-property: opacity;
 	}
 	&__text {
 		@include mixins.text();
 		@include mixins.text--md();
 		@include mixins.font-weight(700);
 	}
+	&__prepend,
+	&__append {
+		&:empty {
+			display: none;
+		}
+	}
 	&__loader {
 		position: absolute;
 	}
 
 	&--size-small {
-		min-block-size: 2.25rem;
-		padding-inline: 0.5rem;
+		min-block-size: 2rem;
+		padding-inline: 0.75rem;
+		.button__body {
+			font-size: 1rem;
+		}
+		.button__text {
+			@include mixins.text--sm();
+			@include mixins.font-weight(600);
+		}
 	}
 	&--size-medium {
 		min-block-size: 2.5rem;
 		padding-inline: 1rem;
-	}
-	&--size-large {
-		min-block-size: 2.75rem;
-		padding-inline: 1.25rem;
 	}
 
 	&--type-solid {
@@ -177,10 +195,12 @@ const { colors } = useColors(() => props.color);
 	&--type-text {
 		background-color: transparent;
 		color: v-bind('colors.text');
-		min-block-size: unset;
 		outline-offset: 0.25rem;
 		padding-block: 0 !important;
 		padding-inline: 0 !important;
+		&:not(.button--icon) {
+			min-block-size: unset;
+		}
 		&:hover {
 			color: v-bind('colors.textHover');
 		}
@@ -196,6 +216,11 @@ const { colors } = useColors(() => props.color);
 		.button__body {
 			opacity: 0;
 		}
+	}
+	&--icon {
+		aspect-ratio: 1/1;
+		padding-block: 0;
+		padding-inline: 0;
 	}
 
 	&:focus-visible {
