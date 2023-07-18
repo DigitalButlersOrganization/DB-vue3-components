@@ -63,14 +63,14 @@
 
 @keyframes focus-in {
 	0% {
-		outline-offset: -0.25rem;
+		outline-width: 0;
 	}
 	100% {
-		outline-offset: 0;
+		outline-width: max(0.25rem, 4px);
 	}
 }
 
 @mixin focus-state() {
 	animation: focus-in 0.3s backwards;
-	outline: 0.25rem var(--db-components-color-tertiary) solid;
+	outline: var(--db-components-color-tertiary) solid max(0.25rem, 4px);
 }

@@ -5,6 +5,7 @@
 
 	--db-components-color-text-primary: hsl(213, 28%, 17%);
 	--db-components-color-text-secondary: hsl(218, 8%, 46%);
+	--db-components-color-text-tertiary: hsl(213, 11%, 84%);
 
 	--db-components-color-background-primary: hsl(0, 0%, 100%);
 	--db-components-color-background-secondary: hsl(210, 20%, 98%);
@@ -17,6 +18,7 @@
 	--db-components-color-success-50: hsl(145, 81%, 96%);
 
 	--db-components-color-warning-700: hsl(22, 92%, 37%);
+	--db-components-color-warning-500: hsl(32, 98%, 50%);
 	--db-components-color-warning-300: hsl(42, 99%, 65%);
 	--db-components-color-warning-100: hsl(45, 96%, 89%);
 	--db-components-color-warning-50: hsl(45, 100%, 96%);
@@ -29,30 +31,47 @@
 	--db-components-color-error-50: hsl(5, 86%, 97%);
 	--db-components-color-error-25: hsl(12, 100%, 99%);
 
-	--db-components-color-accent-1-text: hsl(152, 82%, 39%);
-	--db-components-color-accent-1-hover: hsl(148, 58%, 52%);
-	--db-components-color-accent-1-disabled: hsl(142, 70%, 80%);
-	--db-components-color-accent-1-background: hsl(145, 81%, 96%);
+	--db-components-color-palette-primary-text: var(--db-components-color-primary);
+	--db-components-color-palette-primary-text-hover: var(--db-components-color-text-primary);
+	--db-components-color-palette-primary-text-disabled: var(--db-components-color-tertiary);
+	--db-components-color-palette-primary-background: var(--db-components-color-background-secondary);
+	--db-components-color-palette-primary-background-hover: var(--db-components-color-background-tertiary);
+	--db-components-color-palette-primary-outline: var(--db-components-color-tertiary);
 
-	--db-components-color-success-text: var(--db-components-color-success-700);
-	--db-components-color-success-hover: var(--db-components-color-success-500);
-	--db-components-color-success-disabled: var(--db-components-color-success-300);
-	--db-components-color-success-background: var(--db-components-color-success-50);
+	--db-components-color-palette-accent-1-text: hsl(152, 82%, 39%);
+	--db-components-color-palette-accent-1-text-hover: hsl(148, 58%, 52%);
+	--db-components-color-palette-accent-1-text-disabled: hsl(142, 70%, 80%);
+	--db-components-color-palette-accent-1-background: hsl(145, 81%, 96%);
+	--db-components-color-palette-accent-1-background-hover: hsl(140, 80%, 90%);
+	--db-components-color-palette-accent-1-outline: var(--db-components-color-palette-accent-1-text-disabled);
 
-	--db-components-color-warning-text: var(--db-components-color-warning-700);
-	--db-components-color-warning-hover: var(--db-components-color-warning-300);
-	--db-components-color-warning-disabled: var(--db-components-color-warning-100);
-	--db-components-color-warning-background: var(--db-components-color-warning-50);
+	--db-components-color-palette-success-text: var(--db-components-color-success-700);
+	--db-components-color-palette-success-text-hover: var(--db-components-color-success-500);
+	--db-components-color-palette-success-text-disabled: var(--db-components-color-success-300);
+	--db-components-color-palette-success-background: var(--db-components-color-success-50);
+	--db-components-color-palette-success-background-hover: var(--db-components-color-success-100);
+	--db-components-color-palette-success-outline: var(--db-components-color-success-300);
 
-	--db-components-color-error-text: var(--db-components-color-error-700);
-	--db-components-color-error-hover: var(--db-components-color-error-500);
-	--db-components-color-error-disabled: var(--db-components-color-error-300);
-	--db-components-color-error-background: var(--db-components-color-error-50);
+	--db-components-color-palette-warning-text: var(--db-components-color-warning-700);
+	--db-components-color-palette-warning-text-hover: var(--db-components-color-warning-500);
+	--db-components-color-palette-warning-text-disabled: var(--db-components-color-warning-300);
+	--db-components-color-palette-warning-background: var(--db-components-color-warning-50);
+	--db-components-color-palette-warning-background-hover: var(--db-components-color-warning-100);
+	--db-components-color-palette-warning-outline: var(--db-components-color-warning-300);
 
-	--db-components-color-fallback-text: var(--db-components-color-text-secondary);
-	--db-components-color-fallback-hover: var(--db-components-color-secondary);
-	--db-components-color-fallback-disabled: var(--db-components-color-tertiary);
-	--db-components-color-fallback-background: var(--db-components-color-background-tertiary);
+	--db-components-color-palette-error-text: var(--db-components-color-error-700);
+	--db-components-color-palette-error-text-hover: var(--db-components-color-error-500);
+	--db-components-color-palette-error-text-disabled: var(--db-components-color-error-300);
+	--db-components-color-palette-error-background: var(--db-components-color-error-50);
+	--db-components-color-palette-error-background-hover: var(--db-components-color-error-100);
+	--db-components-color-palette-error-outline: var(--db-components-color-error-300);
+
+	--db-components-color-palette-fallback-text: var(--db-components-color-text-secondary);
+	--db-components-color-palette-fallback-text-hover: var(--db-components-color-secondary);
+	--db-components-color-palette-fallback-text-disabled: var(--db-components-color-tertiary);
+	--db-components-color-palette-fallback-background: var(--db-components-color-background-secondary);
+	--db-components-color-palette-fallback-background-hover: var(--db-components-color-background-tertiary);
+	--db-components-color-palette-fallback-outline: var(--db-components-color-tertiary);
 
 	// Transition
 	--db-components-transition-duration-base: 0.3s;

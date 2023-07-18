@@ -2,10 +2,13 @@
 import { ref } from 'vue';
 
 import DbAvatar from '../../components/DbAvatar.vue';
-import DbDivider from '../../components/DbDivider.vue';
+import DbButton from '../../components/DbButton.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
+import DbDivider from '../../components/DbDivider.vue';
 import DbProgress from '../../components/DbProgress.vue';
+import DbProgressCircular from '../../components/DbProgressCircular.vue';
+import DbSection from '../../components/DbSection.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
 import DbTooltip from '../../components/DbTooltip.vue';
@@ -196,12 +199,284 @@ const alertMessage = (message) => {
 				description="Another lorem ipsum"
 			/>
 		</DbTooltip>
+		<DbDivider />
+		<DbSection>
+			<h2>Buttons</h2>
+			<h3>Default</h3>
+			<div class="buttons-row">
+				<DbButton>
+					<template #prepend> ☼ </template>
+					solid
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton disabled>
+					<template #prepend> ☼ </template>
+					solid disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton type="toned">
+					<template #prepend> ☼ </template>
+					toned
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					type="toned"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					toned disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton type="outline">
+					<template #prepend> ☼ </template>
+					outline
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					type="outline"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					outline disabled
+					<template #append> ♫ </template>
+				</DbButton>
+
+				<DbButton type="text">
+					<template #prepend> ☼ </template>
+					text
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					type="text"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					text disabled
+					<template #append> ♫ </template>
+				</DbButton>
+			</div>
+			<DbDivider />
+			<h3>Primary</h3>
+			<div class="buttons-row">
+				<DbButton color="primary">
+					<template #prepend> ☼ </template>
+					solid
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="primary"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					solid disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="primary"
+					type="toned"
+				>
+					<template #prepend> ☼ </template>
+					toned
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="primary"
+					type="toned"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					toned disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="primary"
+					type="outline"
+				>
+					<template #prepend> ☼ </template>
+					outline
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="primary"
+					type="outline"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					outline disabled
+					<template #append> ♫ </template>
+				</DbButton>
+
+				<DbButton
+					color="primary"
+					type="text"
+				>
+					<template #prepend> ☼ </template>
+					text
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="primary"
+					type="text"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					text disabled
+					<template #append> ♫ </template>
+				</DbButton>
+			</div>
+			<DbDivider />
+			<h3>Accent 1</h3>
+			<div class="buttons-row">
+				<DbButton color="accent-1">
+					<template #prepend> ☼ </template>
+					solid
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="accent-1"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					solid disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="accent-1"
+					type="toned"
+				>
+					<template #prepend> ☼ </template>
+					toned
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="accent-1"
+					type="toned"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					toned disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="accent-1"
+					type="outline"
+				>
+					<template #prepend> ☼ </template>
+					outline
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="accent-1"
+					type="outline"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					outline disabled
+					<template #append> ♫ </template>
+				</DbButton>
+
+				<DbButton
+					color="accent-1"
+					type="text"
+				>
+					<template #prepend> ☼ </template>
+					text
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="accent-1"
+					type="text"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					text disabled
+					<template #append> ♫ </template>
+				</DbButton>
+			</div>
+			<DbDivider />
+			<h3>#c344ff</h3>
+			<div class="buttons-row">
+				<DbButton color="#c344ff">
+					<template #prepend> ☼ </template>
+					solid
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					solid disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					type="toned"
+				>
+					<template #prepend> ☼ </template>
+					toned
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					type="toned"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					toned disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					type="outline"
+				>
+					<template #prepend> ☼ </template>
+					outline
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					type="outline"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					outline disabled
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					type="text"
+				>
+					<template #prepend> ☼ </template>
+					text
+					<template #append> ♫ </template>
+				</DbButton>
+				<DbButton
+					color="#c344ff"
+					type="text"
+					disabled
+				>
+					<template #prepend> ☼ </template>
+					text disabled
+					<template #append> ♫ </template>
+				</DbButton>
+			</div>
+		</DbSection>
 	</div>
 </template>
 
 <style lang="scss" scoped>
 .playground :deep(.divider) {
 	margin-block: 1rem !important;
+}
+.buttons-row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	//> * {
+	//	border: 2px red dotted;
+	//}
 }
 
 .user-info-wrapper {

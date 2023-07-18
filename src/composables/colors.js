@@ -1,10 +1,14 @@
 import { computed, toValue } from 'vue';
 
+import { toKebabCase } from '../utilities';
+
 const MIX_PERCENTS = new Map([
 	['text', 100],
-	['hover', 70],
-	['disabled', 50],
-	['background', 10],
+	['textHover', 80],
+	['textDisabled', 50],
+	['background', 7],
+	['backgroundHover', 15],
+	['outline', 50],
 ]);
 
 export const useColors = (name, options) => {
@@ -16,9 +20,9 @@ export const useColors = (name, options) => {
 			? `color-mix(in srgb, ${toValue(name)} ${MIX_PERCENTS.get(
 					postfix
 			  )}%, var(--db-components-color-background-primary))`
-			: `var(--${prefix}-color-${toValue(name)}-${postfix}, var(--db-components-color-${toValue(
+			: `var(--${prefix}-color-${toValue(name)}-${toKebabCase(postfix)}, var(--db-components-color-palette-${toValue(
 					name
-			  )}-${postfix}, var(--db-components-color-fallback-${postfix})))`;
+			  )}-${toKebabCase(postfix)}, var(--db-components-color-palette-fallback-${toKebabCase(postfix)})))`;
 
 	const colors = computed(() =>
 		postfixes.reduce((accumulator, postfix) => {
