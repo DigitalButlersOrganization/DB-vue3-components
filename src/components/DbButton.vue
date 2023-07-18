@@ -7,7 +7,7 @@ import { BUTTON } from '../constants';
 import DbProgressCircular from './DbProgressCircular.vue';
 
 const props = defineProps({
-	is: {
+	tag: {
 		type: Object,
 		default: null,
 		required: false,
@@ -49,12 +49,7 @@ const props = defineProps({
 	},
 });
 
-const tag = computed(() => {
-	if (props.is) {
-		return props.is;
-	}
-	return props.to ? 'a' : 'button';
-});
+const tag = computed(() => (props.tag || props.to ? 'a' : 'button'));
 const attrs = computed(() => {
 	const isLink = props.to;
 	const isCustomComponent = props.is;
