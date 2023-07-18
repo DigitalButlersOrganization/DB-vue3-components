@@ -151,7 +151,7 @@ const { colors } = useColors(() => props.color);
 			background-color: v-bind('colors.textDisabled');
 		}
 	}
-	&--type-toned {
+	&--type-tonal {
 		background-color: v-bind('colors.background');
 		color: v-bind('colors.text');
 		&:hover {

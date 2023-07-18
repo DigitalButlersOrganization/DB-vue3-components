@@ -214,17 +214,17 @@ const alertMessage = (message) => {
 					solid disabled
 					<template #append> ♫ </template>
 				</DbButton>
-				<DbButton type="toned">
+				<DbButton type="tonal">
 					<template #prepend> ☼ </template>
-					toned
+					tonal
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
-					type="toned"
+					type="tonal"
 					disabled
 				>
 					<template #prepend> ☼ </template>
-					toned disabled
+					tonal disabled
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton type="outline">
@@ -273,19 +273,19 @@ const alertMessage = (message) => {
 				</DbButton>
 				<DbButton
 					color="primary"
-					type="toned"
+					type="tonal"
 				>
 					<template #prepend> ☼ </template>
-					toned
+					tonal
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
 					color="primary"
-					type="toned"
+					type="tonal"
 					disabled
 				>
 					<template #prepend> ☼ </template>
-					toned disabled
+					tonal disabled
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
@@ -342,19 +342,19 @@ const alertMessage = (message) => {
 				</DbButton>
 				<DbButton
 					color="accent-1"
-					type="toned"
+					type="tonal"
 				>
 					<template #prepend> ☼ </template>
-					toned
+					tonal
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
 					color="accent-1"
-					type="toned"
+					type="tonal"
 					disabled
 				>
 					<template #prepend> ☼ </template>
-					toned disabled
+					tonal disabled
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
@@ -411,19 +411,19 @@ const alertMessage = (message) => {
 				</DbButton>
 				<DbButton
 					color="#c344ff"
-					type="toned"
+					type="tonal"
 				>
 					<template #prepend> ☼ </template>
-					toned
+					tonal
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
 					color="#c344ff"
-					type="toned"
+					type="tonal"
 					disabled
 				>
 					<template #prepend> ☼ </template>
-					toned disabled
+					tonal disabled
 					<template #append> ♫ </template>
 				</DbButton>
 				<DbButton
