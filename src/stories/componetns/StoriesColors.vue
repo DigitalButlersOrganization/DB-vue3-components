@@ -9,8 +9,61 @@ const colorGroups = new Map([
 	['Success', ['success-700', 'success-500', 'success-300', 'success-100', 'success-50']],
 	['Warning', ['warning-700', 'warning-300', 'warning-100', 'warning-50', 'warning-25']],
 	['Error', ['error-700', 'error-500', 'error-300', 'error-100', 'error-50', 'error-25']],
-	['Accent 1', ['accent-1-text', 'accent-1-hover', 'accent-1-disabled', 'accent-1-background']],
-	['Fallback', ['fallback-text', 'fallback-hover', 'fallback-disabled', 'fallback-background']],
+	[
+		'Accent 1 palette',
+		[
+			'palette-accent-1-text',
+			'palette-accent-1-text-hover',
+			'palette-accent-1-text-disabled',
+			'palette-accent-1-background',
+			'palette-accent-1-background-hover',
+			'palette-accent-1-outline',
+		],
+	],
+	[
+		'Success palette',
+		[
+			'palette-success-text',
+			'palette-success-text-hover',
+			'palette-success-text-disabled',
+			'palette-success-background',
+			'palette-success-background-hover',
+			'palette-success-outline',
+		],
+	],
+	[
+		'Warning palette',
+		[
+			'palette-warning-text',
+			'palette-warning-text-hover',
+			'palette-warning-text-disabled',
+			'palette-warning-background',
+			'palette-warning-background-hover',
+			'palette-warning-outline',
+		],
+	],
+	[
+		'Error palette',
+		[
+			'palette-error-text',
+			'palette-error-text-hover',
+			'palette-error-text-disabled',
+			'palette-error-background',
+			'palette-error-background-hover',
+			'palette-error-outline',
+		],
+	],
+	[
+		'Fallback palette',
+		[
+			'palette-fallback-text',
+			'palette-fallback-text-hover',
+			'palette-fallback-text-disabled',
+			'palette-fallback-background',
+			'palette-fallback-background-hover',
+			'palette-fallback-outline',
+		],
+	],
 ]);
 
 const generateColorName = (name) => `--db-components-color-${name}`;
@@ -69,7 +122,7 @@ ul {
 .color-card {
 	overflow: hidden;
 	border-radius: var(--db-components-border-radius-md);
-	box-shadow: 0 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
+	box-shadow: var(--db-components-shadow-lg);
 	inline-size: 15rem;
 	&__color {
 		display: block;
