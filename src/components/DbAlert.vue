@@ -29,7 +29,7 @@ const { colors } = useColors(() => props.color);
 .alert {
 	display: flex;
 	flex-direction: column;
-	border: 1px solid v-bind('colors.hover');
+	border: 1px solid v-bind('colors.outline');
 	border-radius: 0.75rem;
 	background-color: v-bind('colors.background');
 	color: v-bind('colors.text');
