@@ -107,7 +107,7 @@ const { colors } = useColors(() => props.color);
 .button {
 	display: inline-grid;
 	border: none;
-	border-radius: 0.75rem;
+	border-radius: var(--db-components-border-radius-lg);
 	padding-block: 0.5rem;
 	place-items: center;
 	text-decoration: none;

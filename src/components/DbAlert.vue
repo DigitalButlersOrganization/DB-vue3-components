@@ -30,7 +30,7 @@ const { colors } = useColors(() => props.color);
 	display: flex;
 	flex-direction: column;
 	border: 1px solid v-bind('colors.outline');
-	border-radius: 0.75rem;
+	border-radius: var(--db-components-border-radius-lg);
 	background-color: v-bind('colors.background');
 	color: v-bind('colors.text');
 	gap: 0.75rem;

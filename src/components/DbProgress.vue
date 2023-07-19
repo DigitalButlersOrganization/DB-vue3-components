@@ -49,7 +49,7 @@ const { colors } = props.color
 .progress {
 	&__bar {
 		border: none;
-		border-radius: 100vmax;
+		border-radius: var(--db-components-border-radius-pill);
 		accent-color: currentColor;
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -60,17 +60,17 @@ const { colors } = props.color
 		inline-size: 100%;
 
 		&::-moz-progress-bar {
-			border-radius: 100vmax;
+			border-radius: var(--db-components-border-radius-pill);
 			background-color: currentColor;
 		}
 
 		&::-webkit-progress-value {
-			border-radius: 100vmax;
+			border-radius: var(--db-components-border-radius-pill);
 			background-color: currentColor;
 		}
 
 		&::-webkit-progress-bar {
-			border-radius: 100vmax;
+			border-radius: var(--db-components-border-radius-pill);
 			background-color: v-bind('colors.background');
 		}
 	}

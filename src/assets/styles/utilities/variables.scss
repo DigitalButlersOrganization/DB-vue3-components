@@ -79,8 +79,18 @@
 	--db-components-transition-base: var(--db-components-transition-duration-base)
 		var(--db-components-transition-timing-function-base);
 
+	// Shadow
 	--db-components-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.09);
 	--db-components-shadow-lg: 0 12px 16px -4px oklch(0.2 0.036 264 / 0.08);
+
+	// Border
+	--db-components-border-radius-xs: 0.125rem;
+	--db-components-border-radius-sm: 0.25rem;
+	--db-components-border-radius-md: 0.5rem;
+	--db-components-border-radius-lg: 0.75rem;
+	//--db-components-border-radius-xl: X rem;
+	--db-components-border-radius-pill: 100vmax;
+	--db-components-border-radius-ellipse: 50%;
 
 	// App
 	--db-components-typography-font-family: 'Manrope', sans-serif;

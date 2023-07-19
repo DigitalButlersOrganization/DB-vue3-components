@@ -57,7 +57,7 @@ const isIconVisible = computed(() => props.type !== BADGE_ANALYTICS.TYPES[0]);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 100vmax;
+	border-radius: var(--db-components-border-radius-pill);
 	background-color: v-bind('colors.background');
 	color: v-bind('colors.text');
 	gap: 0.1875rem;

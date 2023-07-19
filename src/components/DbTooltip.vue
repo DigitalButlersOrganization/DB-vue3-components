@@ -70,7 +70,7 @@ onUpdated(() => {
 		@include mixins.text();
 		@include mixins.text--xs();
 		@include mixins.font-weight(600);
-		border-radius: 0.5rem;
+		border-radius: var(--db-components-border-radius-md);
 		background-color: var(--db-components-color-background-primary);
 		box-shadow: var(--db-components-shadow-lg);
 		color: var(--db-components-color-text-primary);

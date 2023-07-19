@@ -42,7 +42,7 @@ const currentColors = computed(() => {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 100vmax;
+	border-radius: var(--db-components-border-radius-pill);
 	background-color: v-bind('currentColors.background');
 	box-shadow: 0 0 0 2px var(--db-components-color-background-primary);
 	color: v-bind('currentColors.text');

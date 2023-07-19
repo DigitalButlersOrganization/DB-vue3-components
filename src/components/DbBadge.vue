@@ -45,7 +45,7 @@ const classes = computed(() => [`badge--size-${props.size}`]);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: 100vmax;
+	border-radius: var(--db-components-border-radius-pill);
 	background-color: v-bind('colors.background');
 	color: v-bind('colors.text');
 	gap: 0.25rem;

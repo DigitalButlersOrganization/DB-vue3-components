@@ -91,7 +91,7 @@ const { isChecked, handleChange } = useCheckboxModel(props, emit);
 
 	&__box {
 		display: grid;
-		border-radius: 0.25em;
+		border-radius: var(--db-components-border-radius-sm);
 		background-color: var(--db-components-checkbox-color-background-default);
 		block-size: 1rem;
 		box-shadow: 0 0 0 1px inset var(--db-components-checkbox-color-outline-default);

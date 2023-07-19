@@ -68,7 +68,7 @@ ul {
 }
 .color-card {
 	overflow: hidden;
-	border-radius: 0.5rem;
+	border-radius: var(--db-components-border-radius-md);
 	box-shadow: 0 4px 6px -2px rgba(16, 24, 40, 0.03), 0px 12px 16px -4px rgba(16, 24, 40, 0.08);
 	inline-size: 15rem;
 	&__color {

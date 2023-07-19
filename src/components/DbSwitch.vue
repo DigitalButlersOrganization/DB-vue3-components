@@ -59,7 +59,7 @@ $switch-inline-size: 2.25em;
 		position: relative;
 		display: inline-flex;
 		align-items: center;
-		border-radius: 100vmax;
+		border-radius: var(--db-components-border-radius-pill);
 		background-color: var(--db-components-switch-color-background-default);
 		block-size: 1.25em;
 		font-size: 1rem;
@@ -68,7 +68,7 @@ $switch-inline-size: 2.25em;
 		transition-property: background-color;
 		&::before {
 			position: absolute;
-			border-radius: 50%;
+			border-radius: var(--db-components-border-radius-ellipse);
 			background-color: var(--db-components-switch-color-icon-default);
 			block-size: 1em;
 			box-shadow: var(--db-components-shadow-xs);

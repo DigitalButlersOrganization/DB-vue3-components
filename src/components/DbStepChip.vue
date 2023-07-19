@@ -61,7 +61,7 @@ const classes = computed(() => [props.isCurrent && 'step-chip--current', props.i
 		@include mixins.font-weight(700);
 
 		display: grid;
-		border-radius: 50%;
+		border-radius: var(--db-components-border-radius-ellipse);
 		aspect-ratio: 1/1;
 		background-color: var(--db-components-color-background-primary);
 		box-shadow: 0 0 0 1px var(--db-components-color-tertiary);

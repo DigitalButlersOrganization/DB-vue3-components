@@ -88,7 +88,7 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 	&__body {
 		display: grid;
 		overflow: hidden;
-		border-radius: 50%;
+		border-radius: var(--db-components-border-radius-ellipse);
 		background-color: v-bind('colors.background');
 		block-size: 100%;
 		font-size: v-bind(iconFontSize);
