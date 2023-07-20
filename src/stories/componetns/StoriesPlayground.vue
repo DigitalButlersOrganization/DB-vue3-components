@@ -1,11 +1,14 @@
 <script setup>
 import { ref } from 'vue';
 
+import DbAppNotification from '../../components/DbAppNotification.vue';
 import DbAvatar from '../../components/DbAvatar.vue';
 import DbButton from '../../components/DbButton.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
+import DbContainer from '../../components/DbContainer.vue';
 import DbDivider from '../../components/DbDivider.vue';
+import DbNotification from '../../components/DbNotification.vue';
 import DbProgress from '../../components/DbProgress.vue';
 import DbProgressCircular from '../../components/DbProgressCircular.vue';
 import DbSection from '../../components/DbSection.vue';
@@ -542,6 +545,40 @@ const alertMessage = (message) => {
 					✖
 				</DbButton>
 			</div>
+		</DbSection>
+		<DbSection>
+			<DbContainer>
+				<DbNotification>
+					<template #avatar>
+						<DbAvatar src="https://picsum.photos/200" />
+					</template>
+					<template #header> Header text </template>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.
+					<template #footer>
+						<DbButton
+							type="text"
+							size="small"
+							color="primary"
+						>
+							Footer button
+						</DbButton>
+					</template>
+				</DbNotification>
+				<DbDivider />
+				<DbAppNotification
+					:is-dismissible="true"
+					:is-detailed="true"
+					@click:close="alertMessage('close app notification')"
+					@click:dismiss="alertMessage('dismiss app notification')"
+					@click:show-more="alertMessage('show more app notification')"
+				>
+					<template #avatar>
+						<DbAvatar src="https://picsum.photos/200" />
+					</template>
+					<template #header> App notification header </template>
+					App notification body
+				</DbAppNotification>
+			</DbContainer>
 		</DbSection>
 	</div>
 </template>
