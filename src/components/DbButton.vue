@@ -218,6 +218,10 @@ const { colors } = useColors(() => props.color);
 		padding-inline: 0;
 	}
 
+	&:not(:disabled, .button--loading) {
+		cursor: pointer;
+	}
+
 	&:focus-visible {
 		@include mixins.focus-state();
 		outline-color: v-bind('colors.outline');

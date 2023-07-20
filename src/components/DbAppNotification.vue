@@ -77,6 +77,8 @@ const handleShowMoreClick = () => emit('click:show-more');
 
 .app-notification {
 	align-items: start;
+	border: 1px solid var(--db-components-color-background-tertiary);
+	box-shadow: var(--db-components-shadow-lg);
 	padding-inline-end: 3.5rem;
 
 	&__actions {

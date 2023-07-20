@@ -39,6 +39,7 @@ const props = defineProps({
 	align-content: center;
 	align-items: center;
 	border-radius: var(--db-components-border-radius-lg);
+	background-color: var(--db-components-color-background-primary);
 	color: var(--db-components-color-text-secondary);
 	column-gap: 1rem;
 	grid-auto-columns: max-content 1fr;

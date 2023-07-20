@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 
 import DbAppNotification from '../../components/DbAppNotification.vue';
+import DbAppNotificationsGroup from '../../components/DbAppNotificationsGroup.vue';
 import DbAvatar from '../../components/DbAvatar.vue';
 import DbButton from '../../components/DbButton.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
@@ -10,7 +11,6 @@ import DbContainer from '../../components/DbContainer.vue';
 import DbDivider from '../../components/DbDivider.vue';
 import DbNotification from '../../components/DbNotification.vue';
 import DbProgress from '../../components/DbProgress.vue';
-import DbProgressCircular from '../../components/DbProgressCircular.vue';
 import DbSection from '../../components/DbSection.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
@@ -33,9 +33,50 @@ const tooltipName = ref('Lorem ipsum');
 const alertMessage = (message) => {
 	alert(message);
 };
+
+const appNotifications = ref([
+	{
+		id: 1,
+		heading: 'Notification heading 1',
+		body: 'Notification body',
+		isDismissible: true,
+	},
+	{
+		id: 2,
+		heading: 'Notification heading 2',
+		body: 'Notification body',
+		isDismissible: true,
+		isDetailed: true,
+	},
+	{
+		id: 3,
+		heading: 'Notification heading 3',
+		body: 'Notification body',
+	},
+]);
+
+const addNotification = () => {
+	appNotifications.value.push({
+		id: appNotifications.value.length + 1,
+		heading: `Notification heading ${appNotifications.value.length + 1}`,
+		body: 'Notification body',
+		isDismissible: Math.random() > 0.5,
+		isDetailed: Math.random() > 0.5,
+	});
+};
 </script>
 
 <template>
+	<DbSection>
+		<DbContainer>
+			<DbButton
+				color="primary"
+				@click="addNotification"
+			>
+				Add notification
+			</DbButton>
+		</DbContainer>
+	</DbSection>
 	<div class="playground">
 		<DbAvatar>
 			<template #icon> icon </template>
@@ -581,6 +622,7 @@ const alertMessage = (message) => {
 			</DbContainer>
 		</DbSection>
 	</div>
+	<DbAppNotificationsGroup :items="appNotifications" />
 </template>
 
 <style lang="scss" scoped>
