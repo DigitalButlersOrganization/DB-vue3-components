@@ -33,7 +33,9 @@ const tooltipName = ref('Lorem ipsum');
 const alertMessage = (message) => {
 	alert(message);
 };
-
+const logMessage = (message) => {
+	console.log(message);
+};
 const appNotifications = ref([
 	{
 		id: 1,
@@ -622,7 +624,12 @@ const addNotification = () => {
 			</DbContainer>
 		</DbSection>
 	</div>
-	<DbAppNotificationsGroup :items="appNotifications" />
+	<DbAppNotificationsGroup
+		:items="appNotifications"
+		@click:close="(id) => logMessage(`App notification close ${id}`)"
+		@click:dismiss="(id) => logMessage(`App notification dismiss ${id}`)"
+		@click:show-more="(id) => logMessage(`App notification show more ${id}`)"
+	/>
 </template>
 
 <style lang="scss" scoped>

@@ -25,9 +25,19 @@ const hiddenItemsIds = ref([]);
 const visibleItems = computed(() =>
 	props.items.filter((item) => !hiddenItemsIds.value.includes(item.id)).slice(0, props.maxVisibleItems)
 );
+const emit = defineEmits(['click:dismiss', 'click:close', 'click:show-more']);
 
 const handleNotificationCloseClick = (id) => {
 	hiddenItemsIds.value.push(id);
+	emit('click:close', id);
+};
+const handleNotificationDismissClick = (id) => {
+	hiddenItemsIds.value.push(id);
+	emit('click:dismiss', id);
+};
+
+const handleNotificationShowMoreClick = (id) => {
+	emit('click:show-more', id);
 };
 </script>
 
@@ -43,6 +53,8 @@ const handleNotificationCloseClick = (id) => {
 			:is-detailed="item.isDetailed"
 			:is-dismissible="item.isDismissible"
 			@click:close="handleNotificationCloseClick(item.id)"
+			@click:dismiss="handleNotificationDismissClick(item.id)"
+			@click:show-more="handleNotificationShowMoreClick(item.id)"
 		>
 			<template #avatar>
 				<DbAvatar color="accent-1">
@@ -60,6 +72,7 @@ const handleNotificationCloseClick = (id) => {
 <style scoped lang="scss">
 .app-notifications-group {
 	position: fixed;
+	z-index: var(--db-components-z-index-notifications);
 	display: flex;
 	flex-direction: column;
 	padding: 0;
