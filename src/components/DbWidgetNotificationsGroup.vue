@@ -2,6 +2,8 @@
 import { computed, ref } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 
+import { generateIconPath } from '../utilities';
+
 import DbAvatar from './DbAvatar.vue';
 import DbWidgetNotification from './DbWidgetNotification.vue';
 
@@ -29,8 +31,6 @@ const handleNotificationCloseClick = (id) => {
 const handleNotificationShowMoreClick = (id) => {
 	emit('click:show-more', id);
 };
-
-const generateIconPath = (name) => `icons/${name}.svg`;
 </script>
 
 <template>
@@ -73,6 +73,12 @@ const generateIconPath = (name) => `icons/${name}.svg`;
 									:src="generateIconPath(item.icon)"
 									:title="item.icon"
 								/>
+							</template>
+							<template
+								v-if="item.badge"
+								#badge
+							>
+								{{ item.badge }}
 							</template>
 						</DbAvatar>
 					</template>

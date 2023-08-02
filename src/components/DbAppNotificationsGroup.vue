@@ -2,6 +2,8 @@
 import { computed, ref } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 
+import { generateIconPath } from '../utilities';
+
 import DbAppNotification from './DbAppNotification.vue';
 import DbAvatar from './DbAvatar.vue';
 
@@ -38,8 +40,6 @@ const handleNotificationDismissClick = (id) => {
 const handleNotificationShowMoreClick = (id) => {
 	emit('click:show-more', id);
 };
-
-const generateIconPath = (name) => `icons/${name}.svg`;
 </script>
 
 <template>
