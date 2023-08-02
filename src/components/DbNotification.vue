@@ -42,11 +42,12 @@ const props = defineProps({
 	background-color: var(--db-components-color-background-primary);
 	color: var(--db-components-color-text-secondary);
 	column-gap: 1rem;
-	grid-auto-columns: max-content 1fr;
+	grid-auto-rows: 1fr min-content min-content;
 	grid-template-areas:
 		'avatar header'
 		'avatar body'
 		'avatar footer';
+	grid-template-columns: max-content 1fr;
 	padding-block: 1.25rem;
 	padding-inline: 1.25rem;
 	@include mixins.text();
