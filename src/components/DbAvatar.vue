@@ -92,7 +92,7 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 		font-size: v-bind(iconFontSize);
 		inline-size: 100%;
 		place-items: center;
-		&:deep(svg, img) {
+		&:deep(svg:not(.progress-circular svg), img) {
 			block-size: 1em;
 			inline-size: 1em;
 		}
