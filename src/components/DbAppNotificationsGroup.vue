@@ -1,5 +1,6 @@
 <script setup>
 import { computed, ref } from 'vue';
+import InlineSvg from 'vue-inline-svg';
 
 import DbAppNotification from './DbAppNotification.vue';
 import DbAvatar from './DbAvatar.vue';
@@ -9,7 +10,7 @@ const props = defineProps({
 		type: Array,
 		default: () => [],
 		validator(value) {
-			return value.every((item) => item.id && item.heading && item.body);
+			return value.every((item) => item.id && item.heading && item.body && item.icon);
 		},
 		required: true,
 	},
@@ -22,6 +23,7 @@ const props = defineProps({
 
 const hiddenItemsIds = ref([]);
 
+// TODO: Looks like we can optimize this by using a set. Same fix may be required for DbWidgetNotificationsGroup.vue
 const visibleItems = computed(() =>
 	props.items.filter((item) => !hiddenItemsIds.value.includes(item.id)).slice(0, props.maxVisibleItems)
 );
@@ -35,10 +37,11 @@ const handleNotificationDismissClick = (id) => {
 	hiddenItemsIds.value.push(id);
 	emit('click:dismiss', id);
 };
-
 const handleNotificationShowMoreClick = (id) => {
 	emit('click:show-more', id);
 };
+
+const generateIconPath = (name) => `icons/${name}.svg`;
 </script>
 
 <template>
@@ -57,8 +60,13 @@ const handleNotificationShowMoreClick = (id) => {
 			@click:show-more="handleNotificationShowMoreClick(item.id)"
 		>
 			<template #avatar>
-				<DbAvatar color="accent-1">
-					<template #icon> ☻ </template>
+				<DbAvatar :color="item.color">
+					<template #icon>
+						<InlineSvg
+							:src="generateIconPath(item.icon)"
+							:title="item.icon"
+						/>
+					</template>
 				</DbAvatar>
 			</template>
 			<template #header>
@@ -80,9 +88,6 @@ const handleNotificationShowMoreClick = (id) => {
 	inline-size: min(100%, 25rem);
 	inset-block-end: 1.5rem;
 	inset-inline-start: 1.5rem;
-	:deep(.app-notification) {
-		inline-size: 100%;
-	}
 }
 
 .app-notifications-move,

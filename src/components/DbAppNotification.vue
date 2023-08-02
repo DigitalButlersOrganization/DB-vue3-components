@@ -79,6 +79,7 @@ const handleShowMoreClick = () => emit('click:show-more');
 	align-items: start;
 	border: 1px solid var(--db-components-color-background-tertiary);
 	box-shadow: var(--db-components-shadow-lg);
+	inline-size: 100%;
 	padding-inline-end: 3.5rem;
 
 	&__actions {
