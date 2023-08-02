@@ -9,9 +9,7 @@ const props = defineProps({
 	items: {
 		type: Array,
 		default: () => [],
-		validator(value) {
-			return value.every((item) => item.id && item.heading && item.body && item.icon);
-		},
+		validator: (value) => value.every((item) => item.id && item.heading && item.body && item.icon),
 		required: true,
 	},
 	maxVisibleItems: {

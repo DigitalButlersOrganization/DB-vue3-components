@@ -16,17 +16,13 @@ const props = defineProps({
 	size: {
 		type: String,
 		default: CHIP.SIZES[1],
-		validator(value) {
-			return CHIP.SIZES.includes(value);
-		},
+		validator: (value) => CHIP.SIZES.includes(value),
 		required: false,
 	},
 	type: {
 		type: String,
 		default: CHIP.TYPES[0],
-		validator(value) {
-			return CHIP.TYPES.includes(value);
-		},
+		validator: (value) => CHIP.TYPES.includes(value),
 		required: false,
 	},
 	avatarSrc: {

@@ -33,9 +33,7 @@ const props = defineProps({
 		type: Number,
 		default: 0,
 		required: false,
-		validator(value) {
-			return value >= 0 && value <= 1;
-		},
+		validator: (value) => value >= 0 && value <= 1,
 	},
 });
 
