@@ -5,4 +5,7 @@ export const ar = {
 		dismiss: 'Dismiss__',
 		showMore: 'Show more__',
 	},
+	placeholders: {
+		widgetNotifications: 'No notifications__',
+	},
 };

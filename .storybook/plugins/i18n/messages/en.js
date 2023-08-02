@@ -5,4 +5,7 @@ export const en = {
 		dismiss: 'Dismiss',
 		showMore: 'Show more',
 	},
+	placeholders: {
+		widgetNotifications: 'No notifications',
+	},
 };

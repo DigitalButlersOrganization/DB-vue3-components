@@ -5,4 +5,7 @@ export const ru = {
 		dismiss: 'Отключить',
 		showMore: 'Подробнее',
 	},
+	placeholders: {
+		widgetNotifications: 'Нет уведомлений',
+	},
 };
