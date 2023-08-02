@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import InlineSvg from 'vue-inline-svg';
 
 import DbAppNotificationsGroup from '../../components/DbAppNotificationsGroup.vue';
 import DbAvatar from '../../components/DbAvatar.vue';
@@ -739,7 +740,7 @@ const addWidgetNotification = () => {
 						:is-icon="true"
 						color="#c344ff"
 					>
-						✖
+						<InlineSvg src="icons/solid/camera-01.svg" />
 					</DbButton>
 					<DbButton
 						:is-loading="isButtonsLoading"
@@ -747,7 +748,7 @@ const addWidgetNotification = () => {
 						:is-icon="true"
 						color="#c344ff"
 					>
-						✖
+						<InlineSvg src="icons/solid/camera-01.svg" />
 					</DbButton>
 					<DbButton
 						:is-loading="isButtonsLoading"
@@ -755,15 +756,24 @@ const addWidgetNotification = () => {
 						:is-icon="true"
 						color="#c344ff"
 					>
-						✖
+						<InlineSvg src="icons/outline/x-close.svg" />
 					</DbButton>
 					<DbButton
-						:is-loading="isButtonsLoading"
 						type="text"
 						:is-icon="true"
 						color="#c344ff"
 					>
-						✖
+						<InlineSvg src="icons/outline/x-close.svg" />
+					</DbButton>
+					<DbButton
+						class="app-notification__close-button"
+						:is-icon="true"
+						type="text"
+						size="small"
+						:aria-label="$t('actions.close')"
+						:is-loading="isButtonsLoading"
+					>
+						<InlineSvg src="icons/outline/x-close.svg" />
 					</DbButton>
 				</div>
 			</DbContainer>

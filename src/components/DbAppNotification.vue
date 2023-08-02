@@ -62,7 +62,6 @@ const handleShowMoreClick = () => emit('click:show-more');
 				class="app-notification__close-button"
 				:is-icon="true"
 				type="text"
-				size="small"
 				:aria-label="$t('actions.close')"
 				@click="handleCloseClick"
 			>
@@ -93,8 +92,8 @@ const handleShowMoreClick = () => emit('click:show-more');
 
 	&__close-button {
 		position: absolute;
-		inset-block-start: 0.75rem;
-		inset-inline-end: 0.75rem;
+		inset-block-start: 0.5rem;
+		inset-inline-end: 0.5rem;
 	}
 
 	&:deep(.notification__header) {

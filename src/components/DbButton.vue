@@ -102,7 +102,7 @@ const { colors } = useColors(() => props.color);
 </template>
 
 <style scoped lang="scss">
-@use 'src/assets/styles/utilities/mixins';
+@use '/src/assets/styles/utilities/mixins';
 
 .button {
 	display: inline-grid;
@@ -190,11 +190,11 @@ const { colors } = useColors(() => props.color);
 	&--type-text {
 		background-color: transparent;
 		color: v-bind('colors.text');
-		outline-offset: 0.25rem;
 		padding-block: 0 !important;
 		padding-inline: 0 !important;
 		&:not(.button--icon) {
 			min-block-size: unset;
+			outline-offset: 0.25rem;
 		}
 		&:hover {
 			color: v-bind('colors.textHover');
@@ -216,6 +216,17 @@ const { colors } = useColors(() => props.color);
 		aspect-ratio: 1/1;
 		padding-block: 0;
 		padding-inline: 0;
+		.button__text {
+			block-size: 1em;
+			font-size: inherit;
+			inline-size: 1em;
+			line-height: 1em;
+		}
+		&:deep(svg, img) {
+			block-size: 1em;
+			inline-size: 1em;
+			object-fit: contain;
+		}
 	}
 
 	&:not(:disabled, .button--loading) {
