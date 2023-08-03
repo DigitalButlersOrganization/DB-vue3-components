@@ -9,6 +9,7 @@ import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
 import DbContainer from '../../components/DbContainer.vue';
 import DbDivider from '../../components/DbDivider.vue';
+import DbNavigation from '../../components/DbNavigation.vue';
 import DbNotification from '../../components/DbNotification.vue';
 import DbProgress from '../../components/DbProgress.vue';
 import DbSection from '../../components/DbSection.vue';
@@ -189,8 +190,37 @@ const addWidgetNotification = () => {
 		isDetailed: Math.random() > 0.5,
 		color: generateRandomColor(),
 		icon: generateRandomIcon(),
+		progress: Math.random() > 0.5 ? Math.random() : null,
+		badge: Math.random() > 0.5 ? String(Math.floor(Math.random() * 20)) : undefined,
 	});
 };
+
+// Navigation
+const navigationItems = ref([
+	{
+		value: 'home',
+		label: 'Home',
+		icon: 'solid/home-line',
+		id: 'home-radio',
+	},
+	{
+		value: 'settings',
+		label: 'Settings',
+		id: 'settings-radio',
+	},
+	{
+		value: 'notifications',
+		label: 'Notifications',
+		icon: 'solid/message-chat-square',
+		badge: '2',
+	},
+	{
+		value: 'profile',
+		label: 'Profile',
+		icon: 'solid/user-01',
+	},
+]);
+const navigationValue = ref('home');
 </script>
 
 <template>
@@ -229,7 +259,6 @@ const addWidgetNotification = () => {
 			@click:dismiss="(id) => logMessage(`App notification dismiss ${id}`)"
 			@click:show-more="(id) => logMessage(`App notification show more ${id}`)"
 		/>
-
 		<DbSection>
 			<DbContainer>
 				<DbAvatar>
@@ -248,7 +277,6 @@ const addWidgetNotification = () => {
 				</div>
 			</DbContainer>
 		</DbSection>
-
 		<DbSection>
 			<DbContainer>
 				{{ checkboxValue }}
@@ -315,7 +343,6 @@ const addWidgetNotification = () => {
 				/>
 			</DbContainer>
 		</DbSection>
-
 		<DbSection>
 			<DbContainer>
 				{{ chips }}
@@ -354,7 +381,6 @@ const addWidgetNotification = () => {
 				</div>
 			</DbContainer>
 		</DbSection>
-
 		<DbSection>
 			<DbContainer>
 				<DbStepChip
@@ -382,7 +408,6 @@ const addWidgetNotification = () => {
 				</DbStepChip>
 			</DbContainer>
 		</DbSection>
-
 		<DbSection>
 			<DbContainer>
 				<div style="max-inline-size: 400px">
@@ -424,7 +449,6 @@ const addWidgetNotification = () => {
 				</DbTooltip>
 			</DbContainer>
 		</DbSection>
-
 		<DbSection>
 			<DbContainer>
 				<h2>Buttons</h2>
@@ -779,6 +803,24 @@ const addWidgetNotification = () => {
 			</DbContainer>
 		</DbSection>
 		<DbSection>
+			<DbContainer>
+				<h2>Navigation</h2>
+				{{ navigationValue }}
+				<DbNavigation
+					v-model="navigationValue"
+					:items="navigationItems"
+				/>
+				<DbDivider />
+				<div style="max-inline-size: 300px">
+					<DbNavigation
+						v-model="navigationValue"
+						color-scheme="alternate"
+						:items="navigationItems"
+					/>
+				</div>
+			</DbContainer>
+		</DbSection>
+		<DbSection>
 			<DbContainer tag="ul">
 				<DbNotification>
 					<template #avatar>
@@ -806,7 +848,7 @@ const addWidgetNotification = () => {
 	:deep(.divider) {
 		margin-block: 1rem !important;
 	}
-	:deep(.section:nth-child(odd)) {
+	:deep(.section:nth-child(odd of .section)) {
 		background-color: var(--db-components-color-background-secondary);
 	}
 }
