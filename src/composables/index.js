@@ -1,2 +1,2 @@
 export { useColors } from './colors';
-export { useCheckboxModel } from './checkbox';
+export { useCheckboxModel } from './checkbox-model';
