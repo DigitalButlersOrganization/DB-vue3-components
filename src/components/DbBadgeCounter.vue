@@ -31,7 +31,9 @@ const currentColors = computed(() => {
 
 <template>
 	<div class="badge-analytics">
-		<slot>0</slot>
+		<slot>
+			<slot name="fallback" />
+		</slot>
 	</div>
 </template>
 
@@ -51,5 +53,8 @@ const currentColors = computed(() => {
 	@include mixins.text();
 	@include mixins.text--xs();
 	@include mixins.font-weight(700);
+	&:empty {
+		display: none;
+	}
 }
 </style>
