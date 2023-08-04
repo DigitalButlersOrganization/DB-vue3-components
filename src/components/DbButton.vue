@@ -105,6 +105,7 @@ const { colors } = useColors(() => props.color);
 @use '/src/assets/styles/utilities/mixins';
 
 .button {
+	position: relative;
 	display: inline-grid;
 	border: none;
 	border-radius: var(--db-components-border-radius-lg);
