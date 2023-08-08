@@ -52,10 +52,9 @@ const props = defineProps({
 const tag = computed(() => (props.tag || props.to ? 'a' : 'button'));
 const attrs = computed(() => {
 	const isLink = props.to;
-	const isCustomComponent = props.is;
+	const isCustomComponent = props.tag;
 
 	return {
-		disabled: props.disabled,
 		...(!isLink && { type: 'button' }),
 		...(isLink && { [isCustomComponent ? 'to' : 'href']: props.to }),
 	};
