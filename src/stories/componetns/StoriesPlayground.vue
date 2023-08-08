@@ -10,6 +10,7 @@ import DbChip from '../../components/DbChip.vue';
 import DbContainer from '../../components/DbContainer.vue';
 import DbDivider from '../../components/DbDivider.vue';
 import DbNavigation from '../../components/DbNavigation.vue';
+import DbNavigationButton from '../../components/DbNavigationButton.vue';
 import DbNotification from '../../components/DbNotification.vue';
 import DbProgress from '../../components/DbProgress.vue';
 import DbSection from '../../components/DbSection.vue';
@@ -18,6 +19,7 @@ import DbSwitch from '../../components/DbSwitch.vue';
 import DbTooltip from '../../components/DbTooltip.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
 import DbWidgetNotificationsGroup from '../../components/DbWidgetNotificationsGroup.vue';
+import { generateIconPath } from '../../utilities';
 
 // Helpers
 const generateRandomColor = () => {
@@ -805,18 +807,80 @@ const navigationValue = ref('home');
 		<DbSection>
 			<DbContainer>
 				<h2>Navigation</h2>
-				{{ navigationValue }}
-				<DbNavigation
-					v-model="navigationValue"
-					:items="navigationItems"
-				/>
-				<DbDivider />
 				<div style="max-inline-size: 300px">
-					<DbNavigation
-						v-model="navigationValue"
-						color-scheme="alternate"
-						:items="navigationItems"
-					/>
+					<DbNavigation>
+						<DbNavigationButton
+							target="_blank"
+							to="https://www.digitalbutlers.team/"
+						>
+							Website
+						</DbNavigationButton>
+						<DbNavigationButton
+							:is-current="true"
+							to="https://www.linkedin.com/company/digitalbutlers/"
+						>
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/users-01')" />
+							</template>
+							Linkedin
+						</DbNavigationButton>
+						<DbNavigationButton to="https://instagram.com/digital_butlers">
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/camera-01')" />
+							</template>
+							Instagram
+						</DbNavigationButton>
+						<DbNavigationButton to="https://www.awwwards.com/DigitalButlers/">
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/award-03')" />
+							</template>
+							Awwwards
+						</DbNavigationButton>
+						<DbNavigationButton to="https://clutch.co/profile/digital-butlers">
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/message-chat-square')" />
+							</template>
+							Clutch
+							<template #badge> 25 </template>
+						</DbNavigationButton>
+					</DbNavigation>
+					<DbDivider />
+					<DbNavigation color-scheme="alternate">
+						<DbNavigationButton
+							target="_blank"
+							to="https://www.digitalbutlers.team/"
+						>
+							Website
+						</DbNavigationButton>
+						<DbNavigationButton
+							:is-current="true"
+							to="https://www.linkedin.com/company/digitalbutlers/"
+						>
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/users-01')" />
+							</template>
+							Linkedin
+						</DbNavigationButton>
+						<DbNavigationButton to="https://instagram.com/digital_butlers">
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/camera-01')" />
+							</template>
+							Instagram
+						</DbNavigationButton>
+						<DbNavigationButton to="https://www.awwwards.com/DigitalButlers/">
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/award-03')" />
+							</template>
+							Awwwards
+						</DbNavigationButton>
+						<DbNavigationButton to="https://clutch.co/profile/digital-butlers">
+							<template #icon>
+								<InlineSvg :src="generateIconPath('solid/message-chat-square')" />
+							</template>
+							Clutch
+							<template #badge> 25 </template>
+						</DbNavigationButton>
+					</DbNavigation>
 				</div>
 			</DbContainer>
 		</DbSection>
