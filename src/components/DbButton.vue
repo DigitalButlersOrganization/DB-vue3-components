@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 
-import { useColors } from '../composables';
+import { useButton, useColors } from '../composables';
 import { BUTTON } from '../constants';
 
 import DbProgressCircular from './DbProgressCircular.vue';
@@ -49,16 +49,8 @@ const props = defineProps({
 	},
 });
 
-const tag = computed(() => (props.tag || props.to ? 'a' : 'button'));
-const attrs = computed(() => {
-	const isLink = props.to;
-	const isCustomComponent = props.tag;
+const { tag, attrs } = useButton(props);
 
-	return {
-		...(!isLink && { type: 'button' }),
-		...(isLink && { [isCustomComponent ? 'to' : 'href']: props.to }),
-	};
-});
 const classes = computed(() => [
 	`button--size-${props.size}`,
 	`button--type-${props.type}`,

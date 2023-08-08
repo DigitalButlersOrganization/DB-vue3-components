@@ -1,6 +1,7 @@
 <script setup>
 import { computed, inject } from 'vue';
 
+import { useButton } from '../composables';
 import { NAVIGATION } from '../constants';
 
 import DbBadgeCounter from './DbBadgeCounter.vue';
@@ -25,21 +26,12 @@ const props = defineProps({
 
 const colorScheme = inject('colorScheme', NAVIGATION.COLOR_SCHEMES.get('default'));
 
-const tag = computed(() => props.tag || 'a');
+const { tag, attrs } = useButton(props);
 
 const classes = computed(() => ({
 	'navigation-button--current': props.isCurrent,
 	[`navigation-button--color-scheme-${colorScheme}`]: true,
 }));
-
-const attrs = computed(() => {
-	const isLink = props.to;
-	const isCustomComponent = props.tag;
-
-	return {
-		...(isLink && { [isCustomComponent ? 'to' : 'href']: props.to }),
-	};
-});
 </script>
 
 <template>
@@ -68,7 +60,9 @@ const attrs = computed(() => {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	border: none;
 	border-radius: var(--db-components-border-radius-md);
+	background-color: transparent;
 	color: var(--db-components-color-text-secondary);
 	cursor: pointer;
 	gap: 0.5rem;
