@@ -26,3 +26,41 @@
 .tabs-fade-leave-to {
 	opacity: 0;
 }
+
+// App notifications
+.app-notifications-move,
+.app-notifications-enter-active,
+.app-notifications-leave-active {
+	transition: var(--db-components-transition-base);
+	transition-property: transform, opacity;
+}
+
+.app-notifications-enter-from,
+.app-notifications-leave-to {
+	z-index: -1;
+	opacity: 0;
+	transform: translateY(100px) scale(0.1);
+}
+
+.app-notifications-leave-active {
+	position: absolute !important;
+}
+
+// Widget notifications
+.widget-notifications-move,
+.widget-notifications-enter-active,
+.widget-notifications-leave-active {
+	transition: var(--db-components-transition-base);
+	transition-property: transform, opacity !important;
+}
+
+.widget-notifications-enter-from,
+.widget-notifications-leave-to {
+	z-index: -1 !important;
+	opacity: 0;
+	transform: translateY(-100px) scale(0.1);
+}
+
+.widget-notifications-leave-active {
+	position: absolute !important;
+}

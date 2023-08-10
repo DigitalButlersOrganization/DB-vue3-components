@@ -109,22 +109,4 @@ const handleNotificationShowMoreClick = (id) => {
 		text-align: center;
 	}
 }
-
-.widget-notifications-move,
-.widget-notifications-enter-active,
-.widget-notifications-leave-active {
-	transition: var(--db-components-transition-base);
-	transition-property: transform, opacity;
-}
-
-.widget-notifications-enter-from,
-.widget-notifications-leave-to {
-	z-index: -1 !important;
-	opacity: 0;
-	transform: translateY(-100px) scale(0.1);
-}
-
-.widget-notifications-leave-active {
-	position: absolute;
-}
 </style>

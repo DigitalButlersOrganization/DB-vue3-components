@@ -87,22 +87,4 @@ const handleNotificationShowMoreClick = (id) => {
 	inset-block-end: 1.5rem;
 	inset-inline-start: 1.5rem;
 }
-
-.app-notifications-move,
-.app-notifications-enter-active,
-.app-notifications-leave-active {
-	transition: var(--db-components-transition-base);
-	transition-property: transform, opacity;
-}
-
-.app-notifications-enter-from,
-.app-notifications-leave-to {
-	z-index: -1;
-	opacity: 0;
-	transform: translateY(100px) scale(0.1);
-}
-
-.app-notifications-leave-active {
-	position: absolute;
-}
 </style>
