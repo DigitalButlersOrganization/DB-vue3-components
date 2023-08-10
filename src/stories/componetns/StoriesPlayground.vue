@@ -16,6 +16,9 @@ import DbProgress from '../../components/DbProgress.vue';
 import DbSection from '../../components/DbSection.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
+import DbTabs from '../../components/DbTabs.vue';
+import DbTabsItem from '../../components/DbTabsItem.vue';
+import DbTabsNavigation from '../../components/DbTabsNavigation.vue';
 import DbTooltip from '../../components/DbTooltip.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
 import DbWidgetNotificationsGroup from '../../components/DbWidgetNotificationsGroup.vue';
@@ -222,7 +225,7 @@ const navigationItems = ref([
 		icon: 'solid/user-01',
 	},
 ]);
-const navigationValue = ref('home');
+const navigationValue = ref(navigationItems.value[0].value);
 </script>
 
 <template>
@@ -882,6 +885,52 @@ const navigationValue = ref('home');
 						</DbNavigationButton>
 					</DbNavigation>
 				</div>
+			</DbContainer>
+		</DbSection>
+		<DbSection>
+			<DbContainer>
+				<h2>Tabs</h2>
+				<DbButton @click="navigationValue = 'home'"> Go to "Home" tab </DbButton>
+				{{ navigationValue }}
+				<DbDivider />
+				<DbTabs
+					v-model="navigationValue"
+					:items="navigationItems"
+				>
+					<DbTabsItem :value="navigationItems[0].value">
+						<h3 class="heading heading--lg">Home</h3>
+						<p class="text text--md">
+							Quisque erat sapien, finibus sed lacus a, facilisis vehicula leo. Etiam mollis, turpis pulvinar sagittis
+							vulputate, ligula orci feugiat massa, id commodo nulla tortor quis nisl. Maecenas velit nisl, consequat
+							vel ultricies ac, sodales id nisl. Nullam sed sollicitudin metus. In imperdiet auctor auctor. Quisque
+							tincidunt turpis id magna tempus efficitur. Curabitur tristique diam sed dui tempor iaculis. Etiam
+							ullamcorper metus ac odio rhoncus tempus. Fusce interdum id magna eget pellentesque. Vivamus molestie
+							sagittis sem, at posuere ex cursus sit amet. Ut vitae orci libero. Donec ut elit ullamcorper lacus
+							porttitor porttitor non vel enim.
+						</p>
+						<p class="text text--md">
+							Quisque mi neque, ultrices id tellus tempus, maximus dapibus libero. Sed congue mauris elit, vel rhoncus
+							neque egestas non. Nam condimentum mi ipsum, ut fringilla justo imperdiet quis. Aliquam maximus vitae erat
+							non condimentum. Nulla pretium maximus quam, vel rhoncus lorem consectetur ut. Integer sem metus, molestie
+							nec lorem eu, venenatis feugiat mi. Quisque pulvinar leo vel orci consectetur porttitor. Vivamus posuere
+							interdum sapien, commodo ultrices purus congue sit amet.
+						</p>
+					</DbTabsItem>
+					<DbTabsItem :value="navigationItems[1].value">
+						<h3 class="heading heading--lg">Settings</h3>
+					</DbTabsItem>
+					<DbTabsItem :value="navigationItems[2].value">
+						<h3 class="heading heading--lg">Notifications</h3>
+					</DbTabsItem>
+					<DbTabsItem :value="navigationItems[3].value">
+						<h3 class="heading heading--lg">Profile</h3>
+						<p class="text text--md">
+							Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla
+							tincidunt blandit sapien in sagittis. Pellentesque feugiat, ante non consectetur vehicula, ipsum augue
+							mollis magna, non dictum nulla metus in neque.
+						</p>
+					</DbTabsItem>
+				</DbTabs>
 			</DbContainer>
 		</DbSection>
 		<DbSection>
