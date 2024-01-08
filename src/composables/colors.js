@@ -3,6 +3,7 @@ import { computed, toValue } from 'vue';
 import { toKebabCase } from '../utilities';
 
 const MIX_PERCENTS = new Map([
+	['empty', 100],
 	['text', 100],
 	['textHover', 80],
 	['textDisabled', 50],

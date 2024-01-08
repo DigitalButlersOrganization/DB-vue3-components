@@ -44,6 +44,9 @@
 	--db-components-color-palette-accent-1-background: oklch(0.9794 0.0215 160.49);
 	--db-components-color-palette-accent-1-background-hover: oklch(0.9487 0.0556 156.01);
 	--db-components-color-palette-accent-1-outline: var(--db-components-color-palette-accent-1-text-disabled);
+	--db-components-color-palette-accent-1-empty: var(--db-components-color-secondary);;
+
+	--db-components-color-palette-accent-2-empty: oklch(0.6804 0.1652 154.88);
 
 	--db-components-color-palette-success-text: var(--db-components-color-success-700);
 	--db-components-color-palette-success-text-hover: var(--db-components-color-success-500);

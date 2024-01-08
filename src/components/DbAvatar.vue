@@ -4,6 +4,7 @@ import { computed, useSlots } from 'vue';
 import { useColors } from '../composables';
 
 import DbBadgeCounter from './DbBadgeCounter.vue';
+import DbBadgeEmpty from './DbBadgeEmpty.vue';
 import DbProgressCircular from './DbProgressCircular.vue';
 
 const ICON_SIZE_COEFFICIENT = 0.45;
@@ -34,6 +35,11 @@ const props = defineProps({
 		default: 0,
 		required: false,
 		validator: (value) => value >= 0 && value <= 1,
+	},
+	isBadgeEmpty: {
+		type: Boolean,
+		default: false,
+		required: false,
 	},
 });
 
@@ -66,12 +72,16 @@ const iconFontSize = computed(() => `calc(${props.size} * ${ICON_SIZE_COEFFICIEN
 		</div>
 		<div class="avatar__badge-wrapper">
 			<DbBadgeCounter
-				v-if="hasBadgeSlot"
+				v-if="hasBadgeSlot && !isBadgeEmpty"
 				:color="props.color"
 				:is-inverted="true"
 			>
 				<slot name="badge" />
 			</DbBadgeCounter>
+			<DbBadgeEmpty
+				v-else-if="hasBadgeSlot && isBadgeEmpty"
+				:color="props.color"
+			/>
 		</div>
 	</div>
 </template>
