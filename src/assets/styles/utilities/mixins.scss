@@ -21,8 +21,11 @@
 	font-weight: 400;
 	line-height: 1.3em;
 }
+@mixin text--lg() {
+	font-size: 1rem;
+}
 @mixin text--md() {
-	font-size: 0.875rem;
+	font-size: .875rem;
 }
 @mixin text--sm() {
 	font-size: 0.75rem;

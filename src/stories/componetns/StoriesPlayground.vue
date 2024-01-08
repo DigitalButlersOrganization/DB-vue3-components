@@ -4,13 +4,16 @@ import InlineSvg from 'vue-inline-svg';
 
 import DbAppNotificationsGroup from '../../components/DbAppNotificationsGroup.vue';
 import DbAvatar from '../../components/DbAvatar.vue';
+import DbBrand from '../../components/DbBrand.vue';
 import DbButton from '../../components/DbButton.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
 import DbContainer from '../../components/DbContainer.vue';
 import DbDivider from '../../components/DbDivider.vue';
+import DbHeader from '../../components/DbHeader.vue';
 import DbNavigation from '../../components/DbNavigation.vue';
 import DbNavigationButton from '../../components/DbNavigationButton.vue';
+import DbNavigationDivider from '../../components/DbNavigationDivider.vue';
 import DbNotification from '../../components/DbNotification.vue';
 import DbProgress from '../../components/DbProgress.vue';
 import DbSection from '../../components/DbSection.vue';
@@ -18,7 +21,6 @@ import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
 import DbTabs from '../../components/DbTabs.vue';
 import DbTabsItem from '../../components/DbTabsItem.vue';
-import DbTabsNavigation from '../../components/DbTabsNavigation.vue';
 import DbTooltip from '../../components/DbTooltip.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
 import DbWidgetNotificationsGroup from '../../components/DbWidgetNotificationsGroup.vue';
@@ -67,6 +69,7 @@ const generateRandomIcon = () => {
 		'outline/user-01',
 		'outline/x-circle',
 		'outline/x-close',
+		'outline/vartical-divider',
 		'solid/alert-circle',
 		'solid/award-03',
 		'solid/award-05',
@@ -952,6 +955,116 @@ const navigationValue = ref(navigationItems.value[0].value);
 					</template>
 				</DbNotification>
 			</DbContainer>
+		</DbSection>
+		<DbSection>
+			<DbContainer>
+				<h2>Page Header</h2>
+			</DbContainer>
+			<DbHeader>
+				<template #brand>
+					<DbBrand />
+				</template>
+				<template #navigation>
+					<DbNavigation is-empty>
+						<DbNavigationButton
+							target="_blank"
+							:is-current="true"
+							to="https://www.digitalbutlers.team/"
+						>
+							<template #icon>
+								<InlineSvg
+									width="20"
+									height="20"
+									:src="generateIconPath('solid/home-line')"
+								/>
+							</template>
+							Главная
+						</DbNavigationButton>
+						<DbNavigationButton to="https://www.linkedin.com/company/digitalbutlers/">
+							<template #icon>
+								<InlineSvg
+									width="20"
+									height="20"
+									:src="generateIconPath('solid/users-01')"
+								/>
+							</template>
+							Команда
+						</DbNavigationButton>
+						<DbNavigationButton to="https://instagram.com/digital_butlers">
+							<template #icon>
+								<InlineSvg
+									width="20"
+									height="20"
+									:src="generateIconPath('solid/heart')"
+								/>
+							</template>
+							M. Благодарностей
+						</DbNavigationButton>
+						<DbNavigationButton to="https://www.awwwards.com/DigitalButlers/">
+							<template #icon>
+								<InlineSvg
+									width="20"
+									height="20"
+									:src="generateIconPath('solid/award-03')"
+								/>
+							</template>
+							Компания
+						</DbNavigationButton>
+						<DbNavigationButton to="https://clutch.co/profile/digital-butlers">
+							<template #icon>
+								<InlineSvg
+									width="20"
+									height="20"
+									:src="generateIconPath('solid/message-chat-square')"
+								/>
+							</template>
+							Админ паннель
+						</DbNavigationButton>
+					</DbNavigation>
+				</template>
+				<template #actions>
+					<DbNavigation is-empty>
+						<DbNavigationButton size="sm">
+							<InlineSvg
+								width="20"
+								height="20"
+								:src="generateIconPath('solid/award-03')"
+							/>
+						</DbNavigationButton>
+						<DbNavigationButton size="sm">
+							<InlineSvg
+								width="20"
+								height="20"
+								:src="generateIconPath('solid/microphone-01')"
+							/>
+						</DbNavigationButton>
+						<DbNavigationDivider />
+						<DbNavigationButton size="sm">
+							<InlineSvg
+								width="20"
+								height="20"
+								:src="generateIconPath('solid/briefcase-02')"
+							/>
+						</DbNavigationButton>
+						<DbNavigationButton size="sm">
+							<InlineSvg
+								width="20"
+								height="20"
+								:src="generateIconPath('solid/heart')"
+							/>
+						</DbNavigationButton>
+					</DbNavigation>
+				</template>
+				<template #avatar>
+					<DbAvatar
+						src="https://picsum.photos/200"
+						is-badge-empty
+						color="accent-2"
+					>
+						<template #badge />
+					</DbAvatar>
+				</template>
+			</DbHeader>
 		</DbSection>
 	</div>
 </template>
