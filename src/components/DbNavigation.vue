@@ -10,12 +10,19 @@ const props = defineProps({
 		default: NAVIGATION.COLOR_SCHEMES.get('default'),
 		validator: (value) => NAVIGATION.COLOR_SCHEMES.has(value),
 	},
+	isEmpty: {
+		type: Boolean,
+		required: false,
+		default: false,
+	},
 });
 
+// eslint-disable-next-line vue/no-setup-props-destructure
 provide('colorScheme', props.colorScheme);
 
 const classes = computed(() => ({
 	[`navigation--color-scheme-${props.colorScheme}`]: true,
+	'navigation--empty': props.isEmpty,
 }));
 </script>
 
@@ -43,6 +50,11 @@ const classes = computed(() => ({
 	margin-block: 0;
 	max-inline-size: 100%;
 	overflow-x: auto;
+	&--empty {
+		border: none;
+		gap: 0;
+		padding: 0;
+	}
 	&:focus-visible {
 		@include mixins.focus-state();
 	}
