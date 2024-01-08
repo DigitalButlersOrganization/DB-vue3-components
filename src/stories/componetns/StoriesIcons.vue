@@ -44,6 +44,7 @@ const iconsGroups = new Map([
 			'user-01',
 			'x-circle',
 			'x-close',
+			'vartical-divider',
 		],
 	],
 	[
@@ -102,6 +103,7 @@ const iconsGroups = new Map([
 			'user-01',
 			'user-plus-02',
 			'users-01',
+			'microphone-01',
 		],
 	],
 ]);
