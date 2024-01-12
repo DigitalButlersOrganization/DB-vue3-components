@@ -31,7 +31,6 @@ const props = defineProps({
 .page-widget {
 	position: relative;
 	width: 100%;
-	max-width: 25.75rem;
 	display: flex;
 	flex-direction: column;
 	border-radius: var(--db-components-border-radius-lg);
