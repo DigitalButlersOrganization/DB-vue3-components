@@ -15,6 +15,7 @@ import DbNavigation from '../../components/DbNavigation.vue';
 import DbNavigationButton from '../../components/DbNavigationButton.vue';
 import DbNavigationDivider from '../../components/DbNavigationDivider.vue';
 import DbNotification from '../../components/DbNotification.vue';
+import DbPageWidget from '../../components/DbPageWidget.vue';
 import DbProgress from '../../components/DbProgress.vue';
 import DbSection from '../../components/DbSection.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
@@ -1065,6 +1066,15 @@ const navigationValue = ref(navigationItems.value[0].value);
 					</DbAvatar>
 				</template>
 			</DbHeader>
+		</DbSection>
+		<DbSection>
+			<DbContainer>
+				<h2>Page Header</h2>
+				<DbPageWidget>
+					<template #header> Widget Header </template>
+					<p>Widget Body</p>
+				</DbPageWidget>
+			</DbContainer>
 		</DbSection>
 	</div>
 </template>
