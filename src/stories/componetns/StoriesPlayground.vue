@@ -9,6 +9,7 @@ import DbButton from '../../components/DbButton.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
 import DbChip from '../../components/DbChip.vue';
 import DbContainer from '../../components/DbContainer.vue';
+import DbDialog from '../../components/DbDialog.vue';
 import DbDivider from '../../components/DbDivider.vue';
 import DbHeader from '../../components/DbHeader.vue';
 import DbNavigation from '../../components/DbNavigation.vue';
@@ -203,6 +204,14 @@ const addWidgetNotification = () => {
 		progress: Math.random() > 0.5 ? Math.random() : null,
 		badge: Math.random() > 0.5 ? String(Math.floor(Math.random() * 20)) : undefined,
 	});
+};
+
+// Modal
+
+const isOpenModal = ref(false);
+
+const handleOpenModal = () => {
+	isOpenModal.value = !isOpenModal.value;
 };
 
 // Navigation
@@ -1095,6 +1104,26 @@ const navigationValue = ref(navigationItems.value[0].value);
 					</DbPageWidget>
 				</DbPageWidgetsGroup>
 			</DbContainer>
+		</DbSection>
+		<DbSection>
+			<DbContainer>
+				<div class="buttons-row">
+					<DbButton
+						color="primary"
+						@click="handleOpenModal"
+					>
+						Open modal
+					</DbButton>
+				</div>
+				<DbDialog v-model:isOpenModal="isOpenModal">
+					<template #header> Modal header </template>
+					Modal Body
+					<template #footer> Modal header </template>
+				</DbDialog>
+			</DbContainer>
+		</DbSection>
+		<DbSection>
+			<DbContainer> </DbContainer>
 		</DbSection>
 	</div>
 </template>

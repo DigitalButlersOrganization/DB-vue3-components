@@ -85,6 +85,7 @@
 	// Shadow
 	--db-components-shadow-xs: 0 1px 2px 0 oklch(0 0 0 / 0.09);
 	--db-components-shadow-lg: 0 12px 16px -4px oklch(0.2 0.036 264 / 0.08);
+	--db-components-shadow-dialog: 0px 8px 8px -4px oklch(20.99% 0.034 263.44 / 3%), 0px 20px 24px -4px oklch(20.99% 0.034 263.44 / 8%);
 
 	// Border
 	--db-components-border-radius-xs: 0.125rem;
@@ -152,4 +153,7 @@
 	// Z-index
 	--db-components-z-index-notifications: 90;
 	--db-components-z-index-dialog: 100;
+
+	//backdrop-filters
+	--db-components-backdrop-filter-dialog-mask: blur(8px);
 }
