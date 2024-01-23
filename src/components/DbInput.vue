@@ -13,11 +13,6 @@ const props = defineProps({
 		default: false,
 		required: false,
 	},
-	autoResize: {
-		type: Boolean,
-		default: false,
-		required: false,
-	},
 	placeholder: {
 		type: String,
 		default: '',
@@ -32,49 +27,39 @@ const props = defineProps({
 
 const emit = defineEmits(['update:value']);
 
-const autoResizeTextarea = (textarea) => {
-	textarea.style.height = 'auto';
-	textarea.style.height = `${textarea.scrollHeight + 2}px`;
-};
-
-const handleChange = ({ value, textarea }) => {
+const handleChange = ({ value }) => {
 	emit('update:value', value);
-	if (props.autoResize) {
-		autoResizeTextarea(textarea);
-	}
 };
 
 const classes = computed(() => [
 	{
-		'textarea--error': props.isError,
+		'input--error': props.isError,
 	},
 ]);
 </script>
 
 <template>
-	<textarea
-		ref="textarea"
+	<input
 		:value="props.value"
 		:disabled="props.disabled"
 		:placeholder="props.placeholder"
-		class="textarea"
+		class="input"
 		:class="classes"
-		type="textarea"
-		@input="(event) => handleChange({ value: event.target.value, textarea: event.target })"
+		type="input"
+		@input="(event) => handleChange({ value: event.target.value })"
 	/>
 </template>
 
 <style scoped lang="scss">
 @use '/src/assets/styles/utilities/mixins';
 
-.textarea {
+.input {
 	@include mixins.text();
 	@include mixins.text--md();
 	color: var(--db-components-input-text-color);
 	inline-size: 100%;
-	padding-block: 0.75rem;
+	padding-block: 0.625rem;
 	padding-inline: 0.88rem;
-	min-height: 8.375rem;
 	border-radius: var(--db-components-border-radius-lg);
 	border: 1px solid var(--db-components-input-border-color);
 	box-shadow: var(--db-components-shadow-xs);

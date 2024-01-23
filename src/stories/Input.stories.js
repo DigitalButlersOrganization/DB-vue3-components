@@ -1,16 +1,16 @@
-import DbTextarea from '../components/DbTextarea.vue';
+import DbInput from '../components/DbInput.vue';
 
 export default {
-	title: 'Inputs/DbTextarea',
-	component: DbTextarea,
+	title: 'Inputs/DbInput',
+	component: DbInput,
 	tags: ['autodocs'],
 	render: (args) => ({
-		components: { DbTextarea },
+		components: { DbInput },
 		setup() {
 			return { args };
 		},
 		template: `
-			<DbTextarea v-bind="args" />
+			<DbInput v-bind="args" />
 		`,
 	}),
 };
@@ -26,14 +26,7 @@ export const Disabled = {
 		placeholder: 'Enter a description...',
 		disabled: true,
 	},
-};
-
-export const AutoResize = {
-	args: {
-		placeholder: 'Enter a description...',
-		autoResize: true,
-	},
-};
+}
 
 export const Error = {
 	args: {
