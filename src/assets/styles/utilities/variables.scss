@@ -147,6 +147,13 @@
 	--db-components-switch-color-icon-disabled-cheched: var(--db-components-switch-color-icon-disabled);
 	--db-components-switch-color-background-disabled-cheched: var(--db-components-switch-color-icon-disabled);
 
+	// input
+	--db-components-input-border-color: oklch(92.76% 0.006 264.53);
+	--db-components-input-text-color: oklch(28.08% 0.029 252.97);
+	--db-components-input-placeholder-color: oklch(55.37% 0.02 261.3);
+	--db-components-input-label-color: oklch(55.37% 0.02 261.3);
+	--db-components-input-error-text-color: oklch(63.71% 0.21 28.54);
+
 	// Icons
 	--db-components-icon-sm-stroke-width: 3 !important;
 
