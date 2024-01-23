@@ -11,7 +11,9 @@ import DbChip from '../../components/DbChip.vue';
 import DbContainer from '../../components/DbContainer.vue';
 import DbDialog from '../../components/DbDialog.vue';
 import DbDivider from '../../components/DbDivider.vue';
+import DbFormField from '../../components/DbFormField.vue';
 import DbHeader from '../../components/DbHeader.vue';
+import DbInput from '../../components/DbInput.vue';
 import DbNavigation from '../../components/DbNavigation.vue';
 import DbNavigationButton from '../../components/DbNavigationButton.vue';
 import DbNavigationDivider from '../../components/DbNavigationDivider.vue';
@@ -24,6 +26,7 @@ import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
 import DbTabs from '../../components/DbTabs.vue';
 import DbTabsItem from '../../components/DbTabsItem.vue';
+import DbTextarea from '../../components/DbTextarea.vue';
 import DbTooltip from '../../components/DbTooltip.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
 import DbWidgetNotificationsGroup from '../../components/DbWidgetNotificationsGroup.vue';
@@ -1107,6 +1110,7 @@ const navigationValue = ref(navigationItems.value[0].value);
 		</DbSection>
 		<DbSection>
 			<DbContainer>
+				<h2>Modal exemple</h2>
 				<div class="buttons-row">
 					<DbButton
 						color="primary"
@@ -1123,7 +1127,43 @@ const navigationValue = ref(navigationItems.value[0].value);
 			</DbContainer>
 		</DbSection>
 		<DbSection>
-			<DbContainer> </DbContainer>
+			<DbContainer>
+				<h2>Form exemple</h2>
+				<form class="form">
+					<DbFormField>
+						<template #label> Email </template>
+						<template #input>
+							<DbInput placeholder="Enter a email..." />
+						</template>
+					</DbFormField>
+					<DbFormField>
+						<template #label> Name </template>
+						<template #input>
+							<DbInput
+								placeholder="Enter a Name..."
+								disabled
+							/>
+						</template>
+						<template #help-text> help-text </template>
+					</DbFormField>
+					<DbFormField>
+						<template #label> Description </template>
+						<template #input>
+							<DbTextarea placeholder="Enter a description..." />
+						</template>
+					</DbFormField>
+					<DbFormField>
+						<template #label> Description </template>
+						<template #input>
+							<DbTextarea
+								placeholder="Enter a description..."
+								is-error
+							/>
+						</template>
+						<template #error-text> error-text </template>
+					</DbFormField>
+				</form>
+			</DbContainer>
 		</DbSection>
 	</div>
 </template>
@@ -1146,6 +1186,12 @@ const navigationValue = ref(navigationItems.value[0].value);
 
 .user-info-wrapper {
 	max-inline-size: 200px;
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 </style>
 
