@@ -1133,7 +1133,10 @@ const navigationValue = ref(navigationItems.value[0].value);
 					<DbFormField>
 						<template #label> Email </template>
 						<template #input>
-							<DbInput placeholder="Enter a email..." />
+							<DbInput
+								placeholder="Enter a email..."
+								is-outline
+							/>
 						</template>
 					</DbFormField>
 					<DbFormField>
@@ -1142,6 +1145,7 @@ const navigationValue = ref(navigationItems.value[0].value);
 							<DbInput
 								placeholder="Enter a Name..."
 								disabled
+								is-outline
 							/>
 						</template>
 						<template #help-text> help-text </template>
