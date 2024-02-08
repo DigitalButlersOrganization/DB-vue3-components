@@ -71,9 +71,7 @@ const classes = computed(() => [
 		>
 			<div class="accordion-item__details-inner">
 				<slot name="details-description" />
-				<div class="accordion-item__details-skills">
-					<slot name="details-skills" />
-				</div>
+				<slot name="details-skills" />
 				<div class="accordion-item__details-actions">
 					<slot name="details-actions" />
 				</div>
@@ -130,23 +128,19 @@ const classes = computed(() => [
 		@include mixins.text();
 		@include mixins.text--md();
 
-		&-skills {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			gap: 0.25rem;
-			padding-inline: 0.25rem;
-			padding-block: 0.25rem;
-			background-color: var(--db-components-color-background-primary);
-			border-radius: var(--db-components-border-radius-xxl);
-		}
-
 		&-actions {
 			margin-block-start: 0.5rem;
-			display: inline-flex;
+			display: flex;
+			flex-direction: column;
 		}
 		&-report {
 			margin-block-start: 0.25rem;
+			display: inline-flex;
+		}
+
+		&-report:empty,
+		&-actions:empty {
+			display: none;
 		}
 	}
 
@@ -158,6 +152,7 @@ const classes = computed(() => [
 	}
 
 	&__summary-append {
+		margin-inline-start: 3rem;
 		display: inherit;
 		// margin-inline-start: auto;
 	}
@@ -165,6 +160,13 @@ const classes = computed(() => [
 	&__summary-icon {
 		transition: transform 0.2s linear;
 		margin-inline-start: auto;
+	}
+
+	&__summary:empty,
+	&__details-inner:empty,
+	&__summary-append:empty,
+	&__summary-icon:empty {
+		display: none;
 	}
 }
 </style>
