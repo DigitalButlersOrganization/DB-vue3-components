@@ -1,4 +1,5 @@
 <script setup>
+import { computed } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 
 import DbButton from './DbButton.vue';
@@ -14,11 +15,22 @@ const props = defineProps({
 		required: false,
 		default: 'body',
 	},
+	headerNoBottomIndentation: {
+		type: Boolean,
+		required: false,
+		default: false,
+	},
 });
 
 const emit = defineEmits(['update:isOpenModal']);
 
 const handleCloseClick = () => emit('update:isOpenModal', false);
+
+const classes = computed(() => [
+	{
+		'modal--header-no-indentation': props.headerNoBottomIndentation,
+	},
+]);
 </script>
 
 <template>
@@ -30,6 +42,7 @@ const handleCloseClick = () => emit('update:isOpenModal', false);
 			<dialog
 				v-if="props.isOpenModal"
 				class="modal"
+				:class="classes"
 				:open="props.isOpenModal"
 				:aria-modal="props.isOpenModal"
 			>
@@ -43,7 +56,12 @@ const handleCloseClick = () => emit('update:isOpenModal', false);
 				</Teleport>
 				<div class="modal__content">
 					<header class="modal__header">
-						<slot name="header" />
+						<h3 class="modal__header-heading">
+							<slot name="header-heading" />
+						</h3>
+						<p class="modal__header-subheading">
+							<slot name="header-subheading" />
+						</p>
 					</header>
 					<div class="modal__body">
 						<slot />
@@ -72,7 +90,7 @@ const handleCloseClick = () => emit('update:isOpenModal', false);
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, calc(-50% - 3.25rem));
+	transform: translate(calc(-50% - 3.25rem), -50%);
 	width: min(30rem, calc(100vw - 3.25rem));
 	border-radius: var(--db-components-border-radius-lg);
 	background-color: var(--db-components-color-background-primary);
@@ -114,13 +132,39 @@ const handleCloseClick = () => emit('update:isOpenModal', false);
 		padding-inline: 1.5rem;
 	}
 	&__header {
+		display: flex;
+		flex-direction: column;
+		row-gap: 0.25rem;
+		text-align: center;
+
+		&-heading {
+			@include mixins.heading--md();
+			@include mixins.font-weight(600);
+			margin-block: 0.313rem;
+			color: var(--db-components-color-text-primary);
+		}
+		&-subheading {
+			margin-block: 0.188rem;
+			color: var(--db-components-color-text-secondary);
+		}
+		&-heading:empty,
+		&-subheading:empty {
+			display: none;
+		}
 		@media screen and (max-width: 35rem) {
 			padding-inline-end: 3rem;
 		}
 	}
 	&__body {
+		display: flex;
+		flex-direction: column;
 		padding-block: 0.75rem;
 		row-gap: 1.5rem;
+		max-height: 60vh;
+		overflow: auto;
+		@media screen and (max-height: 600px) {
+			max-height: 40vh;
+		}
 	}
 
 	&__header,
@@ -138,6 +182,12 @@ const handleCloseClick = () => emit('update:isOpenModal', false);
 		@media screen and (max-width: 35rem) {
 			inset-inline-end: 0.5rem;
 			inset-block-start: 0.5rem;
+		}
+	}
+
+	&--header-no-indentation {
+		.modal__header {
+			padding-block-end: 0;
 		}
 	}
 }
