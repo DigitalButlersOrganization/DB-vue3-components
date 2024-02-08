@@ -1,9 +1,14 @@
+<!-- eslint-disable no-return-assign -->
 <script setup>
 import { ref } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 
+import DbAccordion from '../../components/DbAccordion.vue';
+import DbAccordionItem from '../../components/DbAccordionItem.vue';
 import DbAppNotificationsGroup from '../../components/DbAppNotificationsGroup.vue';
 import DbAvatar from '../../components/DbAvatar.vue';
+import DbBadge from '../../components/DbBadge.vue';
+import DbBadgeCounter from '../../components/DbBadgeCounter.vue';
 import DbBrand from '../../components/DbBrand.vue';
 import DbButton from '../../components/DbButton.vue';
 import DbCheckbox from '../../components/DbCheckbox.vue';
@@ -211,11 +216,17 @@ const addWidgetNotification = () => {
 
 // Modal
 
-const isOpenModal = ref(false);
+const isOpenModal1 = ref(false);
+const isOpenModal2 = ref(false);
+const isOpenModal3 = ref(false);
+const isOpenModal4 = ref(false);
+const isOpenModal5 = ref(false);
 
-const handleOpenModal = () => {
-	isOpenModal.value = !isOpenModal.value;
-};
+const handleOpenModal1 = () => (isOpenModal1.value = !isOpenModal1.value);
+const handleOpenModal2 = () => (isOpenModal2.value = !isOpenModal2.value);
+const handleOpenModal3 = () => (isOpenModal3.value = !isOpenModal3.value);
+const handleOpenModal4 = () => (isOpenModal4.value = !isOpenModal4.value);
+const handleOpenModal5 = () => (isOpenModal5.value = !isOpenModal5.value);
 
 // Navigation
 const navigationItems = ref([
@@ -1108,27 +1119,434 @@ const navigationValue = ref(navigationItems.value[0].value);
 				</DbPageWidgetsGroup>
 			</DbContainer>
 		</DbSection>
+		<!-- Modal examples start -->
 		<DbSection>
 			<DbContainer>
 				<h2>Modal exemple</h2>
 				<div class="buttons-row">
 					<DbButton
 						color="primary"
-						@click="handleOpenModal"
+						@click="handleOpenModal1"
 					>
-						Open modal
+						Modal type 1
+					</DbButton>
+					<DbButton
+						color="primary"
+						@click="handleOpenModal2"
+					>
+						Modal type 2
+					</DbButton>
+					<DbButton
+						color="primary"
+						@click="handleOpenModal3"
+					>
+						Modal type 3
+					</DbButton>
+					<DbButton
+						color="primary"
+						@click="handleOpenModal4"
+					>
+						Modal type 4
+					</DbButton>
+					<DbButton
+						color="primary"
+						@click="handleOpenModal5"
+					>
+						Modal type 5
 					</DbButton>
 				</div>
-				<DbDialog v-model:isOpenModal="isOpenModal">
-					<template #header> Modal header </template>
-					Modal Body
-					<template #footer> Modal header </template>
+				<DbDialog v-model:isOpenModal="isOpenModal1">
+					<template #header-heading> Тебе будут благодарны </template>
+					<template #header-subheading> Поработай над собой и тебе непременно станут благодарны </template>
+					<DbAccordion v-bind="args">
+						<template #default="{ handleClick, checkOpenId }">
+							<DbAccordionItem
+								:id="1"
+								:open="checkOpenId(1)"
+								@click:handleClick="handleClick"
+							>
+								<template #header-prepend>
+									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+								</template>
+								<template #header-details> Креативная работа </template>
+								<template #header-append>
+									<DbBadgeCounter is-inverted>
+										<template #default>
+											<span v-html="1" />
+										</template>
+									</DbBadgeCounter>
+								</template>
+								<template #details-description>
+									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+									Креативьте!
+								</template>
+								<template #details-skills>
+									<div class="skills-progression">
+										<ul class="skills-progression__list skills-progression__list--fill">
+											<li>
+												<DbBadge color="#F79009">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/users-01')"
+														/>
+													</template>
+													<template #default> Командный игрок </template>
+												</DbBadge>
+											</li>
+											<li>
+												<DbBadge color="#2E90FA">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/glasses-02')"
+														/>
+													</template>
+													<template #default>Профессионализм</template>
+												</DbBadge>
+											</li>
+										</ul>
+									</div>
+								</template>
+								<template #details-actions>
+									<DbButton color="primary">Отправить на пересмотр</DbButton>
+								</template>
+							</DbAccordionItem>
+							<DbAccordionItem
+								:id="2"
+								:open="checkOpenId(2)"
+								@click:handleClick="handleClick"
+							>
+								<template #header-prepend>
+									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+								</template>
+								<template #header-details> Ответственность </template>
+								<template #details-description>
+									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+									Креативьте!
+								</template>
+								<template #details-skills>
+									<div class="skills-progression">
+										<ul class="skills-progression__list skills-progression__list--fill">
+											<li>
+												<DbBadge color="#F79009">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/users-01')"
+														/>
+													</template>
+												</DbBadge>
+											</li>
+											<li>
+												<DbBadge color="#2E90FA">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/glasses-02')"
+														/>
+													</template>
+												</DbBadge>
+											</li>
+										</ul>
+									</div>
+								</template>
+								<template #details-report>
+									<DbButton
+										type="text"
+										size="small"
+										class="accordion-help-button"
+									>
+										<template #prepend>
+											<InlineSvg
+												height="16"
+												color="primary"
+												:src="generateIconPath('outline/flag-01')"
+											/>
+										</template>
+										Сообщить о том, что благодарность не справедлива
+									</DbButton>
+								</template>
+							</DbAccordionItem>
+						</template>
+					</DbAccordion>
+					<div class="skills-progression">
+						<span class="skills-progression__heading"> Прогресс навыков </span>
+						<ul class="skills-progression__list">
+							<li>
+								<DbBadge color="#2E90FA">
+									<template #prepend>
+										<InlineSvg
+											height="18"
+											:src="generateIconPath('solid/glasses-02')"
+										/>
+									</template>
+									<template #default> Профессионализм </template>
+									<template #append> -1 </template>
+								</DbBadge>
+							</li>
+							<li>
+								<DbBadge color="#EE46BC">
+									<template #prepend>
+										<InlineSvg
+											height="18"
+											:src="generateIconPath('solid/message-chat-square')"
+										/>
+									</template>
+									<template #default>Коммуникативность</template>
+									<template #append> -1 </template>
+								</DbBadge>
+							</li>
+							<li>
+								<DbBadge color="#12B76A">
+									<template #prepend>
+										<InlineSvg
+											height="18"
+											:src="generateIconPath('solid/award-03')"
+										/>
+									</template>
+									<template #default>Ответственность</template>
+									<template #append> -1 </template>
+								</DbBadge>
+							</li>
+						</ul>
+					</div>
+					<template #footer>
+						<div class="button-column">
+							<DbButton color="primary">Ок</DbButton>
+							<DbButton
+								color="primary"
+								type="outline"
+							>
+								Назад
+							</DbButton>
+							<DbButton
+								type="text"
+								class="help-button"
+							>
+								<template #prepend>
+									<InlineSvg
+										height="20"
+										color="primary"
+										:src="generateIconPath('outline/help-01')"
+									/>
+								</template>
+								Справка
+							</DbButton>
+						</div>
+					</template>
+				</DbDialog>
+				<DbDialog v-model:isOpenModal="isOpenModal2">
+					<template #header-heading>Поработай над тем, что бы тебе стали благодарны</template>
+					<template #header-subheading>
+						Оставь комментарий, что бы инициатору было проще принять решение о пересмотре
+					</template>
+					<DbAccordion v-bind="args">
+						<template #default="{ handleClick, checkOpenId }">
+							<DbAccordionItem
+								:id="1"
+								:open="checkOpenId(1)"
+								@click:handleClick="handleClick"
+							>
+								<template #header-prepend>
+									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+								</template>
+								<template #header-details> Креативная работа </template>
+								<template #header-append>
+									<DbBadgeCounter is-inverted>
+										<template #default>
+											<span v-html="1" />
+										</template>
+									</DbBadgeCounter>
+								</template>
+								<template #details-description>
+									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+									Креативьте!
+								</template>
+								<template #details-skills>
+									<div class="skills-progression">
+										<ul class="skills-progression__list skills-progression__list--fill">
+											<li>
+												<DbBadge color="#F79009">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/users-01')"
+														/>
+													</template>
+													<template #default> Командный игрок </template>
+												</DbBadge>
+											</li>
+											<li>
+												<DbBadge color="#2E90FA">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/glasses-02')"
+														/>
+													</template>
+													<template #default>Профессионализм</template>
+												</DbBadge>
+											</li>
+										</ul>
+									</div>
+								</template>
+								<template #details-actions>
+									<DbButton color="primary">Отправить на пересмотр</DbButton>
+								</template>
+							</DbAccordionItem>
+						</template>
+					</DbAccordion>
+					<form class="form">
+						<DbFormField>
+							<template #label> Комментарий (не обязательно) </template>
+							<template #input>
+								<DbTextarea placeholder="Напишите комментарий..." />
+							</template>
+						</DbFormField>
+					</form>
+					<template #footer>
+						<div class="button-column">
+							<DbButton color="primary">Ок</DbButton>
+							<DbButton
+								color="primary"
+								type="outline"
+							>
+								Назад
+							</DbButton>
+						</div>
+					</template>
+				</DbDialog>
+				<DbDialog
+					v-model:isOpenModal="isOpenModal3"
+					header-no-bottom-indentation
+				>
+					<template #header-heading>Справка</template>
+					<template #header-subheading> Пересмотр благодарности </template>
+					<ul class="dialog-information">
+						<li>Пересмотр доступен пользователю только 1 раз</li>
+						<li>
+							Если вы оставите отложенную благодарность в силе, у пользователя пропадет возможность ее пересмотра.
+						</li>
+						<li>
+							При этом в ближайщем будущем система создаст пользователю квест на получени этой благодарности, чтобы он
+							продолжил работу в этом направлении.
+						</li>
+					</ul>
+					<template #footer>
+						<div class="button-column">
+							<DbButton color="primary">Ок</DbButton>
+						</div>
+					</template>
+				</DbDialog>
+				<DbDialog v-model:isOpenModal="isOpenModal4">
+					<template #header-heading>Теперь тебе благодарны</template>
+					<template #header-subheading> Инициатор пересмотрел благодарность и теперь благодарен тебе </template>
+					<DbAccordion v-bind="args">
+						<template #default="{ handleClick, checkOpenId }">
+							<DbAccordionItem
+								:id="1"
+								:open="checkOpenId(1)"
+								@click:handleClick="handleClick"
+							>
+								<template #header-prepend>
+									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+								</template>
+								<template #header-details> Креативная работа </template>
+								<template #details-description>
+									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+									Креативьте!
+								</template>
+								<template #details-skills>
+									<div class="skills-progression">
+										<ul class="skills-progression__list skills-progression__list--fill">
+											<li>
+												<DbBadge color="#F79009">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/users-01')"
+														/>
+													</template>
+													<template #default> Командный игрок </template>
+												</DbBadge>
+											</li>
+											<li>
+												<DbBadge color="#2E90FA">
+													<template #prepend>
+														<InlineSvg
+															height="18"
+															:src="generateIconPath('solid/glasses-02')"
+														/>
+													</template>
+													<template #default>Профессионализм</template>
+												</DbBadge>
+											</li>
+										</ul>
+									</div>
+								</template>
+								<template #details-actions>
+									<DbButton color="primary">Отправить на пересмотр</DbButton>
+								</template>
+							</DbAccordionItem>
+						</template>
+					</DbAccordion>
+					<div class="skills-progression">
+						<span class="skills-progression__heading"> Прогресс навыков </span>
+						<ul class="skills-progression__list">
+							<li>
+								<DbBadge color="#2E90FA">
+									<template #prepend>
+										<InlineSvg
+											height="18"
+											:src="generateIconPath('solid/glasses-02')"
+										/>
+									</template>
+									<template #default> Профессионализм </template>
+									<template #append> -1 </template>
+								</DbBadge>
+							</li>
+							<li>
+								<DbBadge color="#EE46BC">
+									<template #prepend>
+										<InlineSvg
+											height="18"
+											:src="generateIconPath('solid/message-chat-square')"
+										/>
+									</template>
+									<template #default>Коммуникативность</template>
+									<template #append> -1 </template>
+								</DbBadge>
+							</li>
+						</ul>
+					</div>
+					<template #footer>
+						<div class="button-column">
+							<DbButton color="primary">Ок</DbButton>
+							<DbButton
+								color="primary"
+								type="outline"
+							>
+								Назад
+							</DbButton>
+						</div>
+					</template>
 				</DbDialog>
 			</DbContainer>
 		</DbSection>
+		<!-- Modal examples end -->
+		<!-- Form examples start -->
 		<DbSection>
 			<DbContainer>
-				<h2>Form exemple</h2>
+				<h2>Form example</h2>
 				<form class="form">
 					<DbFormField>
 						<template #label> Email </template>
@@ -1169,10 +1587,12 @@ const navigationValue = ref(navigationItems.value[0].value);
 				</form>
 			</DbContainer>
 		</DbSection>
+		<!-- Form examples end -->
 	</div>
 </template>
 
 <style lang="scss" scoped>
+@use '/src/assets/styles/utilities/mixins';
 .playground {
 	:deep(.divider) {
 		margin-block: 1rem !important;
@@ -1197,10 +1617,75 @@ const navigationValue = ref(navigationItems.value[0].value);
 	flex-direction: column;
 	gap: 1rem;
 }
-</style>
-
-<style>
 .sb-main-padded {
 	padding: 0 !important;
+}
+
+// dialog
+
+.accordion-help-button {
+	max-width: max-content;
+	margin-inline-start: auto;
+
+	.button__body {
+		column-gap: 0.25rem;
+	}
+}
+
+.button-column {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.75rem;
+}
+
+.dialog-information {
+	padding: 1rem;
+	padding-inline-start: 2rem;
+	border-radius: var(--db-components-border-radius-md);
+	background-color: var(--db-components-color-background-secondary);
+	margin: 0;
+	color: var(--db-components-color-text-primary);
+	line-height: 1.4em;
+}
+
+.help-button {
+	color: var(--db-components-color-text-primary);
+	margin-inline-start: auto;
+	margin-block-start: 0.75rem;
+	max-width: max-content;
+}
+
+// skills
+
+.skills-progression {
+	display: flex;
+	flex-direction: column;
+	row-gap: 0.75rem;
+
+	&__heading {
+		@include mixins.text--md();
+		color: var(--db-components-color-text-secondary);
+	}
+	&__list {
+		margin: 0;
+		display: flex;
+		padding-inline: 0;
+		max-width: max-content;
+		gap: 0.25rem;
+		flex-wrap: wrap;
+		list-style: none;
+
+		&--fill {
+			padding-inline: 0.25rem;
+			padding-block: 0.25rem;
+			border-radius: var(--db-components-border-radius-xxl);
+			background: var(--db-components-color-background-primary);
+		}
+	}
+
+	&__heading:empty,
+	&__list:empty {
+		display: none;
+	}
 }
 </style>
