@@ -122,6 +122,7 @@ const { colors } = useColors(() => props.color);
 	}
 	&__prepend,
 	&__append {
+		display: inline-flex;
 		&:empty {
 			display: none;
 		}
@@ -135,6 +136,7 @@ const { colors } = useColors(() => props.color);
 		padding-inline: 0.75rem;
 		.button__body {
 			font-size: 1rem;
+			gap: 0.25rem;
 		}
 		.button__text {
 			@include mixins.text--sm();

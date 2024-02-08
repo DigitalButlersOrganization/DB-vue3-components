@@ -45,7 +45,7 @@ const classes = computed(() => [`badge--size-${props.size}`]);
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	border-radius: var(--db-components-border-radius-pill);
+	border-radius: var(--db-components-border-radius-md);
 	background-color: v-bind('colors.background');
 	color: v-bind('colors.text');
 	gap: 0.25rem;
@@ -62,6 +62,9 @@ const classes = computed(() => [`badge--size-${props.size}`]);
 	}
 }
 
+.slot-wrapper {
+	display: inline-flex;
+}
 .slot-wrapper:empty {
 	display: none;
 }
