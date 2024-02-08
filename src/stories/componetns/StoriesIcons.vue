@@ -45,6 +45,8 @@ const iconsGroups = new Map([
 			'x-circle',
 			'x-close',
 			'vartical-divider',
+			'help-01',
+			'flag-01',
 		],
 	],
 	[
