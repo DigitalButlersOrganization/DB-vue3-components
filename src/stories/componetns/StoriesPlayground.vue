@@ -1510,6 +1510,35 @@ const navigationValue = ref(navigationItems.value[0].value);
 							</li>
 						</ul>
 					</div>
+					<DbReactionGroup v-model="reactionSelectedValue">
+						<DbReaction
+							value="one"
+							label="Счастье"
+						>
+							<template #emoji> 🙂 </template>
+						</DbReaction>
+						<DbReaction
+							value="two"
+							label="Безразличие"
+							color="#B42318"
+						>
+							<template #emoji> 😕 </template>
+						</DbReaction>
+						<DbReaction
+							value="three"
+							label="Злость"
+							color="#B54708"
+						>
+							<template #emoji> 😤 </template>
+						</DbReaction>
+						<DbReaction
+							value="three"
+							label="Грусть"
+							color="#B42318"
+						>
+							<template #emoji> 😭 </template>
+						</DbReaction>
+					</DbReactionGroup>
 					<template #footer>
 						<div class="button-column">
 							<DbButton color="primary">Ок</DbButton>
@@ -1519,6 +1548,137 @@ const navigationValue = ref(navigationItems.value[0].value);
 							>
 								Назад
 							</DbButton>
+						</div>
+					</template>
+				</DbDialog>
+				<DbDialog v-model:isOpenModal="isOpenModal5">
+					<template #header-heading>Реакция пользователя на</template>
+					<template #header-subheading> Пересмотр благодарности </template>
+					<DbAccordion v-bind="args">
+						<DbAccordionItem :id="1">
+							<template #header-prepend>
+								<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+							</template>
+							<template #header-details> Креативная работа </template>
+							<template #details-description>
+								Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+								когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+								все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+								Креативьте!
+							</template>
+							<template #details-skills>
+								<div class="skills-progression">
+									<ul class="skills-progression__list skills-progression__list--fill">
+										<li>
+											<DbBadge color="#F79009">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/users-01')"
+													/>
+												</template>
+												<template #default> Командный игрок </template>
+											</DbBadge>
+										</li>
+										<li>
+											<DbBadge color="#2E90FA">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/glasses-02')"
+													/>
+												</template>
+												<template #default>Профессионализм</template>
+											</DbBadge>
+										</li>
+									</ul>
+								</div>
+							</template>
+							<template #details-actions>
+								<DbButton color="primary">Отправить на пересмотр</DbButton>
+							</template>
+						</DbAccordionItem>
+					</DbAccordion>
+					<DbReactionGroup label="Результат пересмотра">
+						<DbReaction
+							size="medium"
+							color="#B42318"
+							label="Не пересмотрен"
+							disabled
+						>
+							<template #emoji>
+								<InlineSvg
+									height="20"
+									:src="generateIconPath('outline/alert-01')"
+								/>
+							</template>
+						</DbReaction>
+						<DbReaction
+							size="medium"
+							color="#B54708"
+							label="Злость"
+							disabled
+						>
+							<template #emoji> 😤 </template>
+						</DbReaction>
+					</DbReactionGroup>
+					<DbReactionGroup label="Реакции пользователя за последние 30 дней">
+						<DbReaction
+							label="Радост"
+							disabled
+						>
+							<template #emoji>🙂 </template>
+						</DbReaction>
+						<DbReaction
+							color="#B54708"
+							label="Злость"
+							disabled
+						>
+							<template #emoji> 😤 </template>
+						</DbReaction>
+						<DbReaction
+							label="Радост"
+							disabled
+						>
+							<template #emoji>🙂 </template>
+						</DbReaction>
+						<DbReaction
+							color="#B54708"
+							label="Злость"
+							disabled
+						>
+							<template #emoji> 😤 </template>
+						</DbReaction>
+						<DbReaction
+							label="Радост"
+							disabled
+						>
+							<template #emoji>🙂 </template>
+						</DbReaction>
+						<DbReaction
+							color="#B54708"
+							label="Злость"
+							disabled
+						>
+							<template #emoji> 😤 </template>
+						</DbReaction>
+						<DbReaction
+							label="Радост"
+							disabled
+						>
+							<template #emoji>🙂 </template>
+						</DbReaction>
+						<DbReaction
+							color="#B54708"
+							label="Злость"
+							disabled
+						>
+							<template #emoji> 😤 </template>
+						</DbReaction>
+					</DbReactionGroup>
+					<template #footer>
+						<div class="button-column">
+							<DbButton color="primary">Ок</DbButton>
 						</div>
 					</template>
 				</DbDialog>

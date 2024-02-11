@@ -28,6 +28,11 @@ const props = defineProps({
 		required: false,
 		default: '',
 	},
+	disabled: {
+		type: Boolean,
+		default: false,
+		required: false,
+	},
 });
 
 const DEFAULT_TIPPY_OPTIONS = {
@@ -56,6 +61,8 @@ onMounted(() => {
 	});
 });
 
+const isDisabled = props.disabled || !isSmall.value;
+
 const updateValue = (event) => {
 	updateModelValue(event.target.value);
 };
@@ -72,7 +79,7 @@ const updateValue = (event) => {
 			type="radio"
 			:value="props.value"
 			class="reaction__input"
-			:disabled="!isSmall"
+			:disabled="isDisabled"
 			@input="updateValue"
 		/>
 		<span class="reaction__inner">
@@ -136,7 +143,7 @@ const updateValue = (event) => {
 
 	&--size-small {
 		max-inline-size: 6.56rem;
-		min-inline-size: 3.28rem;
+		min-inline-size: 3.125rem;
 		.reaction__input {
 			& + .reaction__inner {
 				padding-block: 0.875rem;
