@@ -26,6 +26,8 @@ import DbNotification from '../../components/DbNotification.vue';
 import DbPageWidget from '../../components/DbPageWidget.vue';
 import DbPageWidgetsGroup from '../../components/DbPageWidgetsGroup.vue';
 import DbProgress from '../../components/DbProgress.vue';
+import DbReaction from '../../components/DbReaction.vue';
+import DbReactionGroup from '../../components/DbReactionGroup.vue';
 import DbSection from '../../components/DbSection.vue';
 import DbStepChip from '../../components/DbStepChip.vue';
 import DbSwitch from '../../components/DbSwitch.vue';
@@ -161,6 +163,8 @@ const isButtonsLoading = ref(false);
 const progress = ref(0.5);
 
 const tooltipName = ref('Lorem ipsum');
+
+const reactionSelectedValue = ref('null');
 
 // App notifications
 const appNotifications = ref([
@@ -1588,6 +1592,61 @@ const navigationValue = ref(navigationItems.value[0].value);
 			</DbContainer>
 		</DbSection>
 		<!-- Form examples end -->
+		<DbSection>
+			<DbContainer>
+				<h2>Reaction small</h2>
+				<DbReactionGroup v-model="reactionSelectedValue">
+					<DbReaction
+						value="one"
+						label="Счастье"
+					>
+						<template #emoji> 🙂 </template>
+					</DbReaction>
+					<DbReaction
+						value="two"
+						label="Безразличие"
+						color="#B42318"
+					>
+						<template #emoji> 😕 </template>
+					</DbReaction>
+					<DbReaction
+						value="three"
+						label="Грусть"
+						color="#B54708"
+					>
+						<template #emoji> 😭 </template>
+					</DbReaction>
+				</DbReactionGroup>
+			</DbContainer>
+		</DbSection>
+		<DbSection>
+			<DbContainer>
+				<h2>Reaction medium</h2>
+				<DbReactionGroup label="Результат пересмотра">
+					<DbReaction
+						size="medium"
+						color="#B42318"
+						label="Не пересмотрен"
+						disabled
+					>
+						<template #emoji>
+							<InlineSvg
+								height="20"
+								:src="generateIconPath('outline/alert-01')"
+							/>
+						</template>
+					</DbReaction>
+					<DbReaction
+						size="medium"
+						color="#B54708"
+						label="Злость"
+						disabled
+					>
+						<template #emoji> 😤 </template>
+					</DbReaction>
+				</DbReactionGroup>
+			</DbContainer>
+		</DbSection>
 	</div>
 </template>
 

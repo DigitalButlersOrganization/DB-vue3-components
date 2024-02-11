@@ -37,12 +37,12 @@ const DEFAULT_TIPPY_OPTIONS = {
 };
 
 const target = ref();
+const { colors } = useColors(() => props.color);
 
 const { name, updateModelValue } = inject('parentValue');
 
 const contentWrapper = ref();
 
-const { colors } = useColors(() => props.color);
 const classes = computed(() => [`reaction--size-${props.size}`, { 'reaction--disabled': props.disabled }]);
 
 const isSmall = computed(() => props.size === REACTION.SIZES[0]);
