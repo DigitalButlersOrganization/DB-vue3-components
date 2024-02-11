@@ -1,6 +1,6 @@
 <!-- eslint-disable no-param-reassign -->
 <script setup>
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 
 import { useColors } from '../composables';
@@ -22,20 +22,15 @@ const props = defineProps({
 		default: '',
 		required: false,
 	},
-	open: {
-		type: Boolean,
-		required: false,
-		default: false,
-	},
 });
 
 const { colors } = useColors(() => props.color);
 
-const emit = defineEmits(['click:handleClick']);
+const { handleClick, checkOpenAccordionItemId } = inject('parentValue');
 
 const classes = computed(() => [
 	{
-		'accordion-item--open': props.open,
+		'accordion-item--open': checkOpenAccordionItemId(props.id),
 	},
 ]);
 </script>
@@ -51,7 +46,7 @@ const classes = computed(() => [
 			class="accordion-item__summary"
 			:aria-expanded="props.open"
 			:aria-controls="`accordion-item-details-${props.id}}`"
-			@click="emit('click:handleClick', props.id)"
+			@click="handleClick(props.id)"
 		>
 			<slot name="header-prepend" />
 			<slot name="header-details" />

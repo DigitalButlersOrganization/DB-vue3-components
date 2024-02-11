@@ -16,32 +16,30 @@ export default {
 		},
 		template: `
 			<DbAccordion v-bind="args">
-				<template #default="{ handleClick, checkOpenId }">
-					<DbAccordionItem v-for="item in args.items" v-bind="item" @click:handleClick="handleClick" :open="checkOpenId(item.id)">
-						<template v-slot:header-prepend v-if="item.icon">
-							<InlineSvg :src="item.icon" />
-						</template>
-						<template #header-details>
-							{{ item.headetDetails }}
-						</template>
-						<template v-slot:header-append v-if="item.badge">
-							<DbBadgeCounter v-bind="item.badge" :color="item.color">
-								<template v-slot:default v-if="item.badge.default">
-									<span v-html="item.badge.default"></span>
-								</template>
-							</DbBadgeCounter>
-						</template>
-						<template #details-description>
-							{{ item.detailsDescription }}
-						</template>
-						<template #details-skills>
-							Details skills
-						</template>
-						<template #details-actions>
-							Details actions
-						</template>
-					</DbAccordionItem>
-				</template>
+				<DbAccordionItem v-for="item in args.items" v-bind="item">
+					<template v-slot:header-prepend v-if="item.icon">
+						<InlineSvg :src="item.icon" />
+					</template>
+					<template #header-details>
+						{{ item.headetDetails }}
+					</template>
+					<template v-slot:header-append v-if="item.badge">
+						<DbBadgeCounter v-bind="item.badge" :color="item.color">
+							<template v-slot:default v-if="item.badge.default">
+								<span v-html="item.badge.default"></span>
+							</template>
+						</DbBadgeCounter>
+					</template>
+					<template #details-description>
+						{{ item.detailsDescription }}
+					</template>
+					<template #details-skills>
+						Details skills
+					</template>
+					<template #details-actions>
+						Details actions
+					</template>
+				</DbAccordionItem>
 			</DbAccordion>
 		`,
 	}),

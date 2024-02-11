@@ -1163,120 +1163,110 @@ const navigationValue = ref(navigationItems.value[0].value);
 					<template #header-heading> Тебе будут благодарны </template>
 					<template #header-subheading> Поработай над собой и тебе непременно станут благодарны </template>
 					<DbAccordion v-bind="args">
-						<template #default="{ handleClick, checkOpenId }">
-							<DbAccordionItem
-								:id="1"
-								:open="checkOpenId(1)"
-								@click:handleClick="handleClick"
-							>
-								<template #header-prepend>
-									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
-								</template>
-								<template #header-details> Креативная работа </template>
-								<template #header-append>
-									<DbBadgeCounter is-inverted>
-										<template #default>
-											<span v-html="1" />
-										</template>
-									</DbBadgeCounter>
-								</template>
-								<template #details-description>
-									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
-									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
-									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
-									Креативьте!
-								</template>
-								<template #details-skills>
-									<div class="skills-progression">
-										<ul class="skills-progression__list skills-progression__list--fill">
-											<li>
-												<DbBadge color="#F79009">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/users-01')"
-														/>
-													</template>
-													<template #default> Командный игрок </template>
-												</DbBadge>
-											</li>
-											<li>
-												<DbBadge color="#2E90FA">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/glasses-02')"
-														/>
-													</template>
-													<template #default>Профессионализм</template>
-												</DbBadge>
-											</li>
-										</ul>
-									</div>
-								</template>
-								<template #details-actions>
-									<DbButton color="primary">Отправить на пересмотр</DbButton>
-								</template>
-							</DbAccordionItem>
-							<DbAccordionItem
-								:id="2"
-								:open="checkOpenId(2)"
-								@click:handleClick="handleClick"
-							>
-								<template #header-prepend>
-									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
-								</template>
-								<template #header-details> Ответственность </template>
-								<template #details-description>
-									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
-									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
-									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
-									Креативьте!
-								</template>
-								<template #details-skills>
-									<div class="skills-progression">
-										<ul class="skills-progression__list skills-progression__list--fill">
-											<li>
-												<DbBadge color="#F79009">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/users-01')"
-														/>
-													</template>
-												</DbBadge>
-											</li>
-											<li>
-												<DbBadge color="#2E90FA">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/glasses-02')"
-														/>
-													</template>
-												</DbBadge>
-											</li>
-										</ul>
-									</div>
-								</template>
-								<template #details-report>
-									<DbButton
-										type="text"
-										size="small"
-										class="accordion-help-button"
-									>
-										<template #prepend>
-											<InlineSvg
-												height="16"
-												color="primary"
-												:src="generateIconPath('outline/flag-01')"
-											/>
-										</template>
-										Сообщить о том, что благодарность не справедлива
-									</DbButton>
-								</template>
-							</DbAccordionItem>
-						</template>
+						<DbAccordionItem :id="1">
+							<template #header-prepend>
+								<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+							</template>
+							<template #header-details> Креативная работа </template>
+							<template #header-append>
+								<DbBadgeCounter is-inverted>
+									<template #default>
+										<span v-html="1" />
+									</template>
+								</DbBadgeCounter>
+							</template>
+							<template #details-description>
+								Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+								когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+								все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+								Креативьте!
+							</template>
+							<template #details-skills>
+								<div class="skills-progression">
+									<ul class="skills-progression__list skills-progression__list--fill">
+										<li>
+											<DbBadge color="#F79009">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/users-01')"
+													/>
+												</template>
+												<template #default> Командный игрок </template>
+											</DbBadge>
+										</li>
+										<li>
+											<DbBadge color="#2E90FA">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/glasses-02')"
+													/>
+												</template>
+												<template #default>Профессионализм</template>
+											</DbBadge>
+										</li>
+									</ul>
+								</div>
+							</template>
+							<template #details-actions>
+								<DbButton color="primary">Отправить на пересмотр</DbButton>
+							</template>
+						</DbAccordionItem>
+						<DbAccordionItem :id="2">
+							<template #header-prepend>
+								<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+							</template>
+							<template #header-details> Ответственность </template>
+							<template #details-description>
+								Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+								когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+								все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+								Креативьте!
+							</template>
+							<template #details-skills>
+								<div class="skills-progression">
+									<ul class="skills-progression__list skills-progression__list--fill">
+										<li>
+											<DbBadge color="#F79009">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/users-01')"
+													/>
+												</template>
+											</DbBadge>
+										</li>
+										<li>
+											<DbBadge color="#2E90FA">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/glasses-02')"
+													/>
+												</template>
+											</DbBadge>
+										</li>
+									</ul>
+								</div>
+							</template>
+							<template #details-report>
+								<DbButton
+									type="text"
+									size="small"
+									class="accordion-help-button"
+								>
+									<template #prepend>
+										<InlineSvg
+											height="16"
+											color="primary"
+											:src="generateIconPath('outline/flag-01')"
+										/>
+									</template>
+									Сообщить о том, что благодарность не справедлива
+								</DbButton>
+							</template>
+						</DbAccordionItem>
 					</DbAccordion>
 					<div class="skills-progression">
 						<span class="skills-progression__heading"> Прогресс навыков </span>
@@ -1350,62 +1340,56 @@ const navigationValue = ref(navigationItems.value[0].value);
 						Оставь комментарий, что бы инициатору было проще принять решение о пересмотре
 					</template>
 					<DbAccordion v-bind="args">
-						<template #default="{ handleClick, checkOpenId }">
-							<DbAccordionItem
-								:id="1"
-								:open="checkOpenId(1)"
-								@click:handleClick="handleClick"
-							>
-								<template #header-prepend>
-									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
-								</template>
-								<template #header-details> Креативная работа </template>
-								<template #header-append>
-									<DbBadgeCounter is-inverted>
-										<template #default>
-											<span v-html="1" />
-										</template>
-									</DbBadgeCounter>
-								</template>
-								<template #details-description>
-									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
-									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
-									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
-									Креативьте!
-								</template>
-								<template #details-skills>
-									<div class="skills-progression">
-										<ul class="skills-progression__list skills-progression__list--fill">
-											<li>
-												<DbBadge color="#F79009">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/users-01')"
-														/>
-													</template>
-													<template #default> Командный игрок </template>
-												</DbBadge>
-											</li>
-											<li>
-												<DbBadge color="#2E90FA">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/glasses-02')"
-														/>
-													</template>
-													<template #default>Профессионализм</template>
-												</DbBadge>
-											</li>
-										</ul>
-									</div>
-								</template>
-								<template #details-actions>
-									<DbButton color="primary">Отправить на пересмотр</DbButton>
-								</template>
-							</DbAccordionItem>
-						</template>
+						<DbAccordionItem :id="1">
+							<template #header-prepend>
+								<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+							</template>
+							<template #header-details> Креативная работа </template>
+							<template #header-append>
+								<DbBadgeCounter is-inverted>
+									<template #default>
+										<span v-html="1" />
+									</template>
+								</DbBadgeCounter>
+							</template>
+							<template #details-description>
+								Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+								когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+								все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+								Креативьте!
+							</template>
+							<template #details-skills>
+								<div class="skills-progression">
+									<ul class="skills-progression__list skills-progression__list--fill">
+										<li>
+											<DbBadge color="#F79009">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/users-01')"
+													/>
+												</template>
+												<template #default> Командный игрок </template>
+											</DbBadge>
+										</li>
+										<li>
+											<DbBadge color="#2E90FA">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/glasses-02')"
+													/>
+												</template>
+												<template #default>Профессионализм</template>
+											</DbBadge>
+										</li>
+									</ul>
+								</div>
+							</template>
+							<template #details-actions>
+								<DbButton color="primary">Отправить на пересмотр</DbButton>
+							</template>
+						</DbAccordionItem>
 					</DbAccordion>
 					<form class="form">
 						<DbFormField>
@@ -1453,55 +1437,49 @@ const navigationValue = ref(navigationItems.value[0].value);
 					<template #header-heading>Теперь тебе благодарны</template>
 					<template #header-subheading> Инициатор пересмотрел благодарность и теперь благодарен тебе </template>
 					<DbAccordion v-bind="args">
-						<template #default="{ handleClick, checkOpenId }">
-							<DbAccordionItem
-								:id="1"
-								:open="checkOpenId(1)"
-								@click:handleClick="handleClick"
-							>
-								<template #header-prepend>
-									<InlineSvg :src="generateIconPath('solid/heart-clock')" />
-								</template>
-								<template #header-details> Креативная работа </template>
-								<template #details-description>
-									Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
-									когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
-									все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
-									Креативьте!
-								</template>
-								<template #details-skills>
-									<div class="skills-progression">
-										<ul class="skills-progression__list skills-progression__list--fill">
-											<li>
-												<DbBadge color="#F79009">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/users-01')"
-														/>
-													</template>
-													<template #default> Командный игрок </template>
-												</DbBadge>
-											</li>
-											<li>
-												<DbBadge color="#2E90FA">
-													<template #prepend>
-														<InlineSvg
-															height="18"
-															:src="generateIconPath('solid/glasses-02')"
-														/>
-													</template>
-													<template #default>Профессионализм</template>
-												</DbBadge>
-											</li>
-										</ul>
-									</div>
-								</template>
-								<template #details-actions>
-									<DbButton color="primary">Отправить на пересмотр</DbButton>
-								</template>
-							</DbAccordionItem>
-						</template>
+						<DbAccordionItem :id="1">
+							<template #header-prepend>
+								<InlineSvg :src="generateIconPath('solid/heart-clock')" />
+							</template>
+							<template #header-details> Креативная работа </template>
+							<template #details-description>
+								Используйте, когда дизайнер впечатлил вас своим макетом, фронт анимациями, а бэк необычным кодом. Или,
+								когда сейлз нашел креативный способ закрыть сделку, или, когда менеджер красиво впихнул невпихуемое и
+								все остались довольны. Поощряйте любые проявления креатива и просите оценить свои достижения.
+								Креативьте!
+							</template>
+							<template #details-skills>
+								<div class="skills-progression">
+									<ul class="skills-progression__list skills-progression__list--fill">
+										<li>
+											<DbBadge color="#F79009">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/users-01')"
+													/>
+												</template>
+												<template #default> Командный игрок </template>
+											</DbBadge>
+										</li>
+										<li>
+											<DbBadge color="#2E90FA">
+												<template #prepend>
+													<InlineSvg
+														height="18"
+														:src="generateIconPath('solid/glasses-02')"
+													/>
+												</template>
+												<template #default>Профессионализм</template>
+											</DbBadge>
+										</li>
+									</ul>
+								</div>
+							</template>
+							<template #details-actions>
+								<DbButton color="primary">Отправить на пересмотр</DbButton>
+							</template>
+						</DbAccordionItem>
 					</DbAccordion>
 					<div class="skills-progression">
 						<span class="skills-progression__heading"> Прогресс навыков </span>

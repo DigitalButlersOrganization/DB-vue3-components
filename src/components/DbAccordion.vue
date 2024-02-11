@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, provide } from 'vue';
 
 const props = defineProps({
 	tag: {
@@ -16,6 +16,8 @@ const handleClick = (id) => {
 };
 
 const checkOpenAccordionItemId = (id) => currentAccordionItemId.value === id;
+
+provide('parentValue', { handleClick, checkOpenAccordionItemId });
 </script>
 
 <template>
@@ -23,10 +25,7 @@ const checkOpenAccordionItemId = (id) => currentAccordionItemId.value === id;
 		:is="props.tag"
 		class="accordion-wrapper"
 	>
-		<slot
-			:handle-click="handleClick"
-			:check-open-id="checkOpenAccordionItemId"
-		/>
+		<slot />
 	</component>
 </template>
 
