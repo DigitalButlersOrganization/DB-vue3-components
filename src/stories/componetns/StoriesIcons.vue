@@ -9,6 +9,7 @@ const iconsGroups = new Map([
 	[
 		'Outline',
 		[
+			'alert-01',
 			'arrow-narrow-down',
 			'arrow-narrow-left',
 			'arrow-narrow-right',
