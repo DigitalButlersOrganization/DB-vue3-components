@@ -1,8 +1,8 @@
 <script setup>
 import { computed, inject } from 'vue';
 
-import { useButton } from '../composables';
-import { NAVIGATION } from '../constants';
+import { useButton, useColors } from '../composables';
+import { NAVIGATION, BUTTON } from '../constants';
 
 import DbBadgeCounter from './DbBadgeCounter.vue';
 
@@ -27,15 +27,25 @@ const props = defineProps({
 		required: false,
 		default: 'md',
 	},
+	color: {
+		type: String,
+		default: '',
+		required: false,
+	},
 });
 
 const colorScheme = inject('colorScheme', NAVIGATION.COLOR_SCHEMES.get('default'));
 
+const hasAppointedColor = props.color !== '';
+
 const { tag, attrs } = useButton(props);
+
+const { colors } = useColors(() => props.color);
 
 const classes = computed(() => ({
 	'navigation-button--current': props.isCurrent,
 	[`navigation-button--size-${props.size}`]: true,
+	[`navigation-button--color-appointed`]: hasAppointedColor,
 	[`navigation-button--color-scheme-${colorScheme}`]: true,
 }));
 </script>
@@ -79,6 +89,10 @@ const classes = computed(() => ({
 	transition-property: color, background-color, box-shadow;
 
 	&--size {
+		&-lg {
+			padding-inline: 1rem;
+			padding-block: 1rem;
+		}
 		&-md {
 			padding-inline: 0.75rem;
 		}
@@ -109,6 +123,10 @@ const classes = computed(() => ({
 		@include mixins.text();
 		@include mixins.text--md();
 		@include mixins.font-weight(700);
+
+		&:empty {
+			display: none;
+		}
 	}
 
 	&__icon {
@@ -138,6 +156,15 @@ const classes = computed(() => ({
 
 	&:focus-visible {
 		@include mixins.focus-state();
+	}
+
+	&--color-appointed {
+		background-color: v-bind('colors.text');
+		color: v-bind('colors.background');
+
+		&:hover {
+			color: v-bind('colors.background');
+		}
 	}
 }
 </style>

@@ -1,6 +1,6 @@
 <!-- eslint-disable no-return-assign -->
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import InlineSvg from 'vue-inline-svg';
 
 import DbAccordion from '../../components/DbAccordion.vue';
@@ -231,6 +231,23 @@ const handleOpenModal2 = () => (isOpenModal2.value = !isOpenModal2.value);
 const handleOpenModal3 = () => (isOpenModal3.value = !isOpenModal3.value);
 const handleOpenModal4 = () => (isOpenModal4.value = !isOpenModal4.value);
 const handleOpenModal5 = () => (isOpenModal5.value = !isOpenModal5.value);
+
+// hide mobile components
+
+const isMobileVisible = ref(false);
+
+const handleResize = () => {
+	isMobileVisible.value = window.innerWidth > 1024;
+};
+
+onMounted(() => {
+	window.addEventListener('resize', handleResize);
+	handleResize();
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener('resize', handleResize);
+});
 
 // Navigation
 const navigationItems = ref([
@@ -994,7 +1011,7 @@ const navigationValue = ref(navigationItems.value[0].value);
 					<DbBrand />
 				</template>
 				<template #navigation>
-					<DbNavigation is-empty>
+					<template v-if="isMobileVisible">
 						<DbNavigationButton
 							target="_blank"
 							:is-current="true"
@@ -1007,7 +1024,7 @@ const navigationValue = ref(navigationItems.value[0].value);
 									:src="generateIconPath('solid/home-line')"
 								/>
 							</template>
-							Главная
+							Homepage
 						</DbNavigationButton>
 						<DbNavigationButton to="https://www.linkedin.com/company/digitalbutlers/">
 							<template #icon>
@@ -1017,39 +1034,99 @@ const navigationValue = ref(navigationItems.value[0].value);
 									:src="generateIconPath('solid/users-01')"
 								/>
 							</template>
-							Команда
+							Team
 						</DbNavigationButton>
 						<DbNavigationButton to="https://instagram.com/digital_butlers">
 							<template #icon>
 								<InlineSvg
 									width="20"
 									height="20"
-									:src="generateIconPath('solid/heart')"
+									:src="generateIconPath('solid/hearts')"
 								/>
 							</template>
-							M. Благодарностей
+							Shout-out manager
 						</DbNavigationButton>
 						<DbNavigationButton to="https://www.awwwards.com/DigitalButlers/">
 							<template #icon>
 								<InlineSvg
 									width="20"
 									height="20"
-									:src="generateIconPath('solid/award-03')"
+									:src="generateIconPath('solid/clipboard')"
 								/>
 							</template>
-							Компания
+							Company
 						</DbNavigationButton>
 						<DbNavigationButton to="https://clutch.co/profile/digital-butlers">
 							<template #icon>
 								<InlineSvg
 									width="20"
 									height="20"
-									:src="generateIconPath('solid/message-chat-square')"
+									:src="generateIconPath('solid/settings-03')"
 								/>
 							</template>
-							Админ паннель
+							Admin panel
 						</DbNavigationButton>
-					</DbNavigation>
+					</template>
+					<template v-else>
+						<DbNavigationButton
+							to="https://www.linkedin.com/company/digitalbutlers/"
+							size="lg"
+						>
+							<template #icon>
+								<InlineSvg
+									height="24"
+									:src="generateIconPath('solid/users-01')"
+								/>
+							</template>
+						</DbNavigationButton>
+						<DbNavigationButton
+							to="https://instagram.com/digital_butlers"
+							size="lg"
+						>
+							<template #icon>
+								<InlineSvg
+									height="24"
+									:src="generateIconPath('solid/hearts')"
+								/>
+							</template>
+						</DbNavigationButton>
+						<DbNavigationButton
+							target="_blank"
+							:is-current="true"
+							color="primary"
+							to="https://www.digitalbutlers.team/"
+							size="lg"
+						>
+							<template #icon>
+								<InlineSvg
+									height="24"
+									:src="generateIconPath('solid/home-line')"
+								/>
+							</template>
+						</DbNavigationButton>
+						<DbNavigationButton
+							to="https://www.awwwards.com/DigitalButlers/"
+							size="lg"
+						>
+							<template #icon>
+								<InlineSvg
+									height="24"
+									:src="generateIconPath('solid/clipboard')"
+								/>
+							</template>
+						</DbNavigationButton>
+						<DbNavigationButton
+							to="https://clutch.co/profile/digital-butlers"
+							size="lg"
+						>
+							<template #icon>
+								<InlineSvg
+									height="24"
+									:src="generateIconPath('solid/settings-03')"
+								/>
+							</template>
+						</DbNavigationButton>
+					</template>
 				</template>
 				<template #actions>
 					<DbNavigation is-empty>
@@ -1067,7 +1144,7 @@ const navigationValue = ref(navigationItems.value[0].value);
 								:src="generateIconPath('solid/microphone-01')"
 							/>
 						</DbNavigationButton>
-						<DbNavigationDivider />
+						<DbNavigationDivider v-if="isMobileVisible" />
 						<DbNavigationButton size="sm">
 							<InlineSvg
 								width="20"
@@ -1791,6 +1868,7 @@ const navigationValue = ref(navigationItems.value[0].value);
 <style lang="scss" scoped>
 @use '/src/assets/styles/utilities/mixins';
 .playground {
+	margin-inline: -1rem;
 	:deep(.divider) {
 		margin-block: 1rem !important;
 	}
@@ -1814,7 +1892,8 @@ const navigationValue = ref(navigationItems.value[0].value);
 	flex-direction: column;
 	gap: 1rem;
 }
-.sb-main-padded {
+.sb-main-padded,
+.sb-show-main.sb-main-padded {
 	padding: 0 !important;
 }
 
