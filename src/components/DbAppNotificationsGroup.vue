@@ -77,14 +77,17 @@ const handleNotificationShowMoreClick = (id) => {
 
 <style scoped lang="scss">
 .app-notifications-group {
+	--inset-inline: 1.5rem;
+
 	position: fixed;
 	z-index: var(--db-components-z-index-notifications);
 	display: flex;
 	flex-direction: column;
 	padding: 0;
 	gap: 0.25rem;
-	inline-size: min(100%, 25rem);
+	max-inline-size: min(100%, 25rem);
 	inset-block-end: 1.5rem;
-	inset-inline-start: 1.5rem;
+	inset-inline-start: var(--inset-inline);
+	inset-inline-end: var(--inset-inline);
 }
 </style>
