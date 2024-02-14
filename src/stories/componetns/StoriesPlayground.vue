@@ -39,6 +39,8 @@ import DbUserInfo from '../../components/DbUserInfo.vue';
 import DbWidgetNotificationsGroup from '../../components/DbWidgetNotificationsGroup.vue';
 import { generateIconPath } from '../../utilities';
 
+import { BREAKPOINTS } from '../../constants';
+
 // Helpers
 const generateRandomColor = () => {
 	const colors = ['accent-1', 'primary', 'secondary', 'success', 'warning', 'error'];
@@ -237,7 +239,7 @@ const handleOpenModal5 = () => (isOpenModal5.value = !isOpenModal5.value);
 const isMobileVisible = ref(false);
 
 const handleResize = () => {
-	isMobileVisible.value = window.innerWidth > 1024;
+	isMobileVisible.value = window.innerWidth > BREAKPOINTS.TABLET_MD;
 };
 
 onMounted(() => {
