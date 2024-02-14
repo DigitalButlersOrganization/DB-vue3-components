@@ -86,6 +86,7 @@ const classes = computed(() => [
 
 <style scoped lang="scss">
 @use '/src/assets/styles/utilities/mixins';
+@import '/src/assets/styles/utilities/breakpoints.scss';
 .modal {
 	position: fixed;
 	top: 50%;
@@ -151,7 +152,7 @@ const classes = computed(() => [
 		&-subheading:empty {
 			display: none;
 		}
-		@media screen and (max-width: 35rem) {
+		@media screen and (max-width: $mobile-md) {
 			padding-inline-end: 3rem;
 		}
 	}
@@ -179,7 +180,7 @@ const classes = computed(() => [
 		position: absolute;
 		inset-block-start: 0rem;
 		inset-inline-end: -3rem;
-		@media screen and (max-width: 35rem) {
+		@media screen and (max-width: $mobile-md) {
 			inset-inline-end: 0.5rem;
 			inset-block-start: 0.5rem;
 		}

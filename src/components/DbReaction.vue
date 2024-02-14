@@ -179,7 +179,6 @@ const updateValue = (event) => {
 	&--size-medium {
 		max-inline-size: 13.125rem;
 		min-inline-size: 6.5625rem;
-		margin-inline: 0.5rem;
 
 		.reaction__input {
 			& + .reaction__inner {
@@ -190,13 +189,6 @@ const updateValue = (event) => {
 				justify-content: start;
 				gap: 0.75rem;
 			}
-		}
-
-		&:first-child {
-			margin-inline-start: 0;
-		}
-		&:last-child {
-			margin-inline-end: 0;
 		}
 	}
 }

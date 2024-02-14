@@ -19,6 +19,7 @@ const props = defineProps({
 
 <style scoped lang="scss">
 @use '/src/assets/styles/utilities/mixins';
+@import '/src/assets/styles/utilities/breakpoints';
 
 .page-widgets-group {
 	display: grid;
@@ -27,11 +28,11 @@ const props = defineProps({
 	grid-template-columns: 1fr 1fr 1fr;
 	justify-items: stretch;
 	align-items: stretch;
-	
-	@media screen and (max-width: 1280px) {
+
+	@media screen and (max-width: $desktop-sm) {
 		grid-template-columns: 1fr 1fr;
 	}
-	@media screen and (max-width: 768px) {
+	@media screen and (max-width: $tables-sm) {
 		grid-template-columns: 1fr;
 	}
 	&:empty {
