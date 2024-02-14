@@ -42,9 +42,11 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
+@import '/src/assets/styles/utilities/breakpoints';
 .header {
 	background-color: var(--db-components-color-background-primary);
 	padding-block: 1rem;
+
 	&__left-side,
 	&__right-side,
 	&__container {
@@ -59,12 +61,34 @@ const props = defineProps({
 	&__container {
 		justify-content: space-between;
 		gap: 1.5rem;
+		@media screen and (max-width: $tables-md) {
+			padding-inline: 1.5rem;
+		}
 	}
 	&--fixed {
 		position: fixed;
 		top: 0;
 		left: 0;
 		right: 0;
+	}
+
+	&__navigation {
+		display: flex;
+		flex-wrap: wrap;
+
+		@media screen and (max-width: $tables-md) {
+			position: fixed;
+			top: auto;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background-color: var(--db-components-color-background-primary);
+			padding-block: 0.5rem;
+			justify-content: center;
+			z-index: 80;
+			gap: 1.375rem;
+			border-block-start: 1px solid var(--db-components-color-background-secondary);
+		}
 	}
 }
 </style>
