@@ -48,6 +48,7 @@ const iconsGroups = new Map([
 			'vartical-divider',
 			'help-01',
 			'flag-01',
+			'x-close-outline',
 		],
 	],
 	[
