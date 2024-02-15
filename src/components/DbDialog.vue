@@ -1,6 +1,8 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue';
 import InlineSvg from 'vue-inline-svg';
+
+import { BREAKPOINTS } from '../constants';
 
 import DbButton from './DbButton.vue';
 
@@ -31,6 +33,21 @@ const classes = computed(() => [
 		'modal--header-no-indentation': props.headerNoBottomIndentation,
 	},
 ]);
+
+const isMobileVisible = ref(false);
+
+const handleResize = () => {
+	isMobileVisible.value = window.innerWidth < BREAKPOINTS.TABLET_MD;
+};
+
+onMounted(() => {
+	window.addEventListener('resize', handleResize);
+	handleResize();
+});
+
+onBeforeUnmount(() => {
+	window.removeEventListener('resize', handleResize);
+});
 </script>
 
 <template>
@@ -71,13 +88,29 @@ const classes = computed(() => [
 					</footer>
 				</div>
 				<DbButton
+					v-if="!isMobileVisible"
 					class="modal__close-button"
 					:is-icon="true"
 					type="text"
 					:aria-label="$t('actions.close')"
 					@click="handleCloseClick"
 				>
-					<InlineSvg src="icons/outline/x-close.svg" />
+					<template #prepend>
+						<InlineSvg src="icons/outline/x-close.svg" />
+					</template>
+				</DbButton>
+				<DbButton
+					v-else
+					class="modal__close-button"
+					size="small"
+					is-icon
+					type="outline"
+					:aria-label="$t('actions.close')"
+					@click="handleCloseClick"
+				>
+					<template #prepend>
+						<InlineSvg src="icons/outline/x-close.svg" />
+					</template>
 				</DbButton>
 			</dialog>
 		</Transition>
@@ -87,12 +120,13 @@ const classes = computed(() => [
 <style scoped lang="scss">
 @use '/src/assets/styles/utilities/mixins';
 @import '/src/assets/styles/utilities/breakpoints.scss';
+
 .modal {
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(calc(-50% - 3.25rem), -50%);
-	width: min(30rem, calc(100vw - 3.25rem));
+	inset-inline-start: 50%;
+	inset-block-start: 50%;
+	transform: translate(-50%, -50%);
+	max-inline-size: 30rem;
 	border-radius: var(--db-components-border-radius-lg);
 	background-color: var(--db-components-color-background-primary);
 	box-shadow: var(--db-components-shadow-dialog);
@@ -102,6 +136,12 @@ const classes = computed(() => [
 	z-index: var(--db-components-z-index-dialog);
 	@include mixins.text();
 	@include mixins.text--md();
+
+	@media screen and (max-width: $tables-md) {
+		transform: translate(0, -50%);
+		inset-inline-start: 0.5rem;
+		inset-inline-end: 0.5rem;
+	}
 
 	&-mask {
 		position: fixed;
@@ -131,6 +171,11 @@ const classes = computed(() => [
 	&__body {
 		padding-block: 1.5rem;
 		padding-inline: 1.5rem;
+
+		@media screen and (max-width: $tables-md) {
+			padding-block: 1rem;
+			padding-inline: 1rem;
+		}
 	}
 	&__header {
 		display: flex;
@@ -152,8 +197,9 @@ const classes = computed(() => [
 		&-subheading:empty {
 			display: none;
 		}
-		@media screen and (max-width: $mobile-md) {
-			padding-inline-end: 3rem;
+		@media screen and (max-width: $tables-md) {
+			text-align: left;
+			padding-inline-end: 3.75rem;
 		}
 	}
 	&__body {
@@ -164,7 +210,7 @@ const classes = computed(() => [
 		max-height: 60vh;
 		overflow: auto;
 		@media screen and (max-height: 600px) {
-			max-height: 40vh;
+			max-height: 50vh;
 		}
 	}
 
@@ -180,9 +226,9 @@ const classes = computed(() => [
 		position: absolute;
 		inset-block-start: 0rem;
 		inset-inline-end: -3rem;
-		@media screen and (max-width: $mobile-md) {
-			inset-inline-end: 0.5rem;
-			inset-block-start: 0.5rem;
+		@media screen and (max-width: $tables-md) {
+			inset-inline-end: 1rem;
+			inset-block-start: 1rem;
 		}
 	}
 

@@ -76,6 +76,7 @@ const handleNotificationShowMoreClick = (id) => {
 </template>
 
 <style scoped lang="scss">
+@import '/src/assets/styles/utilities/breakpoints';
 .app-notifications-group {
 	--inset-inline: 1.5rem;
 
@@ -89,5 +90,9 @@ const handleNotificationShowMoreClick = (id) => {
 	inset-block-end: 1.5rem;
 	inset-inline-start: var(--inset-inline);
 	inset-inline-end: var(--inset-inline);
+
+	@media screen and (max-width: $tables-sm) {
+		--inset-inline: 0.5rem;
+	}
 }
 </style>

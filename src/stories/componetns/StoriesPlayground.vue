@@ -37,9 +37,8 @@ import DbTextarea from '../../components/DbTextarea.vue';
 import DbTooltip from '../../components/DbTooltip.vue';
 import DbUserInfo from '../../components/DbUserInfo.vue';
 import DbWidgetNotificationsGroup from '../../components/DbWidgetNotificationsGroup.vue';
-import { generateIconPath } from '../../utilities';
-
 import { BREAKPOINTS } from '../../constants';
+import { generateIconPath } from '../../utilities';
 
 // Helpers
 const generateRandomColor = () => {

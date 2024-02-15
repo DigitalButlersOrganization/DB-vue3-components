@@ -119,6 +119,9 @@ const { colors } = useColors(() => props.color);
 		@include mixins.text();
 		@include mixins.text--md();
 		@include mixins.font-weight(700);
+		&:empty {
+			display: none;
+		}
 	}
 	&__prepend,
 	&__append {
